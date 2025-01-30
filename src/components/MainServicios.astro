@@ -24,13 +24,13 @@ const arrayProducts = servicioData ? (servicioData.title === "Imprenta" ? Impren
         <h2 class="text-3xl font-bold mb-10 text-center">Nuestros Servicios</h2>
           <div class="flex w-2/3 justify-between">
             {arrayProducts.map((product) => (
-              <div class="flip-card w-64 h-64 perspective cursor-pointer">
+              <div class="flip-card w-64 h-64 cursor-pointer">
                 <div class="relative w-full h-full transition-transform duration-500 transform-style-3d">
                   <!-- Frente (Imagen y Título) -->
-                  <div class="flip-front absolute inset-0 flex flex-col items-center justify-center">
+                 <div class="flip-front absolute inset-0 flex flex-col items-center justify-center">
                     <img src={product.icon} alt={`icon-${product.title}`} class="w-16 h-16" />
                     <p class="mt-2 text-lg font-semibold text-gray-800">{product.title}</p>
-                  </div>
+                  </div> 
 
                   <!-- Reverso (Descripción) -->
                   <div class="flip-back absolute inset-0 flex items-center justify-center">
@@ -49,7 +49,7 @@ const arrayProducts = servicioData ? (servicioData.title === "Imprenta" ? Impren
             <h3>{product.title}</h3>
             <div class="w-2/3 flex flex-wrap justify-between">
               {product.products.map((item) => (
-                <div class="product-card w-64 h-64 cursor-pointer relative overflow-hidden">
+                <div class="product-card w-64 h-64 cursor-pointer relative overflow-hidden ">
                 <!-- Imagen y Título -->
                 <div class="absolute inset-0 flex flex-col items-center justify-center">
                   <img src={item.image} alt={`icon-${product.title}`} class="w-16 h-16" />
