@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.1.4",
+    "@shikijs/core": "^2.2.0",
     "astro": "^5.1.4",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
