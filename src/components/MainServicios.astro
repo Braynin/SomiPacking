@@ -24,16 +24,16 @@ const arrayProducts = servicioData ? (servicioData.title === "Imprenta" ? Impren
         <h2 class="text-3xl font-bold mb-10 text-center">Nuestros Servicios</h2>
           <div class="flex w-2/3 justify-between">
             {arrayProducts.map((product) => (
-              <div class="w-64 h-64 perspective flip-card cursor-pointer">
+              <div class="flip-card w-64 h-64 perspective cursor-pointer">
                 <div class="relative w-full h-full transition-transform duration-500 transform-style-3d">
                   <!-- Frente (Imagen y Título) -->
-                  <div class="absolute inset-0 flex flex-col items-center justify-center">
+                  <div class="flip-front absolute inset-0 flex flex-col items-center justify-center">
                     <img src={product.icon} alt={`icon-${product.title}`} class="w-16 h-16" />
                     <p class="mt-2 text-lg font-semibold text-gray-800">{product.title}</p>
                   </div>
 
                   <!-- Reverso (Descripción) -->
-                  <div class="absolute inset-0 flex items-center justify-center transform rotateY(180deg)">
+                  <div class="flip-back absolute inset-0 flex items-center justify-center">
                     <p class="text-gray-700 text-center p-4">{product.description}</p>
                   </div>
                 </div>
@@ -49,7 +49,7 @@ const arrayProducts = servicioData ? (servicioData.title === "Imprenta" ? Impren
             <h3>{product.title}</h3>
             <div class="w-2/3 flex flex-wrap justify-between">
               {product.products.map((item) => (
-                <div class="w-64 h-64 cursor-pointer product-card relative">
+                <div class="product-card w-64 h-64 cursor-pointer relative overflow-hidden">
                 <!-- Imagen y Título -->
                 <div class="absolute inset-0 flex flex-col items-center justify-center">
                   <img src={item.image} alt={`icon-${product.title}`} class="w-16 h-16" />
@@ -57,7 +57,7 @@ const arrayProducts = servicioData ? (servicioData.title === "Imprenta" ? Impren
                 </div>
 
                 <!-- Descripción y Características -->
-                <div class="description-container absolute inset-0 flex flex-col justify-center items-center bg-white text-gray-700 p-4 transform translate-y-full transition-transform duration-500">
+                <div class="description-container absolute inset-0 flex flex-col justify-center items-center bg- text-gray-700 p-4 transform translate-y-full transition-transform duration-500">
                   <p class="text-center">{item.description}</p>
                   <ul class="mt-4">
                     {item.caracteristicas.map((caracteristica) => (
@@ -80,25 +80,28 @@ const arrayProducts = servicioData ? (servicioData.title === "Imprenta" ? Impren
 </main>
 
 <script is:inline>
+  //Animacion de los servicios
   function toggleFlip(event) {
     const card = event.currentTarget.querySelector(".relative");
     card.classList.toggle("flipped");
   }
 
-  // Añadir event listeners una vez que el componente esté cargado
+  // Añadir event listeners
   document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".flip-card").forEach((card) => {
       card.addEventListener("click", toggleFlip);
     });
   });
 
+//Animación de los Productos
+
   function toggleDescription(event) {
     const description = event.currentTarget.querySelector(".description-container");
     description.classList.toggle("translate-y-0");
-    description.classList.toggle("translate-y-full");
+    description.classList.toggle("translate-y-full");    
   }
 
-  // Añadir event listeners una vez que el componente esté cargado
+  // Añadir event listeners
   document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".product-card").forEach((card) => {
       card.addEventListener("click", toggleDescription);
@@ -123,12 +126,12 @@ const arrayProducts = servicioData ? (servicioData.title === "Imprenta" ? Impren
   }
 
   /* Estilo para el frente de la tarjeta */
-  .absolute:first-child {
+  .flip-front{
     backface-visibility: hidden;
   }
 
   /* Estilo para el reverso de la tarjeta (descripción) */
-  .absolute:last-child {
+  .flip-back {
     background-color: transparent; /* Sin fondo blanco */
     color: #333; /* Color del texto de la descripción */
     text-align: center;
