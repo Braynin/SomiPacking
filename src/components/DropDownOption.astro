@@ -1,10 +1,14 @@
 ---
-const { label } = Astro.props;
-const path = `/{label}`;
+const { servicio, label } = Astro.props;
+const path = `/${servicio}#${label}`;
+const id = `nav-${label.replace(/\s+/g, "-")}`;
 ---
 
 <a
+  id={id}
   href={path}
+  data-servicio={servicio}
+  data-label={label}
   class="font-semibold px-5 py-2 no-underline text-black block hover:bg-white hover:text-red-600"
   >{label}</a
 >
