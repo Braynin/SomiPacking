@@ -1,169 +1,174 @@
 ---
-import ContactoOptions from "../assets/ContactoOptions"
-import FormularioContacto from "./formularioContacto.astro"
-import ContactoCard from "./ContactoCard.astro"
-
+import FormularioContacto from "./formularioContacto.astro";
 ---
 
 <main class="pt-14 w-full flex flex-col items-center">
-    <section class="w-full h-auto relative">
+  <section class="w-full h-auto relative">
     <div class="w-full h-[500px] bg-red-500 relative">
       <img src="../banner.webp" alt="video Somi" class="w-full" />
-      <div class="absolute top-20  right-40 w-[300px] h-auto shadow-lg">
+      <div class="absolute top-20 right-40 w-[300px] h-auto shadow-lg">
         <FormularioContacto />
       </div>
     </div>
-    
   </section>
-  <div class="flex w-2/3 justify-between">
-    {ContactoOptions.map((product) => (
-      <ContactoCard
-        title={product.title}
-        image={product.image}
-        description={product.description}
-        href={product.href}
-      />
-    ))}
+  <div class="cuadrado-container">
+    <div class="cuadrado">
+      <span class="texto-default">Horario</span>
+      <span class="texto-hover">Abierto</span>
+    </div>
+    <div class="cuadrado">
+      <span class="texto-default">Dirección</span>
+      <span class="texto-hover">Calle 123</span>
+    </div>
+    <div class="cuadrado">
+      <span class="texto-default">Celular</span>
+      <span class="texto-hover">555-1234</span>
+    </div>
   </div>
-  <div class="w-full h-auto  bg-white">
+ 
+
+  <div class="w-full h-auto bg-white">
     <a href="https://g.co/kgs/D1Y2EPU" target="_blank" rel="noopener noreferrer">
-    <img src="src/public/Captura mapa.PNG" class="object-contain w-full" alt="Mapa">
-  </a>
+      <img src="src/public/Captura mapa.PNG" class="object-contain w-full" alt="Mapa" />
+    </a>
   </div>
 
-  <div class="w-full h-full flex flex-col justify-center items-center bg-white p-8  ">
+  <div class="w-full h-full flex flex-col justify-center items-center bg-white p-8">
     <h1 class="text-3xl text-gray-500 m-4">Conéctate con nosotros</h1>
 
     <div class="flex flex-row gap-10">
+      <!-- Redes Sociales -->
       <div class="w-12 h-12">
-        <a
-          href="#"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="mb-2 no-underline w-6 h-6"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-full h-full"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="icon icon-tabler icons-tabler-outline icon-tabler-brand-tiktok"
-            ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
-              d="M21 7.917v4.034a9.948 9.948 0 0 1 -5 -1.951v4.5a6.5 6.5 0 1 1 -8 -6.326v4.326a2.5 2.5 0 1 0 4 2v-11.5h4.083a6.005 6.005 0 0 0 4.917 4.917z"
-            ></path></svg
-          >
+        <a href="#" target="_blank" rel="noopener noreferrer" class="mb-2 no-underline w-6 h-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M21 7.917v4.034a9.948 9.948 0 0 1 -5 -1.951v4.5a6.5 6.5 0 1 1 -8 -6.326v4.326a2.5 2.5 0 1 0 4 2v-11.5h4.083a6.005 6.005 0 0 0 4.917 4.917z"></path>
+          </svg>
         </a>
       </div>
       <div class="w-12 h-12">
-        <a
-          href="https://www.instagram.com/owlyxteam/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="mb-2 no-underline w-6 h-6"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-full h-full"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"
-            ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
-              d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z"
-            ></path><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path
-              d="M16.5 7.5v.01"></path></svg
-          >
+        <a href="https://www.instagram.com/owlyxteam/" target="_blank" rel="noopener noreferrer" class="mb-2 no-underline w-6 h-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z"></path>
+            <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path>
+            <path d="M16.5 7.5v.01"></path>
+          </svg>
         </a>
       </div>
       <div class="w-12  h-12">
         <a href="#" class="mb-2 no-underline w-6 h-6">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-full h-full"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="icon icon-tabler icons-tabler-outline icon-tabler-brand-facebook"
-            ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
-              d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"
-            ></path></svg
-          >
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"></path>
+          </svg>
         </a>
       </div>
     </div>
-  </div> 
+  </div>
 
-  
 </main>
 
-<script is:inline>
-  //Animacion de los servicios
-  function toggleFlip(event) {
-    const card = event.currentTarget.querySelector(".relative");
-    card.classList.toggle("flipped");
-  }
-
-  // Añadir event listeners
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".flip-card").forEach((card) => {
-      card.addEventListener("click", toggleFlip);
-    });
-  });
-
-//Animación de los Productos
-
-  function toggleDescription(event) {
-    const description = event.currentTarget.querySelector(".description-container");
-    description.classList.toggle("translate-y-0");
-    description.classList.toggle("translate-y-full");    
-  }
-
-  // Añadir event listeners
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".product-card").forEach((card) => {
-      card.addEventListener("click", toggleDescription);
-    });
-  });
-</script>
-
 <style>
-  /* Agregar estilo para el flip 3D */
-  .flip-card {
-    perspective: 1000px;
+  .cuadrado-container {
+    display: flex;
+    gap: 20px;
+    padding: 30px;
   }
 
-  .relative {
-    transition: transform 0.5s;
-    transform-style: preserve-3d;
-  }
-
-  /* Rotación de 180 grados cuando la clase 'flipped' está activa */
-  .relative.flipped {
-    transform: rotateY(180deg);
-  }
-
-  /* Estilo para el frente de la tarjeta */
-  .flip-front{
-    backface-visibility: hidden;
-  }
-
-  /* Estilo para el reverso de la tarjeta (descripción) */
-  .flip-back {
-    background-color: transparent; /* Sin fondo blanco */
-    color: #333; /* Color del texto de la descripción */
+  .cuadrado {
+    width: 400px;
+    height: 400px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 10px;
-    transform: rotateY(180deg); /* Inicialmente rotado para estar oculto */
-    backface-visibility: hidden; /* Ocultar el reverso hasta que la tarjeta gire */
+    font-size: 18px;
+    color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, filter 0.3s ease; /* Transición para la sombra y filtro */
+    background-color: burlywood;
+    position: relative; /* Asegura que el overlay se posicione sobre la imagen */
+  }
+
+  /* Cuadrado 1 */
+  .cuadrado-1 {
+    background-image: url('/ruta/a/tu/imagen1.jpg'); /* Imagen específica para el primer cuadro */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    transition: filter 0.3s ease; /* Transición suave para el filtro */
+  }
+
+  /* Cuadrado 2 */
+  .cuadrado-2 {
+    background-image: url('/ruta/a/tu/imagen2.jpg'); /* Imagen específica para el segundo cuadro */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    transition: filter 0.3s ease; /* Transición suave para el filtro */
+  }
+
+  /* Cuadrado 3 */
+  .cuadrado-3 {
+    background-image: url('/ruta/a/tu/imagen3.jpg'); /* Imagen específica para el tercer cuadro */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    transition: filter 0.3s ease; /* Transición suave para el filtro */
+  }
+
+  /* Crear un overlay de color para el efecto, solo aparece en el hover */
+  .cuadrado::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent; /* Inicia transparente */
+    transition: background 0.3s ease; /* Suave transición para el gradiente */
+    z-index: 2; /* Asegura que el overlay esté por encima de la imagen pero debajo del texto */
+    pointer-events: none; /* Para que no interfiera con la interacción del usuario */
+  }
+
+  /* Efecto hover: se aplica el color y gradiente en el overlay */
+  .cuadrado:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Sombra sutil alrededor del cuadro */
+  }
+
+  /* Solo en hover, aplicar el gradiente */
+  .cuadrado:hover::after {
+    background: linear-gradient(to top, rgba(231, 76, 60, 0.7), rgba(0, 0, 0, 0)); /* Oscurecimiento desde abajo con color propio */
+  }
+
+  .cuadrado:hover .cuadrado-1,
+  .cuadrado:hover .cuadrado-2,
+  .cuadrado:hover .cuadrado-3 {
+    filter: brightness(0.8); /* Oscurecer la imagen con un filtro de brillo */
+  }
+
+  .texto-default, .texto-hover {
+    position: absolute;
+    transition: opacity 0.3s ease;
+    z-index: 3; /* El texto siempre debe estar por encima de la imagen y el overlay */
+  }
+
+  .texto-default {
+    opacity: 1;
+  }
+
+  .texto-hover {
+    opacity: 0;
+  }
+
+  .cuadrado:hover .texto-default {
+    opacity: 0;
+  }
+
+  .cuadrado:hover .texto-hover {
+    opacity: 1;
   }
 </style>
