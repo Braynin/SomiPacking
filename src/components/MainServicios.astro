@@ -2,11 +2,9 @@
 const { servicio } = Astro.props;
 
 import ServiciosOptions from "../assets/ServiciosOptions.js";
-import PackagingProducts from "../assets/PackagingProducts.js";
-import ImprentaProducts from "../assets/ImprentaProducts.js";
 
 const servicioData = ServiciosOptions.find((s) => s.href === servicio);
-const arrayProducts = servicioData ? (servicioData.title === "Imprenta" ? ImprentaProducts : PackagingProducts) : [];
+
 ---
 
 <main class="pt-14 w-full">
@@ -23,7 +21,7 @@ const arrayProducts = servicioData ? (servicioData.title === "Imprenta" ? Impren
       <section class="w-full py-10 flex flex-col items-center bg-red-500">
         <h2 class="text-3xl font-bold mb-10 text-center">Nuestros Servicios</h2>
           <div class="flex w-2/3 justify-between">
-            {arrayProducts.map((product) => (
+            {servicioData.products.map((product) => (
               <div class="flip-card w-64 h-64 cursor-pointer">
                 <div class="relative w-full h-full transition-transform duration-500 transform-style-3d">
                   <!-- Frente (Imagen y Título) -->
@@ -45,22 +43,22 @@ const arrayProducts = servicioData ? (servicioData.title === "Imprenta" ? Impren
       <section class="w-full py-10 flex flex-col items-center bg-yellow-500">
         <h2 class="text-3xl font-bold mb-10 text-center">Productos</h2>
          <div class="w-full flex flex-col items-center justify-center">
-           {arrayProducts.map((product) => (
-            <h3>{product.title}</h3>
+           {servicioData.products.map((product) => (
+            <h3 id={product.title.replace(/\s+/g, "-")}>{product.title}</h3>
             <div class="w-2/3 flex flex-wrap justify-between">
-              {product.products.map((item) => (
+              {product.variants.map((variant) => (
                 <div class="product-card w-64 h-64 cursor-pointer relative overflow-hidden ">
                 <!-- Imagen y Título -->
                 <div class="absolute inset-0 flex flex-col items-center justify-center">
-                  <img src={item.image} alt={`icon-${product.title}`} class="w-16 h-16" />
-                  <p class="mt-2 text-lg font-semibold text-gray-800">{item.title}</p>
+                  <img src={variant.image} alt={`icon-${product.title}`} class="w-16 h-16" />
+                  <p class="mt-2 text-lg font-semibold text-gray-800">{variant.title}</p>
                 </div>
 
                 <!-- Descripción y Características -->
                 <div class="description-container absolute inset-0 flex flex-col justify-center items-center bg- text-gray-700 p-4 transform translate-y-full transition-transform duration-500">
-                  <p class="text-center">{item.description}</p>
+                  <p class="text-center">{variant.description}</p>
                   <ul class="mt-4">
-                    {item.caracteristicas.map((caracteristica) => (
+                    {variant.caracteristicas.map((caracteristica) => (
                       <li class="mt-2">{caracteristica}</li>
                     ))}
                   </ul>
