@@ -44,7 +44,7 @@ const servicioData = ServiciosOptions.find((s) => s.href === servicio);
         <h2 class="text-3xl font-bold mb-10 text-center">Productos</h2>
          <div class="w-full flex flex-col items-center justify-center">
            {servicioData.products.map((product) => (
-            <h3 id={product.title.replace(/\s+/g, "-") } class="text-xl font-bold mb-4 text-center"}>{product.title}</h3>
+            <h3 id={product.title.replace(/\s+/g, "-")} class="text-xl font-bold my-2 text-center">{product.title}</h3>
             <div class="w-2/3 flex flex-wrap justify-between">
               {product.variants.map((variant) => (
                 <div class="product-card w-64 h-64 cursor-pointer relative overflow-hidden ">

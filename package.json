@@ -9,9 +9,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/tailwind": "^5.1.4",
+    "@astrojs/tailwind": "^6.0.0",
     "@shikijs/core": "^2.2.0",
-    "astro": "^5.1.4",
+    "astro": "^5.4.0",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
     "somipacking": "file:",
