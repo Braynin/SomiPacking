@@ -1,23 +1,22 @@
 const ValoresOptions = [
   {
-    title: "Honestidad",
+    title: "Haz tu pedido",
+    numero: 1,
     icon: "🤝",
-    description: "Actuamos siempre con transparencia y ética.",
+    description: "Selecciona y personaliza tus productos de merchandising, agrégalos al carrito y confirma tu pedido.",
   },
   {
-    title: "Responsabilidad",
+    title: "Realiza el pago",
+    numero: 2,
     icon: "✅",
-    description: "Cumplimos con nuestros compromisos y obligaciones.",
+    description: "Eliege tu método de pago preferido y completa la transacción de forma segura.",
   },
   {
-    title: "Calidad",
+    title: "Envío rápido y gratuito",
+    numero: 3,
     icon: "🌟",
-    description: "Nos esforzamos por ofrecer lo mejor en cada proyecto.",
+    description: "Procesamos y enviamos tu pedido rápidamente y sin costo una vez confirmado el pago.",
   },
-  {
-    title: "Pasión",
-    icon: "❤️",
-    description: "Nos mueve la dedicación y el amor por lo que hacemos.",
-  },
+  
 ];
 export default ValoresOptions;
