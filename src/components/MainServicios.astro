@@ -7,18 +7,13 @@ const servicioData = ServiciosOptions.find((s) => s.href === servicio);
 
 ---
 
-<main class="pt-14 w-full">
+<main class=" w-full bg-verdeOscuro">
   {servicioData ? (
     <>
-      <div
-        class="w-full min-h-screen flex flex-col justify-center items-center bg-cover bg-center"
-        style={`background-image: url('${servicioData.image}')`}
-      >
-        <h1 class="text-3xl font-bold w-1/5 text-center">{servicioData.title}</h1>
-        <p class="w-1/5">{servicioData.description}</p>
-      </div>
+      <video src="/imprenta-video.mp4" loop autoplay muted class="w-full min-h-screen"></video>
 
-      <section class="w-full py-10 flex flex-col items-center bg-red-500">
+
+      <section class="w-full py-10 flex flex-col items-center ">
         <h2 class="text-3xl font-bold mb-10 text-center">Nuestros Servicios</h2>
           <div class="flex w-2/3 justify-between">
             {servicioData.products.map((product) => (
@@ -40,7 +35,7 @@ const servicioData = ServiciosOptions.find((s) => s.href === servicio);
           </div>
         
       </section>
-      <section class="w-full py-10 flex flex-col items-center bg-yellow-500">
+      <section class="w-full py-10 flex flex-col items-center ">
         <h2 class="text-3xl font-bold mb-10 text-center">Productos</h2>
          <div class="w-full flex flex-col items-center justify-center">
            {servicioData.products.map((product) => (
