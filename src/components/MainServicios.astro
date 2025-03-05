@@ -46,17 +46,17 @@ const servicioData = ServiciosOptions.find((s) => s.href === servicio);
                 <!-- Imagen y Título -->
                 <div class="absolute inset-0 flex flex-col items-center justify-center">
                   <img src={variant.image} alt={`icon-${product.title}`} class="w-16 h-16" />
-                  <p class="mt-2 text-lg font-semibold text-gray-800">{variant.title}</p>
+                  <p class="mt-2 text-lg font-semibold text-black">{variant.title}</p>
                 </div>
 
-                <!-- Descripción y Características -->
-                <div class="description-container absolute inset-0 flex flex-col justify-center items-center bg-slate-500 text-gray-700 p-4 transform translate-y-full transition-transform duration-500">
-                  <p class="text-center">{variant.description}</p>
-                  <ul class="mt-4">
+                <!-- Características -->
+                <div class="description-container absolute inset-0 flex flex-col justify-center items-center bg-verdeClaro  border-4 border-black rounded-lg p-4 transform translate-y-full transition-transform duration-500">
+                  
+                  <ol class="list-disc list-inside ">
                     {variant.caracteristicas.map((caracteristica) => (
-                      <li class="mt-2">{caracteristica}</li>
+                      <li class="mb-2 last-of-type:mb-0">{caracteristica}</li>
                     ))}
-                  </ul>
+                  </ol>
                 </div>
               </div>
               ))}
