@@ -76,7 +76,7 @@ const PackagingProducts = [
     ],
   },
   {
-    title: "Envolturas para alimentos",
+    title: "Envolturas",
     icon: "papeleria.jpg",
     image: "envolturas.jpg",
     description: "Bolsas de diferentes tamaños y colores.",
