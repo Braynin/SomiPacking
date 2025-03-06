@@ -16,8 +16,38 @@ const PackagingProducts = [
         ],
       },
       {
-        title: "Bolsa 2",
+        title: "Bolsa con asa troquel",
         image: "bolsa2.jpg",
+
+        caracteristicas: [
+          "Material: papel kraft,linner, cartulina foldcote",
+          "Medida personalizada",
+          "Impresión offset o serigrafía",
+        ],
+      },
+      {
+        title: "Bolsa krat conasa twist",
+        image: "bolsa3.jpg",
+
+        caracteristicas: [
+          "Material: papel kraft",
+          "Medida personalizada",
+          "Impresión offset o serigrafía",
+        ],
+      },
+      {
+        title: "Bolsa con asa cordón",
+        image: "bolsa3.jpg",
+
+        caracteristicas: [
+          "Material: cartulinaduplex, linner",
+          "Medida personalizada",
+          "Impresión offset o serigrafía",
+        ],
+      },
+      {
+        title: "Bolsas kraft",
+        image: "bolsa3.jpg",
 
         caracteristicas: [
           "Caracteristica 1",
@@ -26,13 +56,53 @@ const PackagingProducts = [
         ],
       },
       {
-        title: "Bolsa 3",
+        title: "Bolsa foldcote",
         image: "bolsa3.jpg",
 
         caracteristicas: [
-          "Caracteristica 1",
-          "Caracteristica 2",
-          "Caracteristica 3",
+          "Material: cartulina foldcote",
+          "Medida personalizada",
+          "Impresión offset o serigrafía",
+        ],
+      },
+      {
+        title: "Bolsa portacubierto",
+        image: "bolsa3.jpg",
+
+        caracteristicas: [
+          "Material: papel kraft",
+          "Medida: 8 x 28 - 7 x 25cm",
+          "Impresión o serigrafía",
+        ],
+      },
+      {
+        title: "Bolsa de bond",
+        image: "bolsa3.jpg",
+
+        caracteristicas: [
+          "Material: cartulinaduplex, linner",
+          "Medida personalizada",
+          "Impresión offset o serigrafía",
+        ],
+      },
+      {
+        title: "Bolsa para vino",
+        image: "bolsa3.jpg",
+
+        caracteristicas: [
+          "Material: papel kraft o linner",
+          "Medida personalizada",
+          "Impresión offset o serigrafía",
+        ],
+      },
+      {
+        title: "Bolsa con asa cordón",
+        image: "bolsa3.jpg",
+
+        caracteristicas: [
+          "Material: cartulina duplex",
+          "Medida personalizada",
+          "C/S impresión",
         ],
       },
     ],
@@ -44,33 +114,121 @@ const PackagingProducts = [
     description: "Cajas de diferentes tamaños y colores.",
     variants: [
       {
-        title: "Bolsa 1",
+        title: "Caja ecommerce",
         image: "bolsa1.jpg",
 
         caracteristicas: [
-          "Caracteristica 1",
-          "Caracteristica 2",
-          "Caracteristica 3",
+          "Microcorrugado",
+          "Corrugado",
+          "Foldcote",
+          "Medida personalizable",
+          "Impresión o serigrafiado"
         ],
       },
       {
-        title: "Bolsa 2",
+        title: "Caja de Pizza",
         image: "bolsa2.jpg",
 
         caracteristicas: [
-          "Caracteristica 1",
-          "Caracteristica 2",
-          "Caracteristica 3",
+          "Microcorrugado",
+          "Cartulina duplex",
+          "Medida personalizable",
+          "Impresión o serigrafiado"
         ],
       },
       {
-        title: "Bolsa 3",
+        title: "Caja tipo KFC",
+        image: "bolsa3.jpg",
+
+        caracteristicas: [
+          "Material: cartulina duplex",
+          "Medida personalizada",
+          "Plastificado",
+          "C/S impresión"
+        ],
+      },
+      {
+        title: "Caja de pollo",
+        image: "bolsa3.jpg",
+
+        caracteristicas: [
+          "Material: cartulina duplex",
+          "Medida personalizada",
+          "Plastificado",
+          "C/S impresión"
+        ],
+      },
+      {
+        title: "Caja de hamburguesa",
         image: "bolsa3.jpg",
 
         caracteristicas: [
           "Caracteristica 1",
           "Caracteristica 2",
           "Caracteristica 3",
+        ],
+      },
+      {
+        title: "Bandeja",
+        image: "bolsa3.jpg",
+
+        caracteristicas: [
+          "Caracteristica 1",
+          "Caracteristica 2",
+          "Caracteristica 3",
+        ],
+      },
+      {
+        title: "Caja de torta",
+        image: "bolsa3.jpg",
+
+        caracteristicas: [
+          "Material: cartulina duplex",
+          "Medida personalizada",
+          "Plastificado",
+          "C/S impresión"
+        ],
+      },
+      {
+        title: "Caja macarrón",
+        image: "bolsa3.jpg",
+
+        caracteristicas: [
+          "Material: cartulina duplex",
+          "Medida personalizada",
+          "Plastificado",
+          "C/S impresión"
+        ],
+      },
+      {
+        title: "Caja Cupcakes",
+        image: "bolsa3.jpg",
+
+        caracteristicas: [
+          "Microcorrugado",
+          "Corrugado",
+          "Foldcote",
+          "Medida personalizada",
+          "Impresión o serigrafiado"
+        ],
+      },
+      {
+        title: "Cajas papas",
+        image: "bolsa3.jpg",
+
+        caracteristicas: [
+          "Microcorrugado",
+          "Cartulina duplex",
+          "Medida personalizable",
+           "Impresión o serigrafiado"
+        ],
+      },
+      {
+        title: "Caja de chocolate",
+        image: "bolsa3.jpg",
+
+        caracteristicas: [
+          "Tapa Rústica",
         ],
       },
     ],
@@ -82,18 +240,30 @@ const PackagingProducts = [
     description: "Bolsas de diferentes tamaños y colores.",
     variants: [
       {
-        title: "Bolsa 1",
+        title: "Papel antigraso",
         image: "bolsa1.jpg",
 
         caracteristicas: [
-          "Caracteristica 1",
-          "Caracteristica 2",
-          "Caracteristica 3",
+          "Microcorrugado",
+          "Corrugado",
+          "Foldcote",
+          "Medida personalizable",
+          "Impresión a un color o full color"
         ],
       },
       {
-        title: "Bolsa 2",
+        title: "Individuales",
         image: "bolsa2.jpg",
+
+        caracteristicas: [
+          "Material: kraft o bond",
+          "Medidapersonalizada",
+           "Impresión a un color o full color"
+        ],
+      },
+      {
+        title: "Posa vasos",
+        image: "bolsa3.jpg",
 
         caracteristicas: [
           "Caracteristica 1",
@@ -101,9 +271,32 @@ const PackagingProducts = [
           "Caracteristica 3",
         ],
       },
+     
       {
-        title: "Bolsa 3",
-        image: "bolsa3.jpg",
+        title: "Papel envoltura",
+        image: "bolsa2.jpg",
+
+        caracteristicas: [
+          "Microcorrugado",
+          "Cartulina duplex",
+           "Medida personalizable",
+           "Impresión a un color o full color"
+        ],
+      },
+      {
+        title: "Sobre y cono papa",
+        image: "bolsa2.jpg",
+
+        caracteristicas: [
+          "Material: cartulina duplex",
+          "Medida personalizable",
+           "Plastificado",
+           "C/S impresión"
+        ],
+      },
+      {
+        title: "Piso para torta",
+        image: "bolsa2.jpg",
 
         caracteristicas: [
           "Caracteristica 1",
