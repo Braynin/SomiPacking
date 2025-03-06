@@ -1,7 +1,9 @@
 ---
 const { servicio } = Astro.props;
 
+
 import ServiciosOptions from "../assets/ServiciosOptions.js";
+import ModalImage from "./ModalImage.astro";
 
 const servicioData = ServiciosOptions.find((s) => s.href === servicio);
 
@@ -14,7 +16,7 @@ const servicioData = ServiciosOptions.find((s) => s.href === servicio);
 
 
       <section class="w-full py-10 flex flex-col items-center ">
-        <h2 class="text-3xl font-bold mb-10 text-center">Nuestros Servicios</h2>
+        <h2 class="text-5xl font-bold mb-10 text-center">Nuestros Servicios</h2>
           <div class="flex w-2/3 justify-between">
             {servicioData.products.map((product) => (
               <div class="flip-card w-64 h-64 cursor-pointer">
@@ -22,12 +24,12 @@ const servicioData = ServiciosOptions.find((s) => s.href === servicio);
                   <!-- Frente (Imagen y Título) -->
                  <div class="flip-front absolute inset-0 flex flex-col items-center justify-center">
                     <img src={product.icon} alt={`icon-${product.title}`} class="w-16 h-16" />
-                    <p class="mt-2 text-lg font-semibold text-gray-800">{product.title}</p>
+                    <p class="mt-2 text-lg font-semibold ">{product.title}</p>
                   </div> 
 
                   <!-- Reverso (Descripción) -->
                   <div class="flip-back absolute inset-0 flex items-center justify-center">
-                    <p class="text-gray-700 text-center p-4">{product.description}</p>
+                    <p class="text-black text-center p-4">{product.description}</p>
                   </div>
                 </div>
               </div>
@@ -35,29 +37,46 @@ const servicioData = ServiciosOptions.find((s) => s.href === servicio);
           </div>
         
       </section>
-      <section class="w-full py-10 flex flex-col items-center ">
-        <h2 class="text-3xl font-bold mb-10 text-center">Productos</h2>
+      <section class="w-full py-10 flex flex-col items-center border-t-4 border-verdeClaro bg-gradient-to-b from-verdeOscuro to-verdeLimon">
+        <h2 class="text-5xl font-bold mb-10 text-center ">Productos</h2>
          <div class="w-full flex flex-col items-center justify-center">
            {servicioData.products.map((product) => (
-            <h3 id={product.title.replace(/\s+/g, "-")} class="text-xl font-bold my-2 text-center">{product.title}</h3>
-            <div class="w-2/3 flex flex-wrap justify-between">
+            <h3 id={product.title.replace(/\s+/g, "-")} class="text-4xl font-bold my-20 text-center uppercase border-b-4 border-verdeClaro">{product.title}</h3>
+            <div class="w-2/3 flex flex-wrap gap-10 justify-center">
               {product.variants.map((variant) => (
                 <div class="product-card w-64 h-64 cursor-pointer relative overflow-hidden ">
                 <!-- Imagen y Título -->
                 <div class="absolute inset-0 flex flex-col items-center justify-center">
-                  <img src={variant.image} alt={`icon-${product.title}`} class="w-16 h-16" />
+                  <img src={variant.image} alt={`imagen-${product.title}`} class="w-16 h-16" />
                   <p class="mt-2 text-lg font-semibold text-black">{variant.title}</p>
                 </div>
 
                 <!-- Características -->
-                <div class="description-container absolute inset-0 flex flex-col justify-center items-center bg-verdeClaro  border-4 border-black rounded-lg p-4 transform translate-y-full transition-transform duration-500">
-                  
-                  <ol class="list-disc list-inside ">
-                    {variant.caracteristicas.map((caracteristica) => (
-                      <li class="mb-2 last-of-type:mb-0">{caracteristica}</li>
-                    ))}
+                {variant.caracteristicas && variant.caracteristicas.length > 0 && (<>
+                <div class="description-container absolute inset-0 flex flex-col justify-center items-center bg-verdeClaro border-4 border-black rounded-lg px-8 transform translate-y-full transition-transform duration-500">
+                  <ol class="list-disc list-outside">
+                    {variant.caracteristicas.map((caracteristica) => {
+                      if (typeof caracteristica === "string") {
+                        return (
+                          <li class="mb-2 last-of-type:mb-0">
+                            {caracteristica}
+                          </li>
+                        );
+                      }
+                      if (caracteristica.type === "image") {
+                        return (
+                          <li class="list-none">
+                            <ModalImage src={caracteristica.src} alt="tabla de medidas" className="max-w-full" />
+                          </li>
+                        );
+                      }
+                      return null;
+                    })}
                   </ol>
                 </div>
+  </>
+)}
+
               </div>
               ))}
             </div>
