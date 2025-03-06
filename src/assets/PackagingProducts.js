@@ -240,6 +240,7 @@ const PackagingProducts = [
       },
       {
         title: "Individuales",
+        title: "Individuales",
         image: "bolsa2.jpg",
 
         caracteristicas: [
@@ -248,6 +249,7 @@ const PackagingProducts = [
           "Impresión a un color o full color",
         ],
       },
+
       {
         title: "Sobre y cono papa",
         image: "bolsa3.jpg",
