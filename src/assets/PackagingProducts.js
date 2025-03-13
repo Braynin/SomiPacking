@@ -1,7 +1,7 @@
 const PackagingProducts = [
   {
     title: "Bolsas",
-    icon: "papeleria.jpg",
+    icon: "Packaging.jpeg",
     image: "bolsas.jpg",
     description: "Bolsas de diferentes tamaños y colores.",
     variants: [
@@ -17,7 +17,7 @@ const PackagingProducts = [
       },
       {
         title: "Bolsa Kraft con asa twist",
-        image: "bolsa2.jpg",
+        image: "Bolsa-kraf-con-asa-twist.png",
 
         caracteristicas: [
           "Material: Papel Kraft",
@@ -27,7 +27,7 @@ const PackagingProducts = [
       },
       {
         title: "Bolsa con asa troquel",
-        image: "bolsa3.jpg",
+        image: "Bolsa-con-asa-troquel.png",
 
         caracteristicas: [
           "Material: Papel Kraft, Linner o Cartulina Foldcote",
@@ -37,7 +37,7 @@ const PackagingProducts = [
       },
       {
         title: "Bolsa con asa cordón",
-        image: "bolsa3.jpg",
+        image: "Bolsa-con-asa-cordón.png",
 
         caracteristicas: [
           "Material: Cartulina Duplex o Linner",
@@ -106,13 +106,13 @@ const PackagingProducts = [
   },
   {
     title: "Cajas",
-    icon: "papeleria.jpg",
+    icon: "Packaging.jpeg",
     image: "cajas.jpg",
     description: "Cajas de diferentes tamaños y colores.",
     variants: [
       {
         title: "Caja Ecommerce",
-        image: "bolsa1.jpg",
+        image: "Caja-ecommerce.png",
 
         caracteristicas: [
           "Material: Microcorrugado, Corrugado o Foldcote",
@@ -122,7 +122,7 @@ const PackagingProducts = [
       },
       {
         title: "Caja de Pizza",
-        image: "bolsa2.jpg",
+        image: "Caja-pizza.png",
 
         caracteristicas: [
           "Material: Microcorrugado o Cartulina duplex",
@@ -132,7 +132,7 @@ const PackagingProducts = [
       },
       {
         title: "Caja tipo KFC",
-        image: "bolsa2.jpg",
+        image: "Caja-Kfc.png",
 
         caracteristicas: [
           "Material: Cartulina duplex",
@@ -158,13 +158,13 @@ const PackagingProducts = [
       },
       {
         title: "Bandeja",
-        image: "bolsa3.jpg",
+        image: "Bandeja.png",
 
         caracteristicas: ["Material: Tapa Rústica"],
       },
       {
         title: "Caja Cupcakes",
-        image: "bolsa2.jpg",
+        image: "Caja-cupcakes.png",
 
         caracteristicas: [
           "Material: Microcorrugado, Corrugado o Foldcote",
@@ -185,7 +185,7 @@ const PackagingProducts = [
       },
       {
         title: "Caja Papas",
-        image: "bolsa2.jpg",
+        image: "Caja-papas.png",
 
         caracteristicas: [
           "Material: Microcorrugado o Cartulina duplex",
@@ -195,7 +195,7 @@ const PackagingProducts = [
       },
       {
         title: "Caja Macarrones",
-        image: "bolsa2.jpg",
+        image: "Caja-macarron.png",
 
         caracteristicas: [
           "Material: Cartulina duplex",
@@ -214,7 +214,7 @@ const PackagingProducts = [
   },
   {
     title: "Envolturas",
-    icon: "papeleria.jpg",
+    icon: "Packaging.jpeg",
     image: "envolturas.jpg",
     description: "Bolsas de diferentes tamaños y colores.",
     variants: [
