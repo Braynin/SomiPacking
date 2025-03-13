@@ -5,16 +5,7 @@ const PackagingProducts = [
     image: "bolsas.jpg",
     description: "Bolsas de diferentes tamaños y colores.",
     variants: [
-      {
-        title: "Bolsa kraft delivery",
-        image: "bolsa1.jpg",
-        caracteristicas: [
-          "Material: Papel Kraft",
-          "Medida: 36 x 28 x 18 cm",
-          "Medida Personalizada",
-          "Impresión offset o serigrafía",
-        ],
-      },
+      
       {
         title: "Bolsa Kraft con asa twist",
         image: "Bolsa asa twist.png",
@@ -57,16 +48,7 @@ const PackagingProducts = [
           },
         ],
       },
-      {
-        title: "Bolsa Foldcote",
-        image: "bolsa3.jpg",
-
-        caracteristicas: [
-          "Material: Cartulina Foldcote",
-          "Medida Personalizada",
-          "Impresión offset",
-        ],
-      },
+      
       {
         title: "Bolsa para vino",
         image: "Bolsa para vino.png",
@@ -98,10 +80,7 @@ const PackagingProducts = [
           "C/S impresión",
         ],
       },
-      {
-        title: "Bolsa de bond",
-        image: "bolsa3.jpg",
-      },
+     
     ],
   },
   {
@@ -228,16 +207,7 @@ const PackagingProducts = [
           "Impresión a un color o full color",
         ],
       },
-      {
-        title: "Papel Envoltura",
-        image: "bolsa2.jpg",
-
-        caracteristicas: [
-          "Material: Microcorrugado, Cartulina duplex",
-          "Medida Personalizada",
-          "Impresión a un color o full color",
-        ],
-      },
+     
       {
         title: "Individuales",
         title: "Individuales",
@@ -265,10 +235,7 @@ const PackagingProducts = [
         title: "Posa Vasos",
         image: "Posa vasos.png",
       },
-      {
-        title: "Piso para Torta",
-        image: "bolsa3.jpg",
-      },
+     
     ],
   },
 ];
