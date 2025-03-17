@@ -9,10 +9,10 @@ const servicioData = ServiciosOptions.find((s) => s.href === servicio);
 
 ---
 
-<main class=" w-full pt-[80px] bg-verdeOscuro">
+<main class=" w-full bg-white">
   {servicioData ? (
     <>
-      <video src="/imprenta-video.mp4" loop autoplay muted class="w-full h-[600px] object-cover"></video>
+      <video src={servicioData.video} loop autoplay muted class="w-full min-h-screen"></video>
 
 
       <section class="w-full py-10 flex flex-col items-center ">
@@ -43,10 +43,10 @@ const servicioData = ServiciosOptions.find((s) => s.href === servicio);
             <h3 id={product.title.replace(/\s+/g, "-")} class="text-4xl font-bold my-20 text-center uppercase border-b-4 border-verdeClaro">{product.title}</h3>
             <div class="w-2/3 flex flex-wrap gap-10 justify-center">
               {product.variants.map((variant) => (
-                <div class="product-card w-64 h-64 cursor-pointer relative overflow-hidden ">
+                <div class="product-card w-64 h-80 cursor-pointer relative overflow-hidden ">
                 <!-- Imagen y Título -->
                 <div class="absolute inset-0 flex flex-col items-center justify-center">
-                  <img src={variant.image} alt={`imagen-${product.title}`} class="w-16 h-16" />
+                  <img src={variant.image} alt={`imagen-${product.title}`} class="w-full h-auto object-contain" />
                   <p class="mt-2 text-lg font-semibold text-black">{variant.title}</p>
                 </div>
                 <img src="" alt="">
