@@ -44,8 +44,8 @@ const ImprentaProducts = [
     description: "Cajas de diferentes tamaños y colores.",
     variants: [
       {
-        title: "Bolsa 1",
-        image: "bolsa1.jpg",
+        title: "Merchandising Corporativo",
+        image: "Merchandising-Corporativo.png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: [
           "Caracteristica 1",
@@ -54,8 +54,8 @@ const ImprentaProducts = [
         ],
       },
       {
-        title: "Bolsa 2",
-        image: "bolsa2.jpg",
+        title: "Merchandising Deportivo",
+        image: "Merchandising-Deportivo.png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: [
           "Caracteristica 1",
@@ -64,8 +64,38 @@ const ImprentaProducts = [
         ],
       },
       {
-        title: "Bolsa 3",
-        image: "bolsa3.jpg",
+        title: "Merchandising Ecológico",
+        image: "Merchandising-Ecológico.png",
+        description: "Bolsa de diferentes tamaños y colores.",
+        caracteristicas: [
+          "Caracteristica 1",
+          "Caracteristica 2",
+          "Caracteristica 3",
+        ],
+      },
+      {
+        title: "Merchandising para Eventos",
+        image: "Merchandising-Eventos.png",
+        description: "Bolsa de diferentes tamaños y colores.",
+        caracteristicas: [
+          "Caracteristica 1",
+          "Caracteristica 2",
+          "Caracteristica 3",
+        ],
+      },
+      {
+        title: "Merchandising Tecnológico",
+        image: "Merchandising-Tecnológico.png",
+        description: "Bolsa de diferentes tamaños y colores.",
+        caracteristicas: [
+          "Caracteristica 1",
+          "Caracteristica 2",
+          "Caracteristica 3",
+        ],
+      },
+      {
+        title: "Merchandising Textil",
+        image: "Merchandising-Textil.png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: [
           "Caracteristica 1",
