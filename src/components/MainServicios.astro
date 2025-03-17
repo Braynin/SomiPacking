@@ -9,10 +9,10 @@ const servicioData = ServiciosOptions.find((s) => s.href === servicio);
 
 ---
 
-<main class=" w-full bg-verdeOscuro">
+<main class=" w-full pt-[80px] bg-verdeOscuro">
   {servicioData ? (
     <>
-      <video src="/imprenta-video.mp4" loop autoplay muted class="w-full min-h-screen"></video>
+      <video src="/imprenta-video.mp4" loop autoplay muted class="w-full h-[600px] object-cover"></video>
 
 
       <section class="w-full py-10 flex flex-col items-center ">
@@ -31,13 +31,12 @@ const servicioData = ServiciosOptions.find((s) => s.href === servicio);
                   <div class="flip-back absolute inset-0 flex items-center justify-center">
                     <p class="text-black text-center p-4">{product.description}</p>
                   </div>
-                </div>
+                </div>  
               </div>
             ))}
           </div>
-        
       </section>
-      <section class="w-full py-10 flex flex-col items-center border-t-4 border-verdeClaro bg-gradient-to-b from-verdeOscuro to-verdeLimon">
+      <section class="w-full py-10 flex flex-col items-center border-t-4 border-verdeClaro bg-white">
         <h2 class="text-5xl font-bold mb-10 text-center ">Productos</h2>
          <div class="w-full flex flex-col items-center justify-center">
            {servicioData.products.map((product) => (
@@ -50,6 +49,7 @@ const servicioData = ServiciosOptions.find((s) => s.href === servicio);
                   <img src={variant.image} alt={`imagen-${product.title}`} class="w-16 h-16" />
                   <p class="mt-2 text-lg font-semibold text-black">{variant.title}</p>
                 </div>
+                <img src="" alt="">
 
                 <!-- Características -->
                 {variant.caracteristicas && variant.caracteristicas.length > 0 && (<>

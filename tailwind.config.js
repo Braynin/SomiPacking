@@ -27,7 +27,7 @@ export default {
       colors: {
         verdeClaro: "#cbd85a",
         verdeLimon: "#005b32",
-        verdeOscuro: "#003a43",
+        verdeOscuro:"#003a43",
       },
     },
   },
