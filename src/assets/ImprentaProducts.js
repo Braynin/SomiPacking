@@ -1,9 +1,11 @@
 const ImprentaProducts = [
   {
     title: "Papeleria",
-    icon: "Packaging.jpeg",
-    image: "bolsas.jpg",
+    icon: "Papelería.webp",
+    image: "Papelería.webp",
     description: "Bolsas de diferentes tamaños y colores.",
+    longDescription:
+      "Ofrecemos impresión de alta calidad en material corporativo y comercial, para fortalecer la imagen de tu negocio.",
     variants: [
       {
         title: "Bolsa 1",
@@ -39,9 +41,11 @@ const ImprentaProducts = [
   },
   {
     title: "Merchandising",
-    icon: "Merchandising.jpeg",
-    image: "cajas.jpg",
+    icon: "Merchandising.webp",
+    image: "Merchandising.webp",
     description: "Cajas de diferentes tamaños y colores.",
+    longDescription:
+      "Personalizamos productos promocionales que refuerzan la identidad de tu marca, creando una conexión duradera con tus clientes.",
     variants: [
       {
         title: "Merchandising Corporativo",
@@ -108,7 +112,7 @@ const ImprentaProducts = [
   {
     title: "Impresiones",
     icon: "imprenta.jpeg",
-    image: "envolturas.jpg",
+    image: "imprenta.jpeg",
     description: "Bolsas de diferentes tamaños y colores.",
     variants: [
       {

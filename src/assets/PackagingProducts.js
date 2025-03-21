@@ -1,11 +1,12 @@
 const PackagingProducts = [
   {
     title: "Bolsas",
-    icon: "Packaging.jpeg",
-    image: "bolsas.jpg",
+    icon: "Bolsas.webp",
+    image: "Bolsas.webp",
     description: "Bolsas de diferentes tamaños y colores.",
+    longDescription:
+      "Diseñadas para ofrecer resistencia y estilo. Fabricamos en diversos materiales y acabados para adaptarse a cada necesidad.",
     variants: [
-      
       {
         title: "Bolsa Kraft con asa twist",
         image: "Bolsa asa twist.png",
@@ -48,7 +49,7 @@ const PackagingProducts = [
           },
         ],
       },
-      
+
       {
         title: "Bolsa para vino",
         image: "Bolsa para vino.png",
@@ -80,14 +81,15 @@ const PackagingProducts = [
           "C/S impresión",
         ],
       },
-     
     ],
   },
   {
     title: "Cajas",
-    icon: "Packaging.jpeg",
-    image: "cajas.jpg",
+    icon: "Cajas.webp",
+    image: "Cajas.webp",
     description: "Cajas de diferentes tamaños y colores.",
+    longDescription:
+      "Protegen y realzan la presentación de tus productos. Fabricamos cajas a medida, con materiales de calidad y diseños personalizados para garantizar una experiencia de marca única.",
     variants: [
       {
         title: "Caja Ecommerce",
@@ -193,9 +195,11 @@ const PackagingProducts = [
   },
   {
     title: "Envolturas",
-    icon: "Packaging.jpeg",
-    image: "envolturas.jpg",
+    icon: "Envoltura.webp",
+    image: "Envoltura.webp",
     description: "Bolsas de diferentes tamaños y colores.",
+    longDescription:
+      "Soluciones flexibles y versátiles para el embalaje de productos, ofrecemos opciones que combinan estética y funcionalidad.",
     variants: [
       {
         title: "Papel Antigraso",
@@ -207,7 +211,7 @@ const PackagingProducts = [
           "Impresión a un color o full color",
         ],
       },
-     
+
       {
         title: "Individuales",
         title: "Individuales",
@@ -235,7 +239,6 @@ const PackagingProducts = [
         title: "Posa Vasos",
         image: "Posa vasos.png",
       },
-     
     ],
   },
 ];
