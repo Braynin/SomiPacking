@@ -116,7 +116,7 @@ const ImprentaProducts = [
     description: "Bolsas de diferentes tamaños y colores.",
     variants: [
       {
-        title: "Bolsa 1",
+        title: "Tarjeta de Presentación",
         image: "bolsa1.jpg",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: [
@@ -126,7 +126,7 @@ const ImprentaProducts = [
         ],
       },
       {
-        title: "Bolsa 2",
+        title: "Agendas",
         image: "bolsa2.jpg",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: [
@@ -136,7 +136,37 @@ const ImprentaProducts = [
         ],
       },
       {
-        title: "Bolsa 3",
+        title: "Folders",
+        image: "bolsa3.jpg",
+        description: "Bolsa de diferentes tamaños y colores.",
+        caracteristicas: [
+          "Caracteristica 1",
+          "Caracteristica 2",
+          "Caracteristica 3",
+        ],
+      },
+      {
+        title: "Calendarios",
+        image: "bolsa3.jpg",
+        description: "Bolsa de diferentes tamaños y colores.",
+        caracteristicas: [
+          "Caracteristica 1",
+          "Caracteristica 2",
+          "Caracteristica 3",
+        ],
+      },
+      {
+        title: "Stickers",
+        image: "bolsa3.jpg",
+        description: "Bolsa de diferentes tamaños y colores.",
+        caracteristicas: [
+          "Caracteristica 1",
+          "Caracteristica 2",
+          "Caracteristica 3",
+        ],
+      },
+      {
+        title: "Precintos de seguridad",
         image: "bolsa3.jpg",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: [
