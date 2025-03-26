@@ -8,8 +8,8 @@ const ImprentaProducts = [
       "Ofrecemos impresión de alta calidad en material corporativo y comercial, para fortalecer la imagen de tu negocio.",
     variants: [
       {
-        title: "Bolsa 1",
-        image: "bolsa1.jpg",
+        title: "Tarjeta de presentación",
+        image: "Tarjetas de Presentación.png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: [
           "Caracteristica 1",
@@ -18,8 +18,8 @@ const ImprentaProducts = [
         ],
       },
       {
-        title: "Bolsa 2",
-        image: "bolsa2.jpg",
+        title: "Tarjeta de agradecimiento",
+        image: "Tarjeta de agradecimiento.png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: [
           "Caracteristica 1",
@@ -28,8 +28,58 @@ const ImprentaProducts = [
         ],
       },
       {
-        title: "Bolsa 3",
-        image: "bolsa3.jpg",
+        title: "Envoltura",
+        image: "Envoltura.png",
+        description: "Bolsa de diferentes tamaños y colores.",
+        caracteristicas: [
+          "Caracteristica 1",
+          "Caracteristica 2",
+          "Caracteristica 3",
+        ],
+      },
+      {
+        title: "Carta comensal",
+        image: "Carta Comensal.png",
+        description: "Bolsa de diferentes tamaños y colores.",
+        caracteristicas: [
+          "Caracteristica 1",
+          "Caracteristica 2",
+          "Caracteristica 3",
+        ],
+      },
+      {
+        title: "Papel manteca",
+        image: "Papel manteca.png",
+        description: "Bolsa de diferentes tamaños y colores.",
+        caracteristicas: [
+          "Caracteristica 1",
+          "Caracteristica 2",
+          "Caracteristica 3",
+        ],
+      },
+      {
+        title: "Calendario",
+        image: "Calendario.png",
+        description: "Bolsa de diferentes tamaños y colores.",
+        caracteristicas: [
+          "Caracteristica 1",
+          "Caracteristica 2",
+          "Caracteristica 3",
+        ],
+      },
+      {
+        title: "Individuales",
+        image: "Individuales.png",
+        description: "Bolsa de diferentes tamaños y colores.",
+        caracteristicas: [
+          "Caracteristica 1",
+          "Caracteristica 2",
+          "Caracteristica 3",
+        ],
+      },
+      {
+        title: "Bloc-agenda",
+        image: "Block-Agenda.png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: [
           "Caracteristica 1",
@@ -109,74 +159,74 @@ const ImprentaProducts = [
       },
     ],
   },
-  {
-    title: "Impresiones",
-    icon: "imprenta.jpeg",
-    image: "imprenta.jpeg",
-    description: "Bolsas de diferentes tamaños y colores.",
-    variants: [
-      {
-        title: "Tarjeta de Presentación",
-        image: "bolsa1.jpg",
-        description: "Bolsa de diferentes tamaños y colores.",
-        caracteristicas: [
-          "Caracteristica 1",
-          "Caracteristica 2",
-          "Caracteristica 3",
-        ],
-      },
-      {
-        title: "Agendas",
-        image: "bolsa2.jpg",
-        description: "Bolsa de diferentes tamaños y colores.",
-        caracteristicas: [
-          "Caracteristica 1",
-          "Caracteristica 2",
-          "Caracteristica 3",
-        ],
-      },
-      {
-        title: "Folders",
-        image: "bolsa3.jpg",
-        description: "Bolsa de diferentes tamaños y colores.",
-        caracteristicas: [
-          "Caracteristica 1",
-          "Caracteristica 2",
-          "Caracteristica 3",
-        ],
-      },
-      {
-        title: "Calendarios",
-        image: "bolsa3.jpg",
-        description: "Bolsa de diferentes tamaños y colores.",
-        caracteristicas: [
-          "Caracteristica 1",
-          "Caracteristica 2",
-          "Caracteristica 3",
-        ],
-      },
-      {
-        title: "Stickers",
-        image: "bolsa3.jpg",
-        description: "Bolsa de diferentes tamaños y colores.",
-        caracteristicas: [
-          "Caracteristica 1",
-          "Caracteristica 2",
-          "Caracteristica 3",
-        ],
-      },
-      {
-        title: "Precintos de seguridad",
-        image: "bolsa3.jpg",
-        description: "Bolsa de diferentes tamaños y colores.",
-        caracteristicas: [
-          "Caracteristica 1",
-          "Caracteristica 2",
-          "Caracteristica 3",
-        ],
-      },
-    ],
-  },
+  // {
+  //   title: "Impresiones",
+  //   icon: "imprenta.jpeg",
+  //   image: "imprenta.jpeg",
+  //   description: "Bolsas de diferentes tamaños y colores.",
+  //   variants: [
+  //     {
+  //       title: "Tarjeta de Presentación",
+  //       image: "bolsa1.jpg",
+  //       description: "Bolsa de diferentes tamaños y colores.",
+  //       caracteristicas: [
+  //         "Caracteristica 1",
+  //         "Caracteristica 2",
+  //         "Caracteristica 3",
+  //       ],
+  //     },
+  //     {
+  //       title: "Agendas",
+  //       image: "bolsa2.jpg",
+  //       description: "Bolsa de diferentes tamaños y colores.",
+  //       caracteristicas: [
+  //         "Caracteristica 1",
+  //         "Caracteristica 2",
+  //         "Caracteristica 3",
+  //       ],
+  //     },
+  //     {
+  //       title: "Folders",
+  //       image: "bolsa3.jpg",
+  //       description: "Bolsa de diferentes tamaños y colores.",
+  //       caracteristicas: [
+  //         "Caracteristica 1",
+  //         "Caracteristica 2",
+  //         "Caracteristica 3",
+  //       ],
+  //     },
+  //     {
+  //       title: "Calendarios",
+  //       image: "bolsa3.jpg",
+  //       description: "Bolsa de diferentes tamaños y colores.",
+  //       caracteristicas: [
+  //         "Caracteristica 1",
+  //         "Caracteristica 2",
+  //         "Caracteristica 3",
+  //       ],
+  //     },
+  //     {
+  //       title: "Stickers",
+  //       image: "bolsa3.jpg",
+  //       description: "Bolsa de diferentes tamaños y colores.",
+  //       caracteristicas: [
+  //         "Caracteristica 1",
+  //         "Caracteristica 2",
+  //         "Caracteristica 3",
+  //       ],
+  //     },
+  //     {
+  //       title: "Precintos de seguridad",
+  //       image: "bolsa3.jpg",
+  //       description: "Bolsa de diferentes tamaños y colores.",
+  //       caracteristicas: [
+  //         "Caracteristica 1",
+  //         "Caracteristica 2",
+  //         "Caracteristica 3",
+  //       ],
+  //     },
+  //   ],
+  // },
 ];
 
 export default ImprentaProducts;

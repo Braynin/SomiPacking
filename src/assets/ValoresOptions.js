@@ -1,21 +1,21 @@
 const ValoresOptions = [
   {
-    title: "Haz tu pedido",
+    title: "Solicitud y confirmación",
     numero: 1,
     icon: "🤝",
-    description: "Selecciona y personaliza tus productos de merchandising, agrégalos al carrito y confirma tu pedido.",
+    description: "Aprobación de la cotización y formalización del pedido mediante el pago correspondiente.",
   },
   {
-    title: "Realiza el pago",
+    title: "Producción y control de calidad",
     numero: 2,
     icon: "✅",
-    description: "Eliege tu método de pago preferido y completa la transacción de forma segura.",
+    description: "Validación del arte final, fabricamos con procesos de impresión y acabados, seguido de un riguroso control de calidad.",
   },
   {
-    title: "Envío rápido y gratuito",
+    title: "Entrega",
     numero: 3,
     icon: "🌟",
-    description: "Procesamos y enviamos tu pedido rápidamente y sin costo una vez confirmado el pago.",
+    description: "Conteo, embalaje seguro y entrega puntual al cliente, asegurando la satisfacción con el producto final  .",
   },
   
 ];
