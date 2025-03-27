@@ -10,22 +10,17 @@ const servicioData = ServiciosOptions.find((s) => s.href === servicio);
 <main class=" w-full bg-white">
   {servicioData ? (
     <>
-      <video src={servicioData.video} loop autoplay muted class="w-full min-h-screen"></video>
+      <video src={servicioData.video} loop autoplay muted class="w-full min-h-screen celular:min-h-0 pt-20"></video>
 
       <section class="w-full py-10 flex flex-col items-center ">
         <h2 class="text-5xl font-bold mb-10 text-center">Nuestros Servicios</h2>
-        <div class="flex w-2/3 justify-between">
+        <div class="flex w-2/3 justify-between celular:w-10/12 celular:flex-col celular:gap-10 celular:items-center">
           {servicioData.products.map((product) => (
-            <div class="flip-card w-64 h-64 cursor-pointer">
-              <div class="relative w-full h-full transition-transform duration-500 transform-style-3d">
-                <div class="flip-front absolute inset-0 flex flex-col items-center justify-center">
+            <div class=" w-64 h-64 cursor-pointer">
+                <a href={`#${product.title.replace(/\s+/g, "-")}`} class="flex flex-col items-center justify-center">
                   <img src={product.icon} alt={`icon-${product.title}`} class="w-60 h-60" />
                   <p class="mt-2 text-lg font-semibold ">{product.title}</p>
-                </div> 
-                <div class="flip-back absolute inset-0 flex items-center justify-center">
-                  <p class="text-black text-center p-4">{product.description}</p>
-                </div>
-              </div>  
+              </a>  
             </div>
           ))}
         </div>
@@ -33,7 +28,7 @@ const servicioData = ServiciosOptions.find((s) => s.href === servicio);
 
       <!-- Sección de productos con límite de 8 y botón "Ver más" -->
       <section class="w-full py-10 flex flex-col items-center border-t-4 border-verdeClaro bg-white">
-        <h2 class="text-5xl font-bold mb-10 text-center">Productos</h2>
+        <h2 class="text-5xl font-bold mb-10 text-center celular:mb-5">Productos</h2>
         <div class="w-full flex flex-col items-center justify-center">
           {servicioData.products.map((product) => {
             // Si hay más de 8 variantes, mostraremos solo las primeras 8 a la vista
@@ -43,7 +38,7 @@ const servicioData = ServiciosOptions.find((s) => s.href === servicio);
                 <h3 id={product.title.replace(/\s+/g, "-")} class="text-4xl font-bold mt-16 text-center uppercase border-b-4 border-verdeClaro">
                   {product.title}
                 </h3>
-                <p class="w-1/3 my-16  text-2xl text-center">{product.longDescription}</p>
+                <p class="w-1/3 my-16  text-2xl text-center celular:w-10/12 celular:text-lg celular:my-8">{product.longDescription}</p>
 
                 <div class="w-2/3 flex flex-wrap gap-10 justify-center">
                   {product.variants.map((variant, index) => (
@@ -63,7 +58,7 @@ const servicioData = ServiciosOptions.find((s) => s.href === servicio);
                       </div>
 
                       {variant.caracteristicas && variant.caracteristicas.length > 0 && (
-                        <div class="description-container absolute inset-0 flex flex-col justify-center items-center bg-verdeClaro border-4 border-black rounded-lg px-8 transform translate-y-full transition-transform duration-500">
+                        <div class="description-container absolute inset-0 flex flex-col justify-center items-center bg-verdeClaro border-2 border-black rounded-lg px-8 transform translate-y-full transition-transform duration-500">
                           <ol class="list-disc list-outside">
                             {variant.caracteristicas.map((caracteristica) => {
                               if (typeof caracteristica === "string") {
@@ -106,18 +101,9 @@ const servicioData = ServiciosOptions.find((s) => s.href === servicio);
 </main>
 
 <script is:inline>
-  // Animación de los servicios (flip-cards)
-  function toggleFlip(event) {
-    const card = event.currentTarget.querySelector(".relative");
-    card.classList.toggle("flipped");
-  }
+
 
   document.addEventListener("DOMContentLoaded", () => {
-    // Flip cards
-    document.querySelectorAll(".flip-card").forEach((card) => {
-      card.addEventListener("click", toggleFlip);
-    });
-
     // Animación de los Productos
     function toggleDescription(event) {
       const description = event.currentTarget.querySelector(".description-container");
@@ -156,28 +142,6 @@ const servicioData = ServiciosOptions.find((s) => s.href === servicio);
 </script>
 
 <style>
-/* Estilos para flip-cards */
-.flip-card {
-  perspective: 1000px;
-}
-.flip-card .relative {
-  transition: transform 0.5s;
-  transform-style: preserve-3d;
-}
-.flip-card .relative.flipped {
-  transform: rotateY(180deg);
-}
-.flip-front {
-  backface-visibility: hidden;
-}
-.flip-back {
-  background-color: transparent;
-  color: #333;
-  text-align: center;
-  padding: 10px;
-  transform: rotateY(180deg);
-  backface-visibility: hidden;
-}
 
 /* Ocultar elementos extra */
 .hidden {

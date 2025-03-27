@@ -10,7 +10,7 @@ const isActive = pathname === path || (label === "Inicio" && pathname === "/");
 ---
 
 <a
-  class={`font-bold  text-black  hover:text-verdeOscuro   ${
+  class={`font-bold py-4 text-black text-2xl  hover:text-verdeOscuro   ${
     isActive ? "border-b-2 border-verdeOscuro" : ""
   }`}
   href={path}

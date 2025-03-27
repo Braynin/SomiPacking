@@ -4,7 +4,7 @@ import DropDownOption from "./DropDownOption.astro";
 import ServiciosOptions from "../assets/ServiciosOptions.js";
 ---
 
-<div class="w-5/12 flex justify-around items-center">
+<div class="w-5/12 flex justify-around items-center celular:flex-col">
   <NavOption label="Inicio" />
   {
     ServiciosOptions.map((servicio) => (
@@ -12,7 +12,7 @@ import ServiciosOptions from "../assets/ServiciosOptions.js";
         <NavOption label={servicio.title} />
         <div
           id="dropdownMenu"
-          class="hidden absolute top-2 left-0 bg-white shadow-lg z-0 min-w-48 rounded-lg py-2 opacity-0 translate-y-2 group-hover:block group-hover:opacity-100 group-hover:translate-y-12"
+          class="hidden group-hover:block absolute bg-white top-2 left-0 celular:-left-4 shadow-lg min-w-48 rounded-lg py-2 translate-y-2 group-hover:opacity-100 group-hover:translate-y-12 z-50 celular:!block celular:!static celular:!translate-y-0"
         >
           {servicio.products.map((product) => (
             <DropDownOption label={product.title} servicio={servicio.title} />
@@ -32,15 +32,11 @@ import ServiciosOptions from "../assets/ServiciosOptions.js";
       const label = this.getAttribute("data-label").replace(/\s+/g, "-");
       const currentPath = window.location.pathname.replace(/\s+/g, "-");
 
-      console.log("Clic en:", servicio, label, "Ruta actual:", currentPath);
-
       if (currentPath.includes(servicio)) {
         const targetSection = document.getElementById(
           label.replace(/\s+/g, "-")
         );
         if (targetSection) {
-          console.log("Desplazando a la sección:", label);
-
           targetSection.scrollIntoView({ behavior: "smooth" });
           // Cambiar la URL sin recargar la página
           const newUrl = `/${servicio}#${label.replace(/\s+/g, "-")}`;
@@ -49,10 +45,6 @@ import ServiciosOptions from "../assets/ServiciosOptions.js";
           console.log("No se encontró la sección:", label);
         }
       } else {
-        console.log(
-          "Redirigiendo a:",
-          `/${servicio}#${label.replace(/\s+/g, "-")}`
-        );
         window.location.href = `/${servicio}#${label.replace(/\s+/g, "-")}`;
       }
     });
