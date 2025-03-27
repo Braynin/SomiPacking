@@ -5,58 +5,131 @@ import SocialIcons from "./SocialIcons.astro";
 
 <header
   id="header"
-  class="w-full flex justify-around items-center bg-white fixed shadow-lg z-50 h-[80px]"
+  class="w-full flex justify-between items-center bg-white fixed shadow-lg z-50 h-[80px] px-5"
 >
-  <a href="/"> <img src="/Somi-Logo.webp" alt="Somi-Logo" class="h-32" /></a>
-  <Nav />
-  <SocialIcons classList="gap-5" />
+  <!-- Menú visible en desktop -->
+  <div
+    class="celular:hidden items-center gap-5 flex justify-between w-full h-full"
+  >
+    <a href="/">
+      <img src="/Somi-Logo.webp" alt="Somi-Logo" class="w-40" />
+    </a>
+    <Nav />
+    <SocialIcons classList="gap-5" />
+  </div>
+  <a href="/" class="escritorio:hidden">
+    <img src="/Somi-Logo.webp" alt="Somi-Logo" class="w-40" />
+  </a>
+
+  <!-- Botón de menú en móvil: siempre visible en móvil -->
+  <button id="menu-toggle" class="hidden z-50 celular:inline-block">
+    <!-- Ícono de hamburguesa inicial -->
+    <svg
+      id="hamburger-icon"
+      xmlns="http://www.w3.org/2000/svg"
+      width="40"
+      height="40"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="icon icon-tabler icons-tabler-outline icon-tabler-menu-2"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+      <path d="M4 6l16 0"></path>
+      <path d="M4 12l16 0"></path>
+      <path d="M4 18l16 0"></path>
+    </svg>
+  </button>
+
+  <!-- Menú lateral en móviles -->
+  <div
+    id="mobile-menu"
+    class="fixed top-0 right-0 w-3/4 h-svh bg-white shadow-lg transform translate-x-full transition-transform flex flex-col items-center gap-5 p-10 escritorio:hidden celular:z-100 border-l-4 border-black"
+  >
+    <Nav />
+    <SocialIcons classList="gap-5" />
+  </div>
 </header>
+
 <script is:inline defer>
   if (typeof window !== "undefined") {
     function initializeScript() {
       try {
-        const element = document.getElementById("header");
-
-        if (!element) {
-          console.error("El elemento con ID 'header' no fue encontrado.");
-          return;
-        }
+        const header = document.getElementById("header");
+        const menuToggle = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
 
         let lastScrollY = window.scrollY;
-        let hideThreshold = 90; // Cuándo ocultar el header
-        let hidden = false; // Si el header está oculto
+        let hideThreshold = 90;
+        let hidden = false;
         let tolerance = 10;
+        let menuOpen = false;
 
+        // Gestión del scroll para ocultar/mostrar el header
         window.addEventListener("scroll", () => {
           let currentScrollY = window.scrollY;
-
           if (
             currentScrollY > hideThreshold &&
             !hidden &&
             currentScrollY - lastScrollY > tolerance
           ) {
-            element.style.transform = "translateY(-100%)";
-            element.style.transition = "transform 0.3s ease-in-out";
+            header.style.transform = "translateY(-100%)";
+            mobileMenu.style.transform = "translateX(100%)";
+            header.style.transition = "transform 0.3s ease-in-out";
             hidden = true;
           } else if (currentScrollY < lastScrollY - tolerance && hidden) {
-            element.style.transform = "translateY(0)";
-            element.style.transition = "transform 0.3s ease-in-out";
+            header.style.transform = "translateY(0)";
+            menuOpen = false;
+            updateToggleIcon(menuOpen);
+            header.style.transition = "transform 0.3s ease-in-out";
             hidden = false;
           }
-
           lastScrollY = currentScrollY;
+        });
+
+        // Función para actualizar el ícono del botón según el estado
+        function updateToggleIcon(isOpen) {
+          if (isOpen) {
+            // Ícono de X
+            menuToggle.innerHTML = `<svg id="x-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-x">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M18 6l-12 12" />
+  <path d="M6 6l12 12" />
+</svg>`;
+          } else {
+            // Ícono de hamburguesa
+            menuToggle.innerHTML = `<svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-2">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 6l16 0" />
+  <path d="M4 12l16 0" />
+  <path d="M4 18l16 0" />
+</svg>`;
+          }
+        }
+
+        // Evento para abrir/cerrar el menú móvil
+        menuToggle.addEventListener("click", () => {
+          menuOpen = !menuOpen;
+          mobileMenu.style.transform = menuOpen
+            ? "translateX(0)"
+            : "translateX(100%)";
+          updateToggleIcon(menuOpen);
+        });
+
+        // Cerrar el menú al cambiar de página
+        window.addEventListener("popstate", () => {
+          menuOpen = false;
+          mobileMenu.style.transform = "translateX(100%)";
+          updateToggleIcon(false);
         });
       } catch (error) {
         console.error("Error al ejecutar el script:", error);
       }
     }
 
-    // Inicializar el script al cargar la página
     document.addEventListener("DOMContentLoaded", initializeScript);
-
-    // Reiniciar el script cuando se cambie la ruta
-    window.addEventListener("popstate", () => {
-      initializeScript();
-    });
   }
 </script>
