@@ -13,6 +13,7 @@
     "@shikijs/core": "^2.2.0",
     "astro": "^5.4.0",
     "autoprefixer": "^10.4.20",
+    "lucide-react": "^0.484.0",
     "postcss": "^8.4.49",
     "somipacking": "file:",
     "tailwindcss": "^3.4.17"

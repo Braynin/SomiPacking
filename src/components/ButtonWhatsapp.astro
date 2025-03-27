@@ -1,0 +1,55 @@
+
+<!-- Contenedor del botón flotante -->
+<div class="fixed bottom-4 right-4 flex flex-col items-end z-50">
+    <!-- Botón de WhatsApp -->
+    <button 
+      id="whatsapp-button"
+      class="bg-green-500 p-3 rounded-full shadow-lg hover:bg-green-600 transition-all flex items-center justify-center"
+    >
+      <img src="/whatsapp-icon.png" alt="WhatsApp" class="w-8 h-8" />
+    </button>
+
+    <!-- Burbuja de chat -->
+    <div id="whatsapp-chat" class="hidden bg-white shadow-lg rounded-lg w-80 border border-gray-300">
+      <!-- Encabezado con logo y botón de cerrar -->
+      <div class="bg-green-500 text-white px-4 py-2 flex items-center justify-between rounded-t-lg">
+        <span class="font-bold text-lg">WhatsApp</span>
+        <button id="close-chat" class="text-white text-xl font-bold">×</button>
+      </div>
+
+      <!-- Mensaje de bienvenida -->
+      <div class="p-4">
+        <div class="bg-gray-100 rounded-lg p-3 text-gray-700 shadow-sm">
+          Hola! Somos <strong>FENGO PACKAGING</strong>, coméntanos en qué podemos ayudarte.
+        </div>
+      </div>
+
+      <!-- Botón para abrir el chat -->
+      <div class="px-4 pb-4">
+        <a href="https://wa.me/XXXXXXXXXX" target="_blank" class="bg-green-500 text-white w-full flex items-center justify-center px-4 py-2 rounded-lg font-bold hover:bg-green-600 transition-all">
+          Abrir chat <span class="ml-2">📩</span>
+        </a>
+      </div>
+    </div>
+</div>
+
+<!-- JavaScript para mostrar y ocultar el chat -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const whatsappButton = document.getElementById("whatsapp-button");
+    const whatsappChat = document.getElementById("whatsapp-chat");
+    const closeChat = document.getElementById("close-chat");
+
+    if (whatsappButton && whatsappChat && closeChat) {
+      whatsappButton.addEventListener("click", () => {
+        whatsappChat.classList.toggle("hidden");
+        whatsappButton.classList.toggle("hidden"); // Oculta el botón al abrir el chat
+      });
+
+      closeChat.addEventListener("click", () => {
+        whatsappChat.classList.add("hidden");
+        whatsappButton.classList.remove("hidden"); // Muestra el botón al cerrar el chat
+      });
+    }
+  });
+</script>
