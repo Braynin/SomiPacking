@@ -6,11 +6,9 @@ import MainServicios from "../components/MainServicios.astro";
 import ServiciosOptions from "../assets/ServiciosOptions.js";
 
 export function getStaticPaths() {
-  return ServiciosOptions.map((servicio) => {
-    params: {
-      servicio: servicio.href;
-    }
-  });
+  return ServiciosOptions.map((servicio) => ({
+    params: { servicio: servicio.href },
+  }));
 }
 
 const { servicio } = Astro.params;
