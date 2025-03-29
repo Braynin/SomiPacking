@@ -32,6 +32,7 @@ export default {
         verdeClaro: "#cbd85a",
         verdeLimon: "#005b32",
         verdeOscuro: "#003a43",
+        verdeNosotros: "#093B44",
       },
     },
   },
