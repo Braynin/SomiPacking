@@ -7,7 +7,6 @@ node_modules/
 # Directorio de salida de compilación
 dist/
 build/
-.vercel/
 
 # Configuraciones de IDE
 .vscode/
