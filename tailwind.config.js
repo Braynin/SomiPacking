@@ -9,6 +9,10 @@ export default {
       escritorio: { min: "850px" },
     },
     extend: {
+      backgroundImage: {
+        "hero-desktop": "url('/Somi-Packing-Hero.webp')",
+        "hero-mobile": "url('/Hero-Inicio-Mobile.jpeg')",
+      },
       animation: {
         fadeInOut1: "fadeInOut1 20s ease-in-out infinite",
         fadeInOut2: "fadeInOut2 20s ease-in-out infinite",
@@ -27,7 +31,7 @@ export default {
       colors: {
         verdeClaro: "#cbd85a",
         verdeLimon: "#005b32",
-        verdeOscuro:"#003a43",
+        verdeOscuro: "#003a43",
       },
     },
   },
