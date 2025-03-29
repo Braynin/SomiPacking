@@ -17,7 +17,10 @@
     "autoprefixer": "^10.4.20",
     "lucide-react": "^0.484.0",
     "postcss": "^8.4.49",
-    "somipacking": "file:",
-    "tailwindcss": "^3.4.17"
+    "somipacking": "file:"
+  },
+  "devDependencies": {
+    "@astrojs/tailwind": "^6.0.2",
+    "tailwindcss": "^4.0.17"
   }
 }
