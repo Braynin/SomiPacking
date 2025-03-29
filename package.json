@@ -17,7 +17,9 @@
     "autoprefixer": "^10.4.20",
     "lucide-react": "^0.484.0",
     "postcss": "^8.4.49",
-    "somipacking": "file:"
+    "queue-microtask": "^1.2.3",
+    "somipacking": "file:",
+    "unstorage": "^1.15.0"
   },
   "devDependencies": {
     "@astrojs/tailwind": "^6.0.2",
