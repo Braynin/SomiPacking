@@ -1,18 +1,18 @@
 const datosContacto = [
     {
-      title: "Horario",
-      info: "Lunes a Viernes de 9:00 a 18:00",
-      image: "../horario.jpg",
+      title: "Impresión de alta calidad",
+     
+      image: "../Impresión de alta calida.png",
     },
     {
-      title: "Correo",
-      info: "team@owlyx.net",
-      image: "../mail.jpg",
+      title: "Envíos a todo Perú",
+      
+      image: "../Envío a todo Perú.png",
     },
     {
-      title: "Celular",
-      info: "+51 954 659 752",
-      image: "../celular.jpg",
+      title: "Empaques personalizados",
+      
+      image: "../Empaques personalizado.png",
     },
   ];
   
