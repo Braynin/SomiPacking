@@ -8,7 +8,7 @@ const ServiciosOptions = [
     video: "/Imprenta.-video.mp4",
     description:
       "Cajas de diferentes tamaños y colores.Cajas de diferentes tamaños y colores.Cajas de diferentes tamaños y colores.Cajas de diferentes tamaños y colores.",
-    href: "Imprenta",
+    href: "imprenta",
     products: ImprentaProducts,
   },
   {
@@ -17,7 +17,7 @@ const ServiciosOptions = [
     video: "/Packaging-video.mp4",
     description:
       "Cajas de diferentes tamaños y colores.Cajas de diferentes tamaños y colores.Cajas de diferentes tamaños y colores.Cajas de diferentes tamaños y colores.Cajas de diferentes tamaños y colores.",
-    href: "Packaging",
+    href: "packaging",
     products: PackagingProducts,
   },
 ];
