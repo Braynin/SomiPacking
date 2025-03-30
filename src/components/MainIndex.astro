@@ -4,19 +4,18 @@ import ValoresOptions from "../assets/ValoresOptions.js";
 
 <main class="w-full flex flex-col items-center">
   <div
-  class="flex justify-center items-center w-full mt-[80px] h-[calc(100vh-80px)]
+    class="flex justify-center items-center w-full mt-[80px] h-[calc(100vh-80px)]
   bg-cover bg-center bg-no-repeat sm:bg-contain sm:h-auto md:h-[80vh]
   bg-hero-desktop celular:bg-hero-mobile celular:flex-col celular:justify-end celular:pb-10"
->
-  <button
-    class="w-64 h-16 border-4 text-2xl border-verdeOscuro bg-verdeClaro py-2 px-4
+  >
+    <button
+      class="w-64 h-16 border-4 text-2xl border-verdeOscuro bg-verdeClaro py-2 px-4
     rounded-lg font-bold text-verdeOscuro hover:bg-transparent hover:text-verdeClaro
     hover:border-verdeClaro transition-colors duration-300 celular:mt-5"
-  >
-    COTIZAR AHORA !!!
-  </button>
-</div>
-
+    >
+      COTIZAR AHORA !!!
+    </button>
+  </div>
 
   <section
     class="flex justify-center gap-10 py-10 bg-white w-full celular:flex-col celular:items-center"
@@ -78,30 +77,34 @@ import ValoresOptions from "../assets/ValoresOptions.js";
       </p>
     </div>
   </section>
-  <section class="flex py-10 justify-center  bg-verdeNosotros mt-10 w-full celular:flex-col items-center">
+  <section
+    class="flex py-10 justify-center bg-verdeNosotros mt-10 w-full celular:flex-col items-center"
+  >
     <!-- Sección de Texto (40%) -->
-    <div class="w-2/6 p-6 flex flex-col items-start celular:w-full celular:text-center celular:items-center">
+    <div
+      class="w-2/6 p-6 flex flex-col items-start celular:w-full celular:text-center celular:items-center"
+    >
       <h2 class="text-3xl text-verdeClaro font-bold mb-5">NOSOTROS</h2>
       <p class="text-xl text-white mb-5 celular:w-4/5">
         En <span class="font-bold">Somi Packaging</span>, transformamos ideas en
         productos tangibles y personalizados.
       </p>
       <p class="text-xl text-white celular:w-4/5">
-        Ofrecemos servicios de impresión, fabricación de empaques y merchandising,
-        asegurando que cada creación <span class="font-bold">refleje la identidad y esencia de nuestros clientes.</span>
+        Ofrecemos servicios de impresión, fabricación de empaques y
+        merchandising, asegurando que cada creación <span class="font-bold"
+          >refleje la identidad y esencia de nuestros clientes.</span
+        >
       </p>
     </div>
-    
-  
+
     <!-- Sección de Video (60%) -->
     <div class="w-3/6 flex justify-center celular:w-full">
       <video autoplay loop muted class="w-full h-full object-contain">
-        <source src="/public/Nosotros-video.mp4" type="video/mp4" />
+        <source src="./Nosotros-video.mp4" type="video/mp4" />
         Tu navegador no soporta videos.
       </video>
     </div>
   </section>
-  
 
   <section
     class="flex w-full py-10 escritorio:m-7 celular:flex-col celular:items-center"
@@ -145,19 +148,32 @@ import ValoresOptions from "../assets/ValoresOptions.js";
     <div
       class="mx-auto w-4/5 flex justify-between items-center text-center celular:flex-col celular:w-full"
     >
-    <div class="flex justify-center items-start gap-10 text-center celular:flex-col celular:items-center">
-      {ValoresOptions.map((valores) => (
-        <div class="flex flex-col items-center w-1/3 celular:w-full">
-          <div class="flex items-center space-x-2">
-            <span class="text-red-500 text-lg font-bold">{valores.numero}.</span>
-            <div class="bg-gray-100 rounded-full p-2 w-10 h-10 flex items-center justify-center">
-              <img src={valores.icon} alt="Icono" class="w-6 h-6 object-contain" />
+      <div
+        class="flex justify-center items-start gap-10 text-center celular:flex-col celular:items-center"
+      >
+        {
+          ValoresOptions.map((valores) => (
+            <div class="flex flex-col items-center w-1/3 celular:w-full">
+              <div class="flex items-center space-x-2">
+                <span class="text-red-500 text-lg font-bold">
+                  {valores.numero}.
+                </span>
+                <div class="bg-gray-100 rounded-full p-2 w-10 h-10 flex items-center justify-center">
+                  <img
+                    src={valores.icon}
+                    alt="Icono"
+                    class="w-6 h-6 object-contain"
+                  />
+                </div>
+              </div>
+              <h3 class="mt-4 text-lg font-semibold">{valores.title}</h3>
+              <p class="text-gray-600 mt-3 text-sm max-w-xs">
+                {valores.description}
+              </p>
             </div>
-          </div>
-          <h3 class="mt-4 text-lg font-semibold">{valores.title}</h3>
-          <p class="text-gray-600 mt-3 text-sm max-w-xs">{valores.description}</p>
-        </div>
-      ))}
+          ))
+        }
+      </div>
     </div>
   </section>
 </main>
