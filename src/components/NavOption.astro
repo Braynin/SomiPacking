@@ -3,7 +3,12 @@ const { label } = Astro.props;
 const pathname: string = Astro.url.pathname;
 
 // Genera dinámicamente el path basado en el label
-const path = label === "Inicio" ? "/" : `/${label.replace(/\s+/g, "-")}`;
+const path =
+  label === "Inicio"
+    ? "/"
+    : label === "Contacto"
+      ? "/contacto"
+      : `/${label.replace(/\s+/g, "-")}`;
 
 // Aplica clases activas si el pathname es "/" (inicio) o coincide con el path generado
 const isActive = pathname === path || (label === "Inicio" && pathname === "/");

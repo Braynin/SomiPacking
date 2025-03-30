@@ -1,0 +1,52 @@
+---
+import NavOption from "./NavOption.astro";
+import DropDownOption from "./DropDownOption.astro";
+import ServiciosOptions from "../assets/ServiciosOptions.js";
+---
+
+<div class="w-5/12 flex justify-around items-center celular:flex-col">
+  <NavOption label="Inicio" />
+  {
+    ServiciosOptions.map((servicio) => (
+      <div class="py-4 relative inline-block group">
+        <NavOption label={servicio.title} />
+        <div
+          id="dropdownMenu"
+          class="hidden group-hover:block absolute bg-white top-2 left-0 celular:-left-4 shadow-lg min-w-48 rounded-lg py-2 translate-y-2 group-hover:opacity-100 group-hover:translate-y-12 z-50 celular:!block celular:!static celular:!translate-y-0"
+        >
+          {servicio.products.map((product) => (
+            <DropDownOption label={product.title} servicio={servicio.title} />
+          ))}
+        </div>
+      </div>
+    ))
+  }
+  <NavOption label="Nepe" />
+</div>
+<script is:inline>
+  document.querySelectorAll("a[data-servicio]").forEach((link) => {
+    link.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      const servicio = this.getAttribute("data-servicio");
+      const label = this.getAttribute("data-label").replace(/\s+/g, "-");
+      const currentPath = window.location.pathname.replace(/\s+/g, "-");
+
+      if (currentPath.includes(servicio)) {
+        const targetSection = document.getElementById(
+          label.replace(/\s+/g, "-")
+        );
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: "smooth" });
+          // Cambiar la URL sin recargar la página
+          const newUrl = `/${servicio}#${label.replace(/\s+/g, "-")}`;
+          window.history.pushState({ path: newUrl }, "", newUrl);
+        } else {
+          console.log("No se encontró la sección:", label);
+        }
+      } else {
+        window.location.href = `/${servicio}#${label.replace(/\s+/g, "-")}`;
+      }
+    });
+  });
+</script>
