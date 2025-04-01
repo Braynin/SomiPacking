@@ -24,3 +24,6 @@ h5,
 h6 {
   @apply gabarito-font;
 }
+html {
+  scroll-behavior: smooth;
+}
