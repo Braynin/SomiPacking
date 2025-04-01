@@ -1,13 +1,15 @@
 <!-- Contenedor del botón flotante -->
-<div class="fixed bottom-4 right-4 flex flex-col items-end z-50">
+<div
+  class="fixed bottom-4 right-4 flex flex-col celular:flex-row items-end z-50"
+>
   <!-- Mensaje y flecha animada -->
   <div id="whatsapp-actionCall" class="mb-2 flex flex-col items-center">
     <span
-      class="text-white bg-[#25D366] px-5 py-2 rounded-full shadow-lg text-2xl font-bold"
+      class="text-white bg-[#25D366] px-5 py-2 celular:mb-10 rounded-full shadow-lg text-lg font-bold"
       >Cotiza Ahora !!</span
     >
     <svg
-      class="w-8 h-8 text-[#25D366] animate-bounce mt-3 ml-20"
+      class="w-8 h-8 text-[#25D366] animate-bounce mt-3 ml-20 celular:hidden"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
@@ -23,7 +25,7 @@
   <!-- Botón de WhatsApp -->
   <button
     id="whatsapp-button"
-    class="bg-white p-3 rounded-full shadow-lg hover:bg-[#1EBE57] transition-all flex items-center justify-center w-28 h-28"
+    class="bg-white p-3 rounded-full shadow-lg hover:bg-[#1EBE57] transition-all flex items-center justify-center w-28 h-28 celular:w-20 celular:h-20"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +42,7 @@
   <!-- Burbuja de chat -->
   <div
     id="whatsapp-chat"
-    class="hidden bg-white shadow-lg rounded-lg w-96 h-72 border border-[#25D366]"
+    class="hidden bg-white shadow-lg rounded-lg w-96 h-72 celular:w-80 celular:h-60 border border-[#25D366]"
   >
     <!-- Encabezado con logo y botón de cerrar -->
     <div
