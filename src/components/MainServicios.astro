@@ -1,90 +1,92 @@
 ---
+// MainServicios.astro
 const { servicio } = Astro.props;
-
 import ServiciosOptions from "../assets/ServiciosOptions.js";
 import ModalImage from "./ModalImage.astro";
+import ModalProduct from "./ModalProduct.astro";
 
 const servicioData = ServiciosOptions.find((s) => s.href === servicio);
 ---
-
-<main class=" w-full bg-white">
+<main class="w-full bg-white">
   {servicioData ? (
     <>
-      <video src={servicioData.video} loop autoplay muted class="w-full min-h-screen celular:min-h-0 pt-20"></video>
+      <!-- Video de fondo del servicio -->
+      <video 
+        src={servicioData.video} 
+        loop 
+        autoplay 
+        muted 
+        class="w-full min-h-screen celular:min-h-0 pt-20"
+      ></video>
 
-      <section class="w-full py-10 flex flex-col items-center ">
+      <!-- Sección de Servicios -->
+      <section class="w-full py-10 flex flex-col items-center">
         <h2 class="text-5xl font-bold mb-10 text-center">Nuestros Servicios</h2>
         <div class="flex w-2/3 justify-between celular:w-10/12 celular:flex-col celular:gap-10 celular:items-center">
           {servicioData.products.map((product) => (
-            <div class=" w-64 h-64 cursor-pointer">
-                <a href={`#${product.title.replace(/\s+/g, "-")}`} class="flex flex-col items-center justify-center">
-                  <img src={product.icon} alt={`icon-${product.title}`} class="w-60 h-60" />
-                  <p class="mt-2 text-lg font-semibold ">{product.title}</p>
-              </a>  
+            <div class="w-64 h-64 cursor-pointer">
+              <a 
+                href={`#${product.title.replace(/\s+/g, "-")}`} 
+                class="flex flex-col items-center justify-center"
+              >
+                <img 
+                  src={product.icon} 
+                  alt={`icon-${product.title}`} 
+                  class="w-60 h-60" 
+                />
+                <p class="mt-2 text-lg font-semibold">{product.title}</p>
+              </a>
             </div>
           ))}
         </div>
       </section>
 
-      <!-- Sección de productos con límite de 8 y botón "Ver más" -->
+      <!-- Sección de Productos -->
       <section class="w-full py-10 flex flex-col items-center border-t-4 border-verdeClaro bg-white">
         <h2 class="text-5xl font-bold mb-10 text-center celular:mb-5">Productos</h2>
         <div class="w-full flex flex-col items-center justify-center">
           {servicioData.products.map((product) => {
-            // Si hay más de 8 variantes, mostraremos solo las primeras 8 a la vista
             const totalVariants = product.variants.length;
             return (
               <>
-                <h3 id={product.title.replace(/\s+/g, "-")} class="text-4xl font-bold mt-16 text-center uppercase border-b-4 border-verdeClaro">
+                <h3 
+                  id={product.title.replace(/\s+/g, "-")} 
+                  class="text-4xl font-bold mt-16 text-center uppercase border-b-4 border-verdeClaro"
+                >
                   {product.title}
                 </h3>
-                <p class="w-1/3 my-16  text-2xl text-center celular:w-10/12 celular:text-lg celular:my-8">{product.longDescription}</p>
+                <p class="w-1/3 my-16 text-2xl text-center celular:w-10/12 celular:text-lg celular:my-8">
+                  {product.longDescription}
+                </p>
 
                 <div class="w-2/3 flex flex-wrap gap-10 justify-center">
                   {product.variants.map((variant, index) => (
-                    <div
-                      class={`product-card w-64 h-80 cursor-pointer relative overflow-hidden 
-                        ${index >= 5 ? "hidden" : ""} 
-                      `}
+                    // Se envuelve cada variante en ModalProduct para abrir el modal con sus detalles.
+                    <ModalProduct 
                       data-product={product.title}
+                      className={`p-4  w-64 h-80 relative overflow-hidden ${index >= 5 ? "hidden" : ""}`}
+                      variant={variant}
                     >
                       <div class="absolute inset-0 flex flex-col items-center justify-center">
-                        <img
-                          src={variant.image}
-                          alt={`imagen-${product.title}`}
-                          class="w-full h-auto object-cover"
+                        <img 
+                          src={variant.image} 
+                          alt={`imagen-${product.title}`} 
+                          class="w-full h-auto object-cover" 
                         />
-                        <p class="mt-2 text-lg font-semibold text-black">{variant.title}</p>
+                        <p class="mt-2 text-lg font-semibold text-black">
+                          {variant.title}
+                        </p>
                       </div>
-
-                      {variant.caracteristicas && variant.caracteristicas.length > 0 && (
-                        <div class="description-container absolute inset-0 flex flex-col justify-center items-center bg-verdeClaro border-2 border-black rounded-lg px-8 transform translate-y-full transition-transform duration-500">
-                          <ol class="list-disc list-outside">
-                            {variant.caracteristicas.map((caracteristica) => {
-                              if (typeof caracteristica === "string") {
-                                return <li class="mb-2 last-of-type:mb-0">{caracteristica}</li>;
-                              }
-                              if (caracteristica.type === "image") {
-                                return (
-                                  <li class="list-none">
-                                    <ModalImage src={caracteristica.src} alt="tabla de medidas" className="max-w-full" />
-                                  </li>
-                                );
-                              }
-                              return null;
-                            })}
-                          </ol>
-                        </div>
-                      )}
-                    </div>
+                    </ModalProduct>
                   ))}
                 </div>
 
-                {/* Botón para ver más/ver menos */}
-                {totalVariants >= 5 && (
+                {/* Botón para ver más/ver menos variantes */}
+                {totalVariants > 5 && (
                   <button
                     class="ver-mas-btn mt-4 px-4 py-2 bg-verdeClaro rounded hover:bg-verdeLimon hover:text-white transition-colors duration-300"
                     data-product={product.title}
+                    onclick="toggleVariants(this)"
                   >
                     Ver más
                   </button>
@@ -92,7 +94,7 @@ const servicioData = ServiciosOptions.find((s) => s.href === servicio);
               </>
             );
           })}
-        </div> 
+        </div>
       </section>
     </>
   ) : (
@@ -101,50 +103,30 @@ const servicioData = ServiciosOptions.find((s) => s.href === servicio);
 </main>
 
 <script is:inline>
-
-
-  document.addEventListener("DOMContentLoaded", () => {
-    // Animación de los Productos
-    function toggleDescription(event) {
-      const description = event.currentTarget.querySelector(".description-container");
-      description.classList.toggle("translate-y-0");
-      description.classList.toggle("translate-y-full");
-    }
-
-    document.querySelectorAll(".product-card").forEach((card) => {
-      card.addEventListener("click", toggleDescription);
-    });
-
-    // Lógica para ver más/ver menos
-    document.querySelectorAll(".ver-mas-btn").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const productTitle = btn.dataset.product;
-        const productCards = document.querySelectorAll(`.product-card[data-product="${productTitle}"]`);
-        // Si está en modo "ver más", mostrar todo, si no, ocultar de nuevo
-        const isExpanded = btn.textContent.trim() === "Ver menos";
-        
-        if (!isExpanded) {
-          // Mostrar todas
-          productCards.forEach((card) => card.classList.remove("hidden"));
-          btn.textContent = "Ver menos";
-        } else {
-          // Ocultar desde el 8 en adelante
-          productCards.forEach((card, index) => {
-            if (index >= 5) {
-              card.classList.add("hidden");
-            }
-          });
-          btn.textContent = "Ver más";
+  // Función para el botón de ver más/ver menos variantes
+  function toggleVariants(btn) {
+    const productTitle = btn.getAttribute('data-product');
+    // Selecciona todos los ModalProduct que tengan el atributo data-product con el valor del producto
+    const productCards = document.querySelectorAll(`div[data-product="${productTitle}"]`);
+    const isExpanded = btn.textContent.trim() === "Ver menos";
+    if (!isExpanded) {
+      productCards.forEach(card => card.classList.remove("hidden"));
+      btn.textContent = "Ver menos";
+    } else {
+      let count = 0;
+      productCards.forEach(card => {
+        count++;
+        if (count > 5) {
+          card.classList.add("hidden");
         }
       });
-    });
-  });
+      btn.textContent = "Ver más";
+    }
+  }
 </script>
 
 <style>
-
-/* Ocultar elementos extra */
-.hidden {
-  display: none;
-}
+  .hidden {
+    display: none;
+  }
 </style>
