@@ -93,7 +93,7 @@ const ImprentaProducts = [
       },
       {
         title: "Stickers",
-        image: "",
+        image: "Stickers(2).png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: [
           "Material: vinilo adhesivo blanco o transparente",
@@ -103,12 +103,12 @@ const ImprentaProducts = [
       },
       {
         title: "Folders",
-        image: "",
+        image: "Folders.png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: [
           "Material: foldcote, dúplex",
           "Impresión: offset o digital de alta resolución.",
-          "Encuadernado con espiral metálico, anillado o cosido",
+          "Acabado: plastificado mate o brillante.",
         ],
       },
     ],
