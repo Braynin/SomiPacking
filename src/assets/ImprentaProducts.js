@@ -93,7 +93,7 @@ const ImprentaProducts = [
       },
       {
         title: "Stickers",
-        image: "",
+        image: "Stickers (2).png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: [
           "Material: vinilo adhesivo blanco o transparente",
@@ -103,12 +103,22 @@ const ImprentaProducts = [
       },
       {
         title: "Folders",
-        image: "",
+        image: "Folders.png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: [
           "Material: foldcote, dúplex",
           "Impresión: offset o digital de alta resolución.",
-          "Encuadernado con espiral metálico, anillado o cosido",
+          "Acabado: plastificado mate o brillante.",
+        ],
+      },
+      {
+        title: "Precinto de Seguridad",
+        image: "",
+        description: "Bolsa de diferentes tamaños y colores.",
+        caracteristicas: [
+          "Material: vinilo adhesivo blanco o transparente",
+          "Impresión: offset o digital de alta resolución.",
+          " Acabado: tinta resistente al agua y rayones. Plastificado mate o brillante.",
         ],
       },
     ],
@@ -126,9 +136,11 @@ const ImprentaProducts = [
         image: "Merchandising-Corporativo.png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: [
-          "Caracteristica 1",
-          "Caracteristica 2",
-          "Caracteristica 3",
+          "Agendas, cuadernos, blocs de notas.",
+          "Bolígrafos, lapiceros personalizados",
+          "Termos, tazas y botellas.",
+          "USB personalizados",
+          "Mochilas, maletines y porta documentos",
         ],
       },
       {
@@ -136,9 +148,10 @@ const ImprentaProducts = [
         image: "Merchandising-Deportivo.png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: [
-          "Caracteristica 1",
-          "Caracteristica 2",
-          "Caracteristica 3",
+          "Camisetas y uniformes deportivos",
+          "Balones personalizados",
+          "Toallas con logo",
+          "Botellas deportivas"
         ],
       },
       {
@@ -146,9 +159,9 @@ const ImprentaProducts = [
         image: "Merchandising-Ecológico.png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: [
-          "Caracteristica 1",
-          "Caracteristica 2",
-          "Caracteristica 3",
+          "Bolsas reutilizables",
+          "Cuadernos de cartón reciclado.",
+          "Lapiceros de bambú",
         ],
       },
       {
@@ -156,9 +169,11 @@ const ImprentaProducts = [
         image: "Merchandising-Eventos.png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: [
-          "Caracteristica 1",
-          "Caracteristica 2",
-          "Caracteristica 3",
+          "Credenciales y lanyards",
+          "Pulseras identificativas",
+          "Globos y pancartas",
+          "Pines",
+          "Gafetes con imán o gancho"
         ],
       },
       {
@@ -166,9 +181,10 @@ const ImprentaProducts = [
         image: "Merchandising-Tecnológico.png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: [
-          "Caracteristica 1",
-          "Caracteristica 2",
-          "Caracteristica 3",
+          "Audífonos y parlantes Bluetooth",
+          "Mousepads personalizados",
+          "Soportes para celulares",
+          "Llaveros con linterna o multifuncionales"
         ],
       },
       {
@@ -176,9 +192,10 @@ const ImprentaProducts = [
         image: "Merchandising-Textil.png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: [
-          "Caracteristica 1",
-          "Caracteristica 2",
-          "Caracteristica 3",
+          "Polos, camisas, chalecos.",
+          "Gorros, gorras, viseras",
+          "Buzos, casacas, chaquetas",
+          "Delantales y uniformes",
         ],
       },
     ],
