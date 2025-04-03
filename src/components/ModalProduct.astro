@@ -1,0 +1,85 @@
+---
+const { className = "", variant, ...rest } = Astro.props;
+const variantJSON = JSON.stringify(variant);
+---
+
+<div
+  {...rest}
+  class={`cursor-pointer ${className}`}
+  onclick="openModalProduct(this)"
+  data-variant={variantJSON}
+>
+  <slot />
+</div>
+
+<script is:inline>
+  function openModalProduct(element) {
+    const variant = JSON.parse(element.getAttribute("data-variant"));
+
+    // Creamos el overlay
+    const overlay = document.createElement("div");
+    overlay.style.position = "fixed";
+    overlay.style.top = "0";
+    overlay.style.left = "0";
+    overlay.style.width = "100vw";
+    overlay.style.height = "100vh";
+    overlay.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+    overlay.style.display = "flex";
+    overlay.style.alignItems = "center";
+    overlay.style.justifyContent = "center";
+    overlay.style.zIndex = "9999";
+
+    // Creamos el contenedor del modal
+    const modal = document.createElement("div");
+    modal.style.width = "80%";
+    modal.style.maxWidth = "600px";
+    modal.style.padding = "20px";
+    modal.style.backgroundColor = "white";
+    modal.style.borderRadius = "8px";
+    modal.style.boxShadow = "0px 0px 10px rgba(0, 0, 0, 0.2)";
+
+    // Construimos el contenido dinámico del modal
+    let contentHTML = `<h2 style="margin-bottom:16px;">Detalles: ${variant.title || ""}</h2>`;
+    if (variant.caracteristicas && variant.caracteristicas.length > 0) {
+      contentHTML += `<ol style="margin-bottom:16px;">`;
+      variant.caracteristicas.forEach((carac) => {
+        if (typeof carac === "string") {
+          contentHTML += `<li style="margin-bottom:8px;">${carac}</li>`;
+        } else if (carac.type === "image" && carac.src) {
+          contentHTML += `<li style="margin-bottom:8px;"><img src="${carac.src}" alt="Característica" style="max-width:100%;" /></li>`;
+        }
+      });
+      contentHTML += `</ol>`;
+    } else {
+      contentHTML += `<p>No hay características disponibles.</p>`;
+    }
+    modal.innerHTML = contentHTML;
+
+    // Creamos el botón de cerrar y le asignamos su event listener
+    const closeButton = document.createElement("button");
+    closeButton.textContent = "Cerrar";
+    closeButton.style.padding = "8px 16px";
+    closeButton.style.background = "#25D366";
+    closeButton.style.color = "white";
+    closeButton.style.border = "none";
+    closeButton.style.borderRadius = "4px";
+    closeButton.style.cursor = "pointer";
+    closeButton.style.marginTop = "16px";
+    closeButton.addEventListener("click", (e) => {
+      e.stopPropagation(); // Evita que el clic se propague al overlay
+      document.body.removeChild(overlay);
+    });
+    modal.appendChild(closeButton);
+
+    overlay.appendChild(modal);
+
+    // Cierra el modal al hacer clic fuera del contenido
+    overlay.addEventListener("click", (event) => {
+      if (event.target === overlay) {
+        document.body.removeChild(overlay);
+      }
+    });
+
+    document.body.appendChild(overlay);
+  }
+</script>
