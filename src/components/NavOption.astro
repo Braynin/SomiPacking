@@ -1,5 +1,6 @@
 ---
 const { label } = Astro.props;
+const pathname: string = Astro.url.pathname;
 
 // Genera dinámicamente el path basado en el label
 const path =
@@ -9,16 +10,12 @@ const path =
       ? "/contacto"
       : `/${label.replace(/\s+/g, "-")}`;
 
-// Verifica la ruta actual en el navegador
-const isBrowser = typeof window !== "undefined";
-const isActive =
-  isBrowser &&
-  (window.location.pathname.toLowerCase() === path.toLowerCase() ||
-    (label === "Inicio" && window.location.pathname === "/"));
+// Aplica clases activas si el pathname es "/" (inicio) o coincide con el path generado
+const isActive = pathname === path || (label === "Inicio" && pathname === "/");
 ---
 
 <a
-  class={`font-bold py-4 text-black text-2xl hover:text-verdeOscuro ${
+  class={`font-bold py-4 text-black text-2xl  hover:text-verdeOscuro   ${
     isActive ? "border-b-2 border-verdeOscuro" : ""
   }`}
   href={path}
