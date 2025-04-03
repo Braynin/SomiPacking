@@ -7,7 +7,7 @@ const path =
     ? "/"
     : label === "Contacto"
       ? "/contacto"
-      : `/${label.replace(/\s+/g, "-").toLowerCase()}`;
+      : `/${label.replace(/\s+/g, "-")}`;
 
 // Verifica la ruta actual en el navegador
 const isBrowser = typeof window !== "undefined";
