@@ -13,8 +13,11 @@ const PackagingProducts = [
 
         caracteristicas: [
           "Material: Papel Kraft",
-          "Medida Personalizada",
+          "Asa: twtis pegada con refuerzo interno",
           "Impresión offset o serigrafía",
+          "Gramaje: 100 gr a 180 gr (según la resistencia requerida)",
+          "Usos: delivery de comida,tiendas de ropa, boutiques,panaderías y más.",
+          "Medida personalizada"
         ],
       },
       {
@@ -22,9 +25,11 @@ const PackagingProducts = [
         image: "Bolsa asa troquel.png",
 
         caracteristicas: [
-          "Material: Papel Kraft, Linner o Cartulina Foldcote",
+          "Material: kraft, bond, couche,foldcote",
+          "Asa: troquelada directamente en la bolsa",
+          "Impresión: offset, serigrafía ohot stamping (acabadospremium)",
+          "Usos: tiendas de ropa, calzado y accesorios, delivery",
           "Medida Personalizada",
-          "Impresión offset o serigrafía",
         ],
       },
       {
@@ -32,10 +37,11 @@ const PackagingProducts = [
         image: "Bolsa con asa cordón.png",
 
         caracteristicas: [
-          "Material: Cartulina Duplex o Linner",
-          "Medida Personalizada",
+          "Material: Couche o foldcote",
+          "Asa: cordón de algodón o nylon,anudadas o sujetas con remaches metálicos.",
           "Plastificado",
-          "Impresión offset o serigrafía",
+          "Impresión: Offset, serigrafía, hotstamping o UV para acabados de lujo.",
+          "Medida Personalizada",
         ],
       },
       {
@@ -43,6 +49,9 @@ const PackagingProducts = [
         image: "Bolsas kraft sin asa.png",
 
         caracteristicas: [
+          "Material: kraft natural ",
+          "Impresión: serigrafía oflexografía",
+          "Usos: alimentos (delivery decomida, panadería y pastelería),farmacias, tiendas minoristas(empaque ropa, accesorios oregalos)",
           {
             type: "image",
             src: "tabla-bolsas-kraft.webp",
@@ -55,9 +64,11 @@ const PackagingProducts = [
         image: "Bolsa para vino.png",
 
         caracteristicas: [
-          "Material: Papel Kraft o Linner",
-          "Medida Personalizada",
+          "Material: Kraft, couche laminado",
+          "Asa: cordón, cinta o troquelada",
+          "Refuerzo en la base",
           "Impresión offset o serigrafía",
+          "Usos: regalos corporativos,tiendas de licorería, restaurantes"
         ],
       },
       {
