@@ -1,20 +1,42 @@
 ---
 const { classList, imageColor } = Astro.props;
-const imagePath = `/icons/${imageColor || "dark"}`; 
+const imagePath = `/icons/${imageColor || "dark"}`;
 // Si no se pasa imageColor, por defecto usa "light"
 ---
 
-<div class={`flex justify-center celular:flex flex-row celular:gap-5 ${classList || ""}`}>
-  <a href="https://www.facebook.com/Somipacking/" target="_blank" rel="noopener noreferrer" class="mb-2 no-underline w-6 h-6">
+<div
+  class={`flex justify-center celular:flex flex-row celular:gap-5 ${classList || ""}`}
+>
+  <a
+    href="https://www.facebook.com/Somipacking/"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="mb-2 no-underline w-6 h-6"
+  >
     <img src={`${imagePath}/facebook.png`} alt="Facebook" class="w-6 h-6" />
   </a>
-  <a href="https://www.instagram.com/Somipacking?fbclid=IwY2xjawJXgXJleHRuA2FlbQIxMAABHalrKFm-JB71xSE56t8DazIywFFlnuVCOwofdD5vlKvcPNc8gfX4S9LO9Q_aem_m7X9LNDRKovl97kfR2YNMA" target="_blank" rel="noopener noreferrer" class="mb-2 no-underline w-6 h-6">
+  <a
+    href="https://www.instagram.com/Somipacking?fbclid=IwY2xjawJXgXJleHRuA2FlbQIxMAABHalrKFm-JB71xSE56t8DazIywFFlnuVCOwofdD5vlKvcPNc8gfX4S9LO9Q_aem_m7X9LNDRKovl97kfR2YNMA"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="mb-2 no-underline w-6 h-6"
+  >
     <img src={`${imagePath}/instagram.png`} alt="Instagram" class="w-6 h-6" />
   </a>
-  <a href="www.linkedin.com/in/somipackaging" target="_blank" rel="noopener noreferrer" class="mb-1 no-underline w-6 h-6">
+  <a
+    href="https://www.linkedin.com/in/somipackaging"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="mb-1 no-underline w-6 h-6"
+  >
     <img src={`${imagePath}/linkedin.png`} alt="LinkedIn" class="w-6 h-6" />
   </a>
-  <a href="https://www.tiktok.com/@somipacking?_t=ZM-8v0aACN32Bj&_r=1" target="_blank" rel="noopener noreferrer" class="mb-1 no-underline w-6 h-6">
+  <a
+    href="https://www.tiktok.com/@somipacking?_t=ZM-8v0aACN32Bj&_r=1"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="mb-1 no-underline w-6 h-6"
+  >
     <img src={`${imagePath}/tiktok.png`} alt="TikTok" class="w-6 h-6" />
   </a>
 </div>

@@ -6,10 +6,12 @@ const {
 ---
 
 <section class="w-full h-full flex items-center justify-center">
-  <div class="bg-black bg-opacity-80 p-6 rounded-lg celular:rounded-none w-full text-white">
+  <div
+    class="bg-black bg-opacity-80 p-6 rounded-lg celular:rounded-none w-full text-white"
+  >
     <h2 class="text-4xl text-verdeClaro">{titulo}</h2>
     <p class="text-xl">{texto}</p>
-    <form>
+    <form id="contactForm">
       <input
         type="text"
         placeholder="Nombres y Apellidos"
@@ -25,11 +27,26 @@ const {
         placeholder="Teléfono"
         class="w-full p-2 my-2 border text-black border-gray-300 rounded text-xl"
       />
-
       <button
+        type="submit"
         class="w-64 border-4 text-2xl border-verdeOscuro bg-verdeClaro p-2 my-2 mx-auto rounded font-bold text-verdeOscuro hover:bg-transparent hover:text-verdeClaro hover:border-verdeClaro transition-colors duration-300"
-        >ENVIAR</button
       >
+        ENVIAR
+      </button>
     </form>
   </div>
 </section>
+
+<script is:inline>
+  const form = document.getElementById("contactForm");
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const nombre = form.querySelector('input[type="text"]').value;
+    const email = form.querySelector('input[type="email"]').value;
+    const telefono = form.querySelector('input[type="tel"]').value;
+    const mensaje = `Hola, me gustaría contactarme contigo.\nMi nombre es ${nombre}.\nMi correo es ${email} y mi teléfono es ${telefono}.\n¡Espero tu respuesta, gracias!`;
+    const whatsappUrl =
+      "https://wa.me/51924725290?text=" + encodeURIComponent(mensaje);
+    window.open(whatsappUrl, "_blank");
+  });
+</script>
