@@ -93,7 +93,7 @@ const ImprentaProducts = [
       },
       {
         title: "Stickers",
-        image: "Stickers(2).png",
+        image: "Stickers (2).png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: [
           "Material: vinilo adhesivo blanco o transparente",
