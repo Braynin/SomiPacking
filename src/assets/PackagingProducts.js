@@ -76,9 +76,20 @@ const PackagingProducts = [
         image: "Bolsa portacubierto.png",
 
         caracteristicas: [
-          "Material: Papel Kraft",
-          "Medida 8 x 28 / 7 x 25 cm",
-          "Impresión o serigrafía",
+          "Material: couche o foldcote, kraft,bond o couche",
+          "Impresión: serigrafía o flexografía",
+          "Usos: catering, eventos,restaurantes, cafeterías, bares",
+          "Medida: 10 x 28 cm, 8 x 28 cm y 7 x25 cm"
+        ],
+      },
+      {
+        title: "Bolsa Kraft delivery ",
+        image: "",
+
+        caracteristicas: [
+          "Material: papel Kraft",
+          "Medida: 36 x 28 x 18 cm",
+          "Personalización conserigrafía ",
         ],
       },
       {
