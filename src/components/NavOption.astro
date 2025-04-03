@@ -11,7 +11,9 @@ const path =
       : `/${label.replace(/\s+/g, "-")}`;
 
 // Aplica clases activas si el pathname es "/" (inicio) o coincide con el path generado
-const isActive = pathname === path || (label === "Inicio" && pathname === "/");
+const isActive =
+  pathname.toLowerCase() === path.toLowerCase() ||
+  (label === "Inicio" && pathname === "/");
 ---
 
 <a
