@@ -1,4 +1,5 @@
 ---
+// ModalProduct.astro
 const { className = "", variant, ...rest } = Astro.props;
 const variantJSON = JSON.stringify(variant);
 ---
@@ -16,7 +17,7 @@ const variantJSON = JSON.stringify(variant);
   function openModalProduct(element) {
     const variant = JSON.parse(element.getAttribute("data-variant"));
 
-    // Creamos el overlay
+    // Creamos el overlay con estilo inicial de opacidad 0
     const overlay = document.createElement("div");
     overlay.style.position = "fixed";
     overlay.style.top = "0";
@@ -28,8 +29,10 @@ const variantJSON = JSON.stringify(variant);
     overlay.style.alignItems = "center";
     overlay.style.justifyContent = "center";
     overlay.style.zIndex = "9999";
+    overlay.style.opacity = "0";
+    overlay.style.transition = "opacity 0.3s ease";
 
-    // Creamos el contenedor del modal
+    // Creamos el contenedor del modal con transición suave
     const modal = document.createElement("div");
     modal.style.width = "80%";
     modal.style.maxWidth = "600px";
@@ -37,6 +40,9 @@ const variantJSON = JSON.stringify(variant);
     modal.style.backgroundColor = "white";
     modal.style.borderRadius = "8px";
     modal.style.boxShadow = "0px 0px 10px rgba(0, 0, 0, 0.2)";
+    modal.style.transform = "translateY(-20px)";
+    modal.style.opacity = "0";
+    modal.style.transition = "opacity 0.3s ease, transform 0.3s ease";
 
     // Construimos el contenido dinámico del modal
     let contentHTML = `<h2 style="margin-bottom:16px;">Detalles: ${variant.title || ""}</h2>`;
@@ -55,7 +61,7 @@ const variantJSON = JSON.stringify(variant);
     }
     modal.innerHTML = contentHTML;
 
-    // Creamos el botón de cerrar y le asignamos su event listener
+    // Creamos el botón de cerrar
     const closeButton = document.createElement("button");
     closeButton.textContent = "Cerrar";
     closeButton.style.padding = "8px 16px";
@@ -66,8 +72,13 @@ const variantJSON = JSON.stringify(variant);
     closeButton.style.cursor = "pointer";
     closeButton.style.marginTop = "16px";
     closeButton.addEventListener("click", (e) => {
-      e.stopPropagation(); // Evita que el clic se propague al overlay
-      document.body.removeChild(overlay);
+      e.stopPropagation();
+      // Transición de salida
+      modal.style.opacity = "0";
+      overlay.style.opacity = "0";
+      setTimeout(() => {
+        document.body.removeChild(overlay);
+      }, 300);
     });
     modal.appendChild(closeButton);
 
@@ -76,10 +87,21 @@ const variantJSON = JSON.stringify(variant);
     // Cierra el modal al hacer clic fuera del contenido
     overlay.addEventListener("click", (event) => {
       if (event.target === overlay) {
-        document.body.removeChild(overlay);
+        modal.style.opacity = "0";
+        overlay.style.opacity = "0";
+        setTimeout(() => {
+          document.body.removeChild(overlay);
+        }, 300);
       }
     });
 
     document.body.appendChild(overlay);
+
+    // Forzamos el reflow y luego cambiamos la opacidad y posición para la transición
+    requestAnimationFrame(() => {
+      overlay.style.opacity = "1";
+      modal.style.opacity = "1";
+      modal.style.transform = "translateY(0)";
+    });
   }
 </script>
