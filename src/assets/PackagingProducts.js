@@ -84,7 +84,7 @@ const PackagingProducts = [
       },
       {
         title: "Bolsa Kraft delivery ",
-        image: "",
+        image: "Bolsa-Kraft-Delivery.png",
 
         caracteristicas: [
           "Material: papel Kraft",
@@ -93,16 +93,17 @@ const PackagingProducts = [
         ],
       },
       {
-        title: "Bolsa con asa cordón",
-        image: "Bolsa con asa cordón.png",
+        title: "Porta vaso ",
+        image: "Porta vaso.png",
 
         caracteristicas: [
-          "Material: Cartulina Duplex",
-          "Medida Personalizada",
-          "Plastificado",
-          "C/S impresión",
+          "Material: linner de 275 gr",
+          "Tamaño: 22X48CM",
+          "Asa: troquelada",
+          "Practico y seguro ideal para transportar vasos de 8oz, 12oz, 16oz",
         ],
       },
+     
     ],
   },
   {
@@ -118,9 +119,12 @@ const PackagingProducts = [
         image: "Caja ecommerce -SI.png",
 
         caracteristicas: [
-          "Material: Microcorrugado, Corrugado o Foldcote",
-          "Medida Personalizada",
-          "Impresión o serigrafía",
+          "Material: cartón microcorrugado",
+          "Impresión: serigrafía u offset",
+          "Auto armable",
+          "Acabado plastificado: mate o brillante",
+          "Usos: envío de accesorios, ropa,regalos corporativos, cosméticos y más.",
+          "Medida: personalizada"
         ],
       },
       {
@@ -128,9 +132,13 @@ const PackagingProducts = [
         image: "Caja pizza.png",
 
         caracteristicas: [
-          "Material: Microcorrugado o Cartulina duplex",
-          "Medida Personalizada",
-          "Impresión o serigrafía",
+          "Material: cartón microcorrugado,foldcote",
+          "Impresión serigrafía",
+          "Auto armable",
+          "Ventilaciones troqueladas",
+          "Usos: pizzerías, food trucks y restaurantes",
+          "Medida: #18, #20, #25, #30, #35,#40, #45",
+          
         ],
       },
       {
@@ -138,10 +146,14 @@ const PackagingProducts = [
         image: "Caja tipo KFC.png",
 
         caracteristicas: [
-          "Material: Cartulina duplex",
-          "Medida Personalizada",
-          "Plastificado",
-          "C/S Impresión",
+          "Material: dúplex CL 16",
+          "Impresión: serigrafía, offset",
+          "Auto armable",
+          "Acabado plastificado",
+          "Orificios de ventilación",
+          "Barniz antigraso interno",
+          "Usos: Delivery y take-away en restaurantes de comida rápida",
+          "Medida: 19 cm x 12.5 cm, 8 cm.",
         ],
       },
       {
@@ -149,30 +161,52 @@ const PackagingProducts = [
         image: "Caja pollo.png",
 
         caracteristicas: [
-          "Material: Cartulina duplex",
-          "Medida Personalizada",
-          "Plastificado",
-          "C/S Impresión",
+          "Material: foldcote, linner",
+          "Impresión: serigrafía, offset",
+          "Auto armable",
+          "Ventilaciones troqueladas",
+          "Barniz antigraso interno",
+          "Orificios de ventilación",
+          "Usos: restaurantes de comidarápida, food trucks y catering",
+          "Personalizable",
         ],
       },
       {
         title: "Caja de hamburguesa",
         image: "Caja hamburguesa.png",
+        caracteristicas: [
+          "Material: linner",
+          "Impresión: serigrafía, offset",
+          "Auto armable",
+          "Barniz antigraso interno",
+          "Usos: restaurantes de comidarápida, food trucks y delivery",
+        ],
       },
       {
         title: "Bandeja",
         image: "Bandeja.png",
 
-        caracteristicas: ["Material: Tapa Rústica"],
+        caracteristicas: [
+          "Material: cartulina Kraft, foldcote",
+          "Impresión: serigrafía, offset",
+          "Auto armable",
+          "Barniz antigraso interno",
+          "Usos: delivery de comida",
+          "Medida: 21 cm x 4.5 cm.",
+        ],
       },
       {
         title: "Caja Cupcakes",
         image: "Caja Cupcakes.png",
 
         caracteristicas: [
-          "Material: Microcorrugado, Corrugado o Foldcote",
-          "Medida Personalizada",
-          "Impresión o serigrafía",
+          "Material: cartulina Kraft, foldcote",
+          "Impresión: serigrafía, offset",
+          "Auto armable",
+          "Acabado plastificado: mate o brillante",
+          "Divisores internos",
+          "Usos: pastelerías, reposterías, eventosy celebraciones.",
+          
         ],
       },
       {
@@ -180,10 +214,11 @@ const PackagingProducts = [
         image: "Caja torta.png",
 
         caracteristicas: [
-          "Material: Cartulina duplex",
-          "Medida Personalizada",
-          "Plastificado",
-          "C/S Impresión",
+          "Material: cartulina Kraft, foldcote",
+          "Impresión: serigrafía, offset",
+          "Auto armable",
+          "Acabado plastificado: mate o brillante",
+          "Usos: pastelerías, reposterías, eventos y celebraciones.",
         ],
       },
       {
@@ -191,9 +226,11 @@ const PackagingProducts = [
         image: "Cajas para papa.png",
 
         caracteristicas: [
-          "Material: Microcorrugado o Cartulina duplex",
-          "Medida Personalizada",
-          "Impresión o serigrafía",
+          "Material: cartulina Kraft, foldcote",
+          "Impresión: serigrafía, offset",
+          "Auto armable",
+          "Barniz antigraso interno",
+          "Usos: restaurantes de comida rápida, Food trucks y delivery"
         ],
       },
       {
@@ -201,17 +238,24 @@ const PackagingProducts = [
         image: "Caja macarrón.png",
 
         caracteristicas: [
-          "Material: Cartulina duplex",
-          "Medida Personalizada",
-          "Plastificado",
-          "C/S Impresión",
+          "Material: cartulina Kraft, foldcote, dúplex",
+          "Acabado plastificado: mate o brillante",
+          "Impresión: serigrafía, offset",
+          "Auto armable",
+          "Usos: pastelerías, reposterías, yservicios de delivery de postres gourmet.",
         ],
       },
       {
         title: "Caja de Chocolates",
         image: "Caja chocolate.png",
 
-        caracteristicas: ["Material: Tapa Rústica"],
+        caracteristicas: [
+          "Material: cartulina Kraft, foldcote, dúplex",
+          "Acabado plastificado: mate o brillante",
+          "Impresión: serigrafía, offset",
+          "Auto armable",
+          "Usos: pastelerías, reposterías, yservicios de delivery de postres gourmet.",
+        ],
       },
     ],
   },
@@ -228,9 +272,10 @@ const PackagingProducts = [
         image: "Papel manteca.png",
 
         caracteristicas: [
-          "Material: Microcorrugado, Corrugado o Foldcote",
-          "Medida Personalizada",
-          "Impresión a un color o full color",
+          "Material: papel manteca",
+          "Usos: empaque de pasteles, embalaje de alimentos fritos.",
+          "Impresión: serigrafía, offset",
+          "Personalizable",
         ],
       },
 
@@ -240,9 +285,10 @@ const PackagingProducts = [
         image: "Individuales.png",
 
         caracteristicas: [
-          "Material: Kraft o Bond",
-          "Medida Personalizada",
-          "Impresión a un color o full color",
+          "Material: papel Kraft, bond",
+          "Impresión: serigrafía, offset",
+          "Usos: restaurantes, cafeterías,catering y eventos",
+          "Personalizable",
         ],
       },
 
@@ -251,15 +297,21 @@ const PackagingProducts = [
         image: "Sobre y cono papa.png",
 
         caracteristicas: [
-          "Material: Cartulina duplex",
-          "Medida Personalizada",
-          "Plastificado",
-          "C/S Impresión",
+          "Material: papel Kraft, bond, papel manteca",
+          "Auto armable y práctico",
+          "Usos: restaurantes de comida rápida,food trucks, ferias gastronómicas y servicios de delivery.",
+          "Personalizable",
         ],
       },
       {
         title: "Posa Vasos",
         image: "Posa vasos.png",
+        caracteristicas: [
+          "Material: cartón Kraft, prensando, foldcote.",
+          "Acabado plastificado: mate o brillante",
+          "Usos: restaurantes, bares, cafeterías y eventos.",
+          "Personalizable",
+        ],
       },
     ],
   },
