@@ -12,7 +12,6 @@ const variantJSON = JSON.stringify(variant);
 >
   <slot />
 </div>
-
 <script is:inline>
   function openModalProduct(element) {
     const variant = JSON.parse(element.getAttribute("data-variant"));
@@ -58,11 +57,17 @@ const variantJSON = JSON.stringify(variant);
       contentHTML += `<ul style="margin-bottom:16px;">`;
 
       for (const [key, value] of Object.entries(variant.caracteristicas)) {
-        const label = beautifyKey(key);
-        if (typeof value === "string") {
-          contentHTML += `<li style="margin-bottom:8px;"><strong>${label}:</strong> ${value}</li>`;
-        } else if (value && value.type === "image" && value.src) {
-          contentHTML += `<li style="margin-bottom:8px;"><strong>${label}:</strong><br/><img src="${value.src}" alt="${label}" style="max-width:100%;" /></li>`;
+        // Verificamos si la clave contiene "productos"
+        if (key.toLowerCase().includes("productos")) {
+          // Si la propiedad tiene la palabra "productos", mostramos solo el valor
+          contentHTML += `<li style="margin-bottom:8px;">${value}</li>`;
+        } else {
+          const label = beautifyKey(key);
+          if (typeof value === "string") {
+            contentHTML += `<li style="margin-bottom:8px;"><strong>${label}:</strong> ${value}</li>`;
+          } else if (value && value.type === "image" && value.src) {
+            contentHTML += `<li style="margin-bottom:8px;"><strong>${label}:</strong><br/><img src="${value.src}" alt="${label}" style="max-width:100%;" /></li>`;
+          }
         }
       }
 

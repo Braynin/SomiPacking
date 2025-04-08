@@ -5,7 +5,7 @@ const ServiciosOptions = [
   {
     title: "Imprenta",
     image: "imprenta.jpeg",
-    video: "/Imprenta.-video.mp4",
+    video: "/Imprenta-video.mp4",
     description:
       "Cajas de diferentes tamaños y colores.Cajas de diferentes tamaños y colores.Cajas de diferentes tamaños y colores.Cajas de diferentes tamaños y colores.",
     href: "Imprenta",
