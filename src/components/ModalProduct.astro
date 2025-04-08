@@ -17,7 +17,6 @@ const variantJSON = JSON.stringify(variant);
   function openModalProduct(element) {
     const variant = JSON.parse(element.getAttribute("data-variant"));
 
-    // Creamos el overlay con estilo inicial de opacidad 0
     const overlay = document.createElement("div");
     overlay.style.position = "fixed";
     overlay.style.top = "0";
@@ -32,7 +31,6 @@ const variantJSON = JSON.stringify(variant);
     overlay.style.opacity = "0";
     overlay.style.transition = "opacity 0.3s ease";
 
-    // Creamos el contenedor del modal con transición suave
     const modal = document.createElement("div");
     modal.style.width = "80%";
     modal.style.maxWidth = "600px";
@@ -44,24 +42,37 @@ const variantJSON = JSON.stringify(variant);
     modal.style.opacity = "0";
     modal.style.transition = "opacity 0.3s ease, transform 0.3s ease";
 
-    // Construimos el contenido dinámico del modal
-    let contentHTML = `<h2 style="margin-bottom:16px;">Detalles: ${variant.title || ""}</h2>`;
-    if (variant.caracteristicas && variant.caracteristicas.length > 0) {
-      contentHTML += `<ol style="margin-bottom:16px;">`;
-      variant.caracteristicas.forEach((carac) => {
-        if (typeof carac === "string") {
-          contentHTML += `<li style="margin-bottom:8px;">${carac}</li>`;
-        } else if (carac.type === "image" && carac.src) {
-          contentHTML += `<li style="margin-bottom:8px;"><img src="${carac.src}" alt="Característica" style="max-width:100%;" /></li>`;
+    // 🔠 Función para convertir la clave a formato legible
+    function beautifyKey(key) {
+      return key
+        .replace(/_/g, " ") // reemplaza guiones bajos por espacios
+        .replace(/\b\w/g, (char) => char.toUpperCase()); // mayúscula inicial de cada palabra
+    }
+
+    let contentHTML = `<h2 style="margin-bottom:16px; font-size: 20px;">Detalles: ${variant.title || ""}</h2>`;
+
+    if (
+      variant.caracteristicas &&
+      typeof variant.caracteristicas === "object"
+    ) {
+      contentHTML += `<ul style="margin-bottom:16px;">`;
+
+      for (const [key, value] of Object.entries(variant.caracteristicas)) {
+        const label = beautifyKey(key);
+        if (typeof value === "string") {
+          contentHTML += `<li style="margin-bottom:8px;"><strong>${label}:</strong> ${value}</li>`;
+        } else if (value && value.type === "image" && value.src) {
+          contentHTML += `<li style="margin-bottom:8px;"><strong>${label}:</strong><br/><img src="${value.src}" alt="${label}" style="max-width:100%;" /></li>`;
         }
-      });
-      contentHTML += `</ol>`;
+      }
+
+      contentHTML += `</ul>`;
     } else {
       contentHTML += `<p>No hay características disponibles.</p>`;
     }
+
     modal.innerHTML = contentHTML;
 
-    // Creamos el botón de cerrar
     const closeButton = document.createElement("button");
     closeButton.textContent = "Cerrar";
     closeButton.style.padding = "8px 16px";
@@ -73,18 +84,16 @@ const variantJSON = JSON.stringify(variant);
     closeButton.style.marginTop = "16px";
     closeButton.addEventListener("click", (e) => {
       e.stopPropagation();
-      // Transición de salida
       modal.style.opacity = "0";
       overlay.style.opacity = "0";
       setTimeout(() => {
         document.body.removeChild(overlay);
       }, 300);
     });
-    modal.appendChild(closeButton);
 
+    modal.appendChild(closeButton);
     overlay.appendChild(modal);
 
-    // Cierra el modal al hacer clic fuera del contenido
     overlay.addEventListener("click", (event) => {
       if (event.target === overlay) {
         modal.style.opacity = "0";
@@ -97,7 +106,6 @@ const variantJSON = JSON.stringify(variant);
 
     document.body.appendChild(overlay);
 
-    // Forzamos el reflow y luego cambiamos la opacidad y posición para la transición
     requestAnimationFrame(() => {
       overlay.style.opacity = "1";
       modal.style.opacity = "1";

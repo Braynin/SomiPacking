@@ -3,259 +3,236 @@ const PackagingProducts = [
     title: "Bolsas",
     icon: "Bolsas.webp",
     image: "Bolsas.webp",
-    description: "Bolsas de diferentes tamaños y colores.",
+    description: "Bolsas de diferentes tamaños y colores.",
     longDescription:
       "Diseñadas para ofrecer resistencia y estilo. Fabricamos en diversos materiales y acabados para adaptarse a cada necesidad.",
     variants: [
       {
-        title: "Bolsa Kraft con asa twist",
+        title: "Bolsa con asa twist",
         image: "Bolsa asa twist.png",
-
-        caracteristicas: [
-          "Material: Papel Kraft",
-          "Asa: twtis pegada con refuerzo interno",
-          "Impresión offset o serigrafía",
-          "Gramaje: 100 gr a 180 gr (según la resistencia requerida)",
-          "Usos: delivery de comida,tiendas de ropa, boutiques,panaderías y más.",
-          "Medida personalizada"
-        ],
+        caracteristicas: {
+          material: "Kraft, bond o couche.",
+          asa: "Twist pegada con refuerzo interno.",
+          impresion: "Offset o serigrafía.",
+          gramaje: "100 gr a 180 gr (según la resistencia requerida).",
+          usos: "Delivery de comida, tiendas de ropa, boutiques, panaderías y más.",
+          medida: "Personalizada.",
+        },
       },
       {
         title: "Bolsa con asa troquel",
         image: "Bolsa asa troquel.png",
-
-        caracteristicas: [
-          "Material: kraft, bond, couche,foldcote",
-          "Asa: troquelada directamente en la bolsa",
-          "Impresión: offset, serigrafía ohot stamping (acabadospremium)",
-          "Usos: tiendas de ropa, calzado y accesorios, delivery",
-          "Medida Personalizada",
-        ],
+        caracteristicas: {
+          material: "Kraft, bond, couche, foldcote.",
+          asa: "Troquelada directamente en la bolsa.",
+          impresion: "Offset, serigrafía o hot stamping (acabados premium).",
+          usos: "Tiendas de ropa, calzado y accesorios, delivery.",
+          medida: "Personalizada.",
+        },
       },
       {
         title: "Bolsa con asa cordón",
         image: "Bolsa con asa cordón.png",
-
-        caracteristicas: [
-          "Material: Couche o foldcote",
-          "Asa: cordón de algodón o nylon,anudadas o sujetas con remaches metálicos.",
-          "Plastificado",
-          "Impresión: Offset, serigrafía, hotstamping o UV para acabados de lujo.",
-          "Medida Personalizada",
-        ],
+        caracteristicas: {
+          material: "Couche o foldcote.",
+          asa: "Cordón de algodón o nylon, anudadas o sujetas con remaches metálicos.",
+          plastificado: "Plastificado.",
+          impresion:
+            "Offset, serigrafía, hot stamping o UV para acabados de lujo.",
+          medida: "Personalizada.",
+        },
       },
       {
         title: "Bolsa Kraft",
         image: "Bolsas kraft sin asa.png",
-
-        caracteristicas: [
-          "Material: kraft natural ",
-          "Impresión: serigrafía oflexografía",
-          "Usos: alimentos (delivery decomida, panadería y pastelería),farmacias, tiendas minoristas(empaque ropa, accesorios oregalos)",
-          {
-            type: "image",
-            src: "tabla-bolsas-kraft.webp",
-          },
-        ],
+        caracteristicas: {
+          material: "Kraft natural.",
+          impresion: "Serigrafía o flexografía.",
+          usos: "Alimentos (delivery de comida, panadería y pastelería), farmacias, tiendas minoristas (empaque de ropa, accesorios o regalos).",
+          tabla: { type: "image", src: "tabla-bolsas-kraft.png" },
+        },
       },
-
       {
         title: "Bolsa para vino",
         image: "Bolsa para vino.png",
-
-        caracteristicas: [
-          "Material: Kraft, couche laminado",
-          "Asa: cordón, cinta o troquelada",
-          "Refuerzo en la base",
-          "Impresión offset o serigrafía",
-          "Usos: regalos corporativos,tiendas de licorería, restaurantes"
-        ],
+        caracteristicas: {
+          material: "Kraft, couche laminado.",
+          asa: "Cordón, cinta o troquelada.",
+          refuerzo: "En la base.",
+          impresion: "Offset o serigrafía.",
+          usos: "Regalos corporativos, tiendas de licorería, restaurantes.",
+        },
       },
       {
-        title: "Bolsa Portacubierto",
+        title: "Bolsa portacubierto",
         image: "Bolsa portacubierto.png",
-
-        caracteristicas: [
-          "Material: couche o foldcote, kraft,bond o couche",
-          "Impresión: serigrafía o flexografía",
-          "Usos: catering, eventos,restaurantes, cafeterías, bares",
-          "Medida: 10 x 28 cm, 8 x 28 cm y 7 x25 cm"
-        ],
+        caracteristicas: {
+          material: "Couche o foldcote, kraft, bond o couche.",
+          impresion: "Serigrafía o flexografía.",
+          usos: "Catering, eventos, restaurantes, cafeterías, bares.",
+          medida: "10 x 28 cm, 8 x 28 cm y 7 x 25 cm.",
+        },
       },
       {
-        title: "Bolsa Kraft delivery ",
+        title: "Bolsa Kraft delivery",
         image: "Bolsa-Kraft-Delivery.png",
-
-        caracteristicas: [
-          "Material: papel Kraft",
-          "Medida: 36 x 28 x 18 cm",
-          "Personalización conserigrafía ",
-        ],
+        caracteristicas: {
+          material: "Papel kraft.",
+          medida: "36 x 28 x 18 cm.",
+          personalizacion: "Con serigrafía.",
+        },
       },
       {
-        title: "Porta vaso ",
+        title: "Portavaso",
         image: "Porta vaso.png",
-
-        caracteristicas: [
-          "Material: linner de 275 gr",
-          "Tamaño: 22X48CM",
-          "Asa: troquelada",
-          "Practico y seguro ideal para transportar vasos de 8oz, 12oz, 16oz",
-        ],
+        caracteristicas: {
+          material: "Linner de 275 gr.",
+          tamaño: "22 x 48 cm.",
+          asa: "Troquelada.",
+          descripcion:
+            "Práctico y seguro. Ideal para transportar vasos de 8 oz, 12 oz, 16 oz.",
+        },
       },
-     
     ],
   },
   {
     title: "Cajas",
     icon: "Cajas.webp",
     image: "Cajas.webp",
-    description: "Cajas de diferentes tamaños y colores.",
+    description: "Cajas de diferentes tamaños y colores.",
     longDescription:
       "Protegen y realzan la presentación de tus productos. Fabricamos cajas a medida, con materiales de calidad y diseños personalizados para garantizar una experiencia de marca única.",
     variants: [
       {
         title: "Caja Ecommerce",
         image: "Caja ecommerce -SI.png",
-
-        caracteristicas: [
-          "Material: cartón microcorrugado",
-          "Impresión: serigrafía u offset",
-          "Auto armable",
-          "Acabado plastificado: mate o brillante",
-          "Usos: envío de accesorios, ropa,regalos corporativos, cosméticos y más.",
-          "Medida: personalizada"
-        ],
+        caracteristicas: {
+          material: "Cartón microcorrugado.",
+          impresion: "Serigrafía u offset.",
+          auto_armable: "Sí.",
+          acabado: "Plastificado: mate o brillante.",
+          usos: "Envío de accesorios, ropa, regalos corporativos, cosméticos y más.",
+          medida: "Personalizada.",
+        },
       },
       {
-        title: "Caja de Pizza",
+        title: "Caja de pizza",
         image: "Caja pizza.png",
-
-        caracteristicas: [
-          "Material: cartón microcorrugado,foldcote",
-          "Impresión serigrafía",
-          "Auto armable",
-          "Ventilaciones troqueladas",
-          "Usos: pizzerías, food trucks y restaurantes",
-          "Medida: #18, #20, #25, #30, #35,#40, #45",
-          
-        ],
+        caracteristicas: {
+          material: "Cartón microcorrugado, foldcote.",
+          impresion: "Serigrafía.",
+          auto_armable: "Sí.",
+          ventilaciones: "Troqueladas.",
+          usos: "Pizzerías, food trucks y restaurantes.",
+          medida: "#18, #20, #25, #30, #35, #40, #45.",
+        },
       },
       {
         title: "Caja tipo KFC",
         image: "Caja tipo KFC.png",
-
-        caracteristicas: [
-          "Material: dúplex CL 16",
-          "Impresión: serigrafía, offset",
-          "Auto armable",
-          "Acabado plastificado",
-          "Orificios de ventilación",
-          "Barniz antigraso interno",
-          "Usos: Delivery y take-away en restaurantes de comida rápida",
-          "Medida: 19 cm x 12.5 cm, 8 cm.",
-        ],
+        caracteristicas: {
+          material: "Dúplex CL 16.",
+          impresion: "Serigrafía, offset.",
+          auto_armable: "Sí.",
+          acabado: "Plastificado.",
+          ventilacion: "Orificios de ventilación.",
+          barniz: "Antigraso interno.",
+          usos: "Delivery y take-away en restaurantes de comida rápida.",
+          medida: "19 cm x 12.5 cm, 8 cm.",
+        },
       },
       {
         title: "Caja de pollo",
         image: "Caja pollo.png",
-
-        caracteristicas: [
-          "Material: foldcote, linner",
-          "Impresión: serigrafía, offset",
-          "Auto armable",
-          "Ventilaciones troqueladas",
-          "Barniz antigraso interno",
-          "Orificios de ventilación",
-          "Usos: restaurantes de comidarápida, food trucks y catering",
-          "Personalizable",
-        ],
+        caracteristicas: {
+          material: "Foldcote, linner.",
+          impresion: "Serigrafía, offset.",
+          auto_armable: "Sí.",
+          ventilaciones: "Troqueladas.",
+          barniz: "Antigraso interno.",
+          orificios: "De ventilación.",
+          usos: "Restaurantes de comida rápida, food trucks y catering.",
+          personalizable: "Sí.",
+        },
       },
       {
         title: "Caja de hamburguesa",
         image: "Caja hamburguesa.png",
-        caracteristicas: [
-          "Material: linner",
-          "Impresión: serigrafía, offset",
-          "Auto armable",
-          "Barniz antigraso interno",
-          "Usos: restaurantes de comidarápida, food trucks y delivery",
-        ],
+        caracteristicas: {
+          material: "Linner.",
+          impresion: "Serigrafía, offset.",
+          auto_armable: "Sí.",
+          barniz: "Antigraso interno.",
+          usos: "Restaurantes de comida rápida, food trucks y delivery.",
+        },
       },
       {
         title: "Bandeja",
         image: "Bandeja.png",
-
-        caracteristicas: [
-          "Material: cartulina Kraft, foldcote",
-          "Impresión: serigrafía, offset",
-          "Auto armable",
-          "Barniz antigraso interno",
-          "Usos: delivery de comida",
-          "Medida: 21 cm x 4.5 cm.",
-        ],
+        caracteristicas: {
+          material: "Cartulina kraft, foldcote.",
+          impresion: "Serigrafía, offset.",
+          auto_armable: "Sí.",
+          barniz: "Antigraso interno.",
+          usos: "Delivery de comida.",
+          medida: "21 cm x 4.5 cm.",
+        },
       },
       {
-        title: "Caja Cupcakes",
+        title: "Caja cupcakes",
         image: "Caja Cupcakes.png",
-
-        caracteristicas: [
-          "Material: cartulina Kraft, foldcote",
-          "Impresión: serigrafía, offset",
-          "Auto armable",
-          "Acabado plastificado: mate o brillante",
-          "Divisores internos",
-          "Usos: pastelerías, reposterías, eventosy celebraciones.",
-          
-        ],
+        caracteristicas: {
+          material: "Cartulina kraft, foldcote.",
+          impresion: "Serigrafía, offset.",
+          auto_armable: "Sí.",
+          acabado: "Plastificado: mate o brillante.",
+          divisores: "Internos.",
+          usos: "Pastelerías, reposterías, eventos y celebraciones.",
+        },
       },
       {
-        title: "Caja de Torta",
+        title: "Caja de torta",
         image: "Caja torta.png",
-
-        caracteristicas: [
-          "Material: cartulina Kraft, foldcote",
-          "Impresión: serigrafía, offset",
-          "Auto armable",
-          "Acabado plastificado: mate o brillante",
-          "Usos: pastelerías, reposterías, eventos y celebraciones.",
-        ],
+        caracteristicas: {
+          material: "Cartulina kraft, foldcote.",
+          impresion: "Serigrafía, offset.",
+          auto_armable: "Sí.",
+          acabado: "Plastificado: mate o brillante.",
+          usos: "Pastelerías, reposterías, eventos y celebraciones.",
+        },
       },
       {
-        title: "Caja Papas",
+        title: "Caja papas",
         image: "Cajas para papa.png",
-
-        caracteristicas: [
-          "Material: cartulina Kraft, foldcote",
-          "Impresión: serigrafía, offset",
-          "Auto armable",
-          "Barniz antigraso interno",
-          "Usos: restaurantes de comida rápida, Food trucks y delivery"
-        ],
+        caracteristicas: {
+          material: "Cartulina kraft, foldcote.",
+          impresion: "Serigrafía, offset.",
+          auto_armable: "Sí.",
+          barniz: "Antigraso interno.",
+          usos: "Restaurantes de comida rápida, food trucks y delivery.",
+        },
       },
       {
-        title: "Caja Macarrones",
+        title: "Caja macarrones",
         image: "Caja macarrón.png",
-
-        caracteristicas: [
-          "Material: cartulina Kraft, foldcote, dúplex",
-          "Acabado plastificado: mate o brillante",
-          "Impresión: serigrafía, offset",
-          "Auto armable",
-          "Usos: pastelerías, reposterías, yservicios de delivery de postres gourmet.",
-        ],
+        caracteristicas: {
+          material: "Cartulina kraft, foldcote, dúplex.",
+          acabado: "Plastificado: mate o brillante.",
+          impresion: "Serigrafía, offset.",
+          auto_armable: "Sí.",
+          usos: "Pastelerías, reposterías y servicios de delivery de postres gourmet.",
+        },
       },
       {
-        title: "Caja de Chocolates",
+        title: "Caja de chocolates",
         image: "Caja chocolate.png",
-
-        caracteristicas: [
-          "Material: cartulina Kraft, foldcote, dúplex",
-          "Acabado plastificado: mate o brillante",
-          "Impresión: serigrafía, offset",
-          "Auto armable",
-          "Usos: pastelerías, reposterías, yservicios de delivery de postres gourmet.",
-        ],
+        caracteristicas: {
+          material: "Cartulina kraft, foldcote, dúplex.",
+          acabado: "Plastificado: mate o brillante.",
+          impresion: "Serigrafía, offset.",
+          auto_armable: "Sí.",
+          usos: "Pastelerías, reposterías y servicios de delivery de postres gourmet.",
+        },
       },
     ],
   },
@@ -263,55 +240,49 @@ const PackagingProducts = [
     title: "Envolturas",
     icon: "Envoltura.webp",
     image: "Envoltura.webp",
-    description: "Bolsas de diferentes tamaños y colores.",
+    description: "Bolsas de diferentes tamaños y colores.",
     longDescription:
-      "Soluciones flexibles y versátiles para el embalaje de productos, ofrecemos opciones que combinan estética y funcionalidad.",
+      "Soluciones flexibles y versátiles para el embalaje de productos. Ofrecemos opciones que combinan estética y funcionalidad.",
     variants: [
       {
-        title: "Papel Antigraso",
-        image: "Papel manteca.png",
-
-        caracteristicas: [
-          "Material: papel manteca",
-          "Usos: empaque de pasteles, embalaje de alimentos fritos.",
-          "Impresión: serigrafía, offset",
-          "Personalizable",
-        ],
+        title: "Papel antigrasa",
+        image: "Papel antigrasa.jpg",
+        caracteristicas: {
+          material: "Papel manteca.",
+          usos: "Empaque de pasteles, embalaje de alimentos fritos.",
+          impresion: "Serigrafía, offset.",
+          personalizable: "Sí.",
+        },
       },
-
       {
         title: "Individuales",
-        title: "Individuales",
-        image: "Individuales.png",
-
-        caracteristicas: [
-          "Material: papel Kraft, bond",
-          "Impresión: serigrafía, offset",
-          "Usos: restaurantes, cafeterías,catering y eventos",
-          "Personalizable",
-        ],
+        image: "Individual.jpg",
+        caracteristicas: {
+          material: "Papel kraft, bond.",
+          impresion: "Serigrafía, offset.",
+          usos: "Restaurantes, cafeterías, catering y eventos.",
+          personalizable: "Sí.",
+        },
       },
-
       {
         title: "Sobre y cono papa",
         image: "Sobre y cono papa.png",
-
-        caracteristicas: [
-          "Material: papel Kraft, bond, papel manteca",
-          "Auto armable y práctico",
-          "Usos: restaurantes de comida rápida,food trucks, ferias gastronómicas y servicios de delivery.",
-          "Personalizable",
-        ],
+        caracteristicas: {
+          material: "Papel kraft, bond, papel manteca.",
+          auto_armable: "Sí.",
+          usos: "Restaurantes de comida rápida, food trucks, ferias gastronómicas y servicios de delivery.",
+          personalizable: "Sí.",
+        },
       },
       {
-        title: "Posa Vasos",
+        title: "Posavasos",
         image: "Posa vasos.png",
-        caracteristicas: [
-          "Material: cartón Kraft, prensando, foldcote.",
-          "Acabado plastificado: mate o brillante",
-          "Usos: restaurantes, bares, cafeterías y eventos.",
-          "Personalizable",
-        ],
+        caracteristicas: {
+          material: "Cartón kraft, prensado, foldcote.",
+          acabado: "Plastificado: mate o brillante.",
+          usos: "Restaurantes, bares, cafeterías y eventos.",
+          personalizable: "Sí.",
+        },
       },
     ],
   },
