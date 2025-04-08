@@ -1,6 +1,6 @@
 ---
 const { label } = Astro.props;
-const pathname: string = Astro.url.pathname;
+const pathname = Astro.url.pathname;
 
 // Genera dinámicamente el path basado en el label
 const path =
@@ -8,14 +8,25 @@ const path =
     ? "/"
     : label === "Contacto"
       ? "/contacto"
-      : `/${label.replace(/\s+/g, "-")}`;
+      : `/${label.replace(/\s+/g, "-")}`; // No cambiamos las mayúsculas
+
+// Normaliza las URLs (asegurarse de que no haya barra al final en ambas)
+const normalizePath = (str: string): string => str.replace(/\/$/, "");
+
+const normalizedPathname = normalizePath(pathname);
+const normalizedPath = normalizePath(path);
+
+console.log("normalizedPathname:", normalizedPathname); // Depuración
+console.log("normalizedPath:", normalizedPath); // Depuración
 
 // Aplica clases activas si el pathname es "/" (inicio) o coincide con el path generado
-const isActive = pathname === path || (label === "Inicio" && pathname === "/");
+const isActive =
+  normalizedPathname === normalizedPath ||
+  (label === "Inicio" && normalizedPathname === "/");
 ---
 
 <a
-  class={`font-bold py-4 text-black text-2xl  hover:text-verdeOscuro   ${
+  class={`font-bold py-4 text-black text-2xl hover:text-verdeOscuro ${
     isActive ? "border-b-2 border-verdeOscuro" : ""
   }`}
   href={path}
