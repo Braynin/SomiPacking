@@ -2,100 +2,74 @@
 import SocialIcons from "./SocialIcons.astro";
 import FooterSection from "./FooterSection.astro";
 ---
-
-<footer
-  class="h-full celular:px-20 tablet:px-10 py-10 px-40 text-center text-white bg-black"
->
+<footer class="w-fullh-full celular:px-20 tablet:px-10 py-10 escritorio:px-40 escritorio:text-center text-white bg-black">
   <div class="max-w-screen-2xl mx-auto flex celular:justify-around">
     <img src="/Somi-Logo-White.webp" alt="Somi Logo" class="w-32 -ml-3" />
   </div>
-  <div
-    class="celular:flex-col celular:items-center max-w-screen-2xl mx-auto flex justify-between flex-wrap"
-  >
-    <FooterSection header="EMPRESA">
-      <a class="mb-1" href="/#Nosotros">Nosotros</a>
-      <a class="mb-1" href="/Packaging">Packaging</a>
-      <a class="mb-1" href="/Imprenta">Imprenta</a>
-      <a class="mb-1" href="/Contacto">Contacto</a>
+  <div class="celular:flex-col celular:items-center max-w-screen-2xl mx-auto flex justify-between flex-wrap">
+    <!-- Sección EMPRESA -->
+    <FooterSection header="EMPRESA" class="text-lg font-semibold tracking-wide">
+      <a class="mb-2 text-base text-gray-300 hover:text-white" href="/#Nosotros">Nosotros</a>
+      <a class="mb-2 text-base text-gray-300 hover:text-white" href="/Packaging">Packaging</a>
+      <a class="mb-2 text-base text-gray-300 hover:text-white" href="/Imprenta">Imprenta</a>
+      <a class="mb-2 text-base text-gray-300 hover:text-white" href="/Contacto">Contacto</a>
     </FooterSection>
 
-    <FooterSection header="SOMI PACKAGING">
+    <!-- Sección SOMI PACKAGING -->
+    <FooterSection header="SOMI PACKAGING" class="text-lg font-semibold tracking-wide">
       <div class="celular:text-center">
-        <h3 class="mb-1">MMSG SERVICIOS GENERALES SRL</h3>
-        <p class="mb-1"><span class="font-bold">Ruc:</span>20605189068</p>
-        <p>
-          <span class="font-bold">Dirección:</span>Jr. Antonio de Elizalde 520,
-          Cercado de Lima
+        <h3 class="text-base font-medium text-white mb-2">MMSG SERVICIOS GENERALES SRL</h3>
+        <p class="text-sm text-gray-300 mb-1"><span class="font-bold">Ruc:</span>20605189068</p>
+        <p class="text-sm text-gray-300 mb-1">
+          <span class="font-bold">Dirección:</span> Jr. Antonio de Elizalde 520, Cercado de Lima
         </p>
-        <p>
-          <span class="font-bold">Horario:</span> Lunes a viernes de 9 a. m. a 6
-          p. m. y sábado de 9 a. m. a 1 p. m
+        <p class="text-sm text-gray-300">
+          <span class="font-bold">Horario:</span> Lunes a viernes de 9 a. m. a 6 p. m. y sábado de 9 a. m. a 1 p. m
         </p>
       </div>
     </FooterSection>
 
-    <FooterSection header="CONTACTO">
-      <div class="flex items-center space-x-2">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="white"
-          class="w-5 h-5"
-        >
-          <path
-            d="M21.384,17.752a2.108,2.108,0,0,1-.522,3.359,7.543,7.543,0,0,1-5.476.642C10.5,20.523,3.477,13.5,2.247,8.614a7.543,7.543,0,0,1,.642-5.476,2.108,2.108,0,0,1,3.359-.522L8.333,4.7a2.094,2.094,0,0,1,.445,2.328A3.877,3.877,0,0,1,8,8.2c-2.384,2.384,5.417,10.185,7.8,7.8a3.877,3.877,0,0,1,1.173-.781,2.092,2.092,0,0,1,2.328.445Z"
-          ></path>
+    <!-- Sección CONTACTO -->
+    <FooterSection header="CONTACTO" class="text-lg font-semibold tracking-wide">
+      <div class="flex items-center space-x-3 mb-2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-5 h-5">
+          <path d="M21.384,17.752a2.108,2.108,0,0,1-.522,3.359,7.543,7.543,0,0,1-5.476.642C10.5,20.523,3.477,13.5,2.247,8.614a7.543,7.543,0,0,1,.642-5.476,2.108,2.108,0,0,1,3.359-.522L8.333,4.7a2.094,2.094,0,0,1,.445,2.328A3.877,3.877,0,0,1,8,8.2c-2.384,2.384,5.417,10.185,7.8,7.8a3.877,3.877,0,0,1,1.173-.781,2.092,2.092,0,0,1,2.328.445Z"></path>
         </svg>
-
-        <p class="text-white">+51 924 725 290</p>
+        <p class="text-white celular:text-sm">+51 924 725 290</p>
       </div>
 
-      <div class="flex items-center space-x-2">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="white"
-          class="w-5 h-5"
-        >
-          <path
-            d="M21.384,17.752a2.108,2.108,0,0,1-.522,3.359,7.543,7.543,0,0,1-5.476.642C10.5,20.523,3.477,13.5,2.247,8.614a7.543,7.543,0,0,1,.642-5.476,2.108,2.108,0,0,1,3.359-.522L8.333,4.7a2.094,2.094,0,0,1,.445,2.328A3.877,3.877,0,0,1,8,8.2c-2.384,2.384,5.417,10.185,7.8,7.8a3.877,3.877,0,0,1,1.173-.781,2.092,2.092,0,0,1,2.328.445Z"
-          ></path>
+      <div class="flex items-center space-x-3 mb-2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-5 h-5">
+          <path d="M21.384,17.752a2.108,2.108,0,0,1-.522,3.359,7.543,7.543,0,0,1-5.476.642C10.5,20.523,3.477,13.5,2.247,8.614a7.543,7.543,0,0,1,.642-5.476,2.108,2.108,0,0,1,3.359-.522L8.333,4.7a2.094,2.094,0,0,1,.445,2.328A3.877,3.877,0,0,1,8,8.2c-2.384,2.384,5.417,10.185,7.8,7.8a3.877,3.877,0,0,1,1.173-.781,2.092,2.092,0,0,1,2.328.445Z"></path>
         </svg>
-        <p class="text-white">+51 958 082 670</p>
+        <p class="text-white celular:text-sm">+51 958 082 670</p>
       </div>
-      <div class="flex items-center space-x-2">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="white"
-          class="w-5 h-5"
-        >
+
+      <div class="flex items-center space-x-3 mb-2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-5 h-5">
           <path d="M22 5v4l-10 4L2 9V5a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1z"></path>
-          <path d="M2 11.154V19a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-7.846l-10 4z"
-          ></path>
+          <path d="M2 11.154V19a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-7.846l-10 4z"></path>
         </svg>
         <p class="text-white text-sm">somipacking@gmail.com</p>
       </div>
     </FooterSection>
-    <FooterSection header="REDES SOCIALES">
-      <SocialIcons
-        classList="celular:flex-col escritorio:gap-3 align-center"
-        imageColor="light"
-      />
+
+    <!-- Sección REDES SOCIALES -->
+    <FooterSection header="REDES SOCIALES" class="text-lg font-semibold tracking-wide">
+      <SocialIcons classList="celular:flex-wrap celular:justify-center escritorio:gap-3 align-center" imageColor="light" />
     </FooterSection>
-    <FooterSection header="LIBRO DE RECLAMACIONES">
-      <a
-        href="https://docs.google.com/forms/d/e/1FAIpQLSfluLvLxw08XpL0FuoX0-2rDSiijRtQtHBn4vuPYy5zYmaEwQ/viewform?usp=send_form"
-        target="_blank"
-      >
+
+    <!-- Sección LIBRO DE RECLAMACIONES -->
+    <FooterSection header="LIBRO DE RECLAMACIONES" class="text-lg font-semibold tracking-wide">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfluLvLxw08XpL0FuoX0-2rDSiijRtQtHBn4vuPYy5zYmaEwQ/viewform?usp=send_form" target="_blank">
         <img src="/libro_reclamaciones.png" alt="Libro de reclamaciones" />
       </a>
     </FooterSection>
   </div>
-  <div class="max-w-6xl mx-auto mt-5 text-sm">
+
+  <div class="max-w-6xl mx-auto mt-5 text-xs text-gray-400">
     <p>
-      ©2025 Somi Packing Todos los derechos reservados / MMSG SERVICIOS
-      GENERALES SRL Ruc: 20605189068
+      ©2025 Somi Packing Todos los derechos reservados / MMSG SERVICIOS GENERALES SRL Ruc: 20605189068
     </p>
   </div>
 </footer>

@@ -3,8 +3,8 @@ const { header } = Astro.props;
 ---
 
 <div
-  class={`celular:w-full celular:flex celular:flex-col celular:items-center  max-w-48 mb-4 text-left flex flex-col`}
+  class={`celular:w-full celular:flex celular:flex-col celular:items-center celular:max-w-full  max-w-48 mb-20 text-left flex flex-col`}
 >
-  <h3 class="text-xl mb-3">{header}</h3>
+  <h3 class="text-xl celular:text-center escritorio:pb-8 celular:mb-4">{header}</h3>
   <slot />
 </div>
