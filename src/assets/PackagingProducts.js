@@ -13,7 +13,7 @@ const PackagingProducts = [
         caracteristicas: {
           material: "Kraft, bond o couche.",
           asa: "Twist pegada con refuerzo interno.",
-          impresion: "Offset o serigrafía.",
+          impresión: "Offset o serigrafía.",
           gramaje: "100 gr a 180 gr (según la resistencia requerida).",
           usos: "Delivery de comida, tiendas de ropa, boutiques, panaderías y más.",
           medida: "Personalizada.",
@@ -25,7 +25,7 @@ const PackagingProducts = [
         caracteristicas: {
           material: "Kraft, bond, couche, foldcote.",
           asa: "Troquelada directamente en la bolsa.",
-          impresion: "Offset, serigrafía o hot stamping (acabados premium).",
+          impresión: "Offset, serigrafía o hot stamping (acabados premium).",
           usos: "Tiendas de ropa, calzado y accesorios, delivery.",
           medida: "Personalizada.",
         },
@@ -37,7 +37,7 @@ const PackagingProducts = [
           material: "Couche o foldcote.",
           asa: "Cordón de algodón o nylon, anudadas o sujetas con remaches metálicos.",
           plastificado: "Plastificado.",
-          impresion:
+          impresión:
             "Offset, serigrafía, hot stamping o UV para acabados de lujo.",
           medida: "Personalizada.",
         },
@@ -47,7 +47,7 @@ const PackagingProducts = [
         image: "Bolsas kraft sin asa.png",
         caracteristicas: {
           material: "Kraft natural.",
-          impresion: "Serigrafía o flexografía.",
+          impresión: "Serigrafía o flexografía.",
           usos: "Alimentos (delivery de comida, panadería y pastelería), farmacias, tiendas minoristas (empaque de ropa, accesorios o regalos).",
           tabla: { type: "image", src: "tabla-bolsas-kraft.png" },
         },
@@ -59,7 +59,7 @@ const PackagingProducts = [
           material: "Kraft, couche laminado.",
           asa: "Cordón, cinta o troquelada.",
           refuerzo: "En la base.",
-          impresion: "Offset o serigrafía.",
+          impresión: "Offset o serigrafía.",
           usos: "Regalos corporativos, tiendas de licorería, restaurantes.",
         },
       },
@@ -68,7 +68,7 @@ const PackagingProducts = [
         image: "Bolsa portacubierto.png",
         caracteristicas: {
           material: "Couche o foldcote, kraft, bond o couche.",
-          impresion: "Serigrafía o flexografía.",
+          impresión: "Serigrafía o flexografía.",
           usos: "Catering, eventos, restaurantes, cafeterías, bares.",
           medida: "10 x 28 cm, 8 x 28 cm y 7 x 25 cm.",
         },
@@ -79,7 +79,7 @@ const PackagingProducts = [
         caracteristicas: {
           material: "Papel kraft.",
           medida: "36 x 28 x 18 cm.",
-          personalizacion: "Con serigrafía.",
+          personalización: "Con serigrafía.",
         },
       },
       {
@@ -89,7 +89,7 @@ const PackagingProducts = [
           material: "Linner de 275 gr.",
           tamaño: "22 x 48 cm.",
           asa: "Troquelada.",
-          descripcion:
+          descripción:
             "Práctico y seguro. Ideal para transportar vasos de 8 oz, 12 oz, 16 oz.",
         },
       },
@@ -108,7 +108,7 @@ const PackagingProducts = [
         image: "Caja ecommerce -SI.png",
         caracteristicas: {
           material: "Cartón microcorrugado.",
-          impresion: "Serigrafía u offset.",
+          impresión: "Serigrafía u offset.",
           auto_armable: "Sí.",
           acabado: "Plastificado: mate o brillante.",
           usos: "Envío de accesorios, ropa, regalos corporativos, cosméticos y más.",
@@ -120,7 +120,7 @@ const PackagingProducts = [
         image: "Caja pizza.png",
         caracteristicas: {
           material: "Cartón microcorrugado, foldcote.",
-          impresion: "Serigrafía.",
+          impresión: "Serigrafía.",
           auto_armable: "Sí.",
           ventilaciones: "Troqueladas.",
           usos: "Pizzerías, food trucks y restaurantes.",
@@ -132,10 +132,10 @@ const PackagingProducts = [
         image: "Caja tipo KFC.png",
         caracteristicas: {
           material: "Dúplex CL 16.",
-          impresion: "Serigrafía, offset.",
+          impresión: "Serigrafía, offset.",
           auto_armable: "Sí.",
           acabado: "Plastificado.",
-          ventilacion: "Orificios de ventilación.",
+          ventilación: "Orificios de ventilación.",
           barniz: "Antigraso interno.",
           usos: "Delivery y take-away en restaurantes de comida rápida.",
           medida: "19 cm x 12.5 cm, 8 cm.",
@@ -146,7 +146,7 @@ const PackagingProducts = [
         image: "Caja pollo.png",
         caracteristicas: {
           material: "Foldcote, linner.",
-          impresion: "Serigrafía, offset.",
+          impresión: "Serigrafía, offset.",
           auto_armable: "Sí.",
           ventilaciones: "Troqueladas.",
           barniz: "Antigraso interno.",
@@ -160,7 +160,7 @@ const PackagingProducts = [
         image: "Caja hamburguesa.png",
         caracteristicas: {
           material: "Linner.",
-          impresion: "Serigrafía, offset.",
+          impresión: "Serigrafía, offset.",
           auto_armable: "Sí.",
           barniz: "Antigraso interno.",
           usos: "Restaurantes de comida rápida, food trucks y delivery.",
@@ -171,7 +171,7 @@ const PackagingProducts = [
         image: "Bandeja.png",
         caracteristicas: {
           material: "Cartulina kraft, foldcote.",
-          impresion: "Serigrafía, offset.",
+          impresión: "Serigrafía, offset.",
           auto_armable: "Sí.",
           barniz: "Antigraso interno.",
           usos: "Delivery de comida.",
@@ -183,7 +183,7 @@ const PackagingProducts = [
         image: "Caja Cupcakes.png",
         caracteristicas: {
           material: "Cartulina kraft, foldcote.",
-          impresion: "Serigrafía, offset.",
+          impresión: "Serigrafía, offset.",
           auto_armable: "Sí.",
           acabado: "Plastificado: mate o brillante.",
           divisores: "Internos.",
@@ -195,7 +195,7 @@ const PackagingProducts = [
         image: "Caja torta.png",
         caracteristicas: {
           material: "Cartulina kraft, foldcote.",
-          impresion: "Serigrafía, offset.",
+          impresión: "Serigrafía, offset.",
           auto_armable: "Sí.",
           acabado: "Plastificado: mate o brillante.",
           usos: "Pastelerías, reposterías, eventos y celebraciones.",
@@ -206,7 +206,7 @@ const PackagingProducts = [
         image: "Cajas para papa.png",
         caracteristicas: {
           material: "Cartulina kraft, foldcote.",
-          impresion: "Serigrafía, offset.",
+          impresión: "Serigrafía, offset.",
           auto_armable: "Sí.",
           barniz: "Antigraso interno.",
           usos: "Restaurantes de comida rápida, food trucks y delivery.",
@@ -218,7 +218,7 @@ const PackagingProducts = [
         caracteristicas: {
           material: "Cartulina kraft, foldcote, dúplex.",
           acabado: "Plastificado: mate o brillante.",
-          impresion: "Serigrafía, offset.",
+          impresión: "Serigrafía, offset.",
           auto_armable: "Sí.",
           usos: "Pastelerías, reposterías y servicios de delivery de postres gourmet.",
         },
@@ -229,7 +229,7 @@ const PackagingProducts = [
         caracteristicas: {
           material: "Cartulina kraft, foldcote, dúplex.",
           acabado: "Plastificado: mate o brillante.",
-          impresion: "Serigrafía, offset.",
+          impresión: "Serigrafía, offset.",
           auto_armable: "Sí.",
           usos: "Pastelerías, reposterías y servicios de delivery de postres gourmet.",
         },
@@ -250,7 +250,7 @@ const PackagingProducts = [
         caracteristicas: {
           material: "Papel manteca.",
           usos: "Empaque de pasteles, embalaje de alimentos fritos.",
-          impresion: "Serigrafía, offset.",
+          impresión: "Serigrafía, offset.",
           personalizable: "Sí.",
         },
       },
@@ -259,7 +259,7 @@ const PackagingProducts = [
         image: "Individual.jpg",
         caracteristicas: {
           material: "Papel kraft, bond.",
-          impresion: "Serigrafía, offset.",
+          impresión: "Serigrafía, offset.",
           usos: "Restaurantes, cafeterías, catering y eventos.",
           personalizable: "Sí.",
         },
