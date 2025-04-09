@@ -27,6 +27,10 @@ const {
         placeholder="Teléfono"
         class="w-full p-2 my-2 border text-black border-gray-300 rounded text-xl"
       />
+      <textarea
+        placeholder="Mensaje"
+        class="w-full p-2 my-2 border text-black border-gray-300 rounded text-xl"
+      ></textarea>
       <button
         type="submit"
         class="w-64 border-4 text-2xl border-verdeOscuro bg-verdeClaro p-2 my-2 mx-auto rounded font-bold text-verdeOscuro hover:bg-transparent hover:text-verdeClaro hover:border-verdeClaro transition-colors duration-300"
@@ -44,9 +48,10 @@ const {
     const nombre = form.querySelector('input[type="text"]').value;
     const email = form.querySelector('input[type="email"]').value;
     const telefono = form.querySelector('input[type="tel"]').value;
-    const mensaje = `Hola, me gustaría contactarme contigo.\nMi nombre es ${nombre}.\nMi correo es ${email} y mi teléfono es ${telefono}.\n¡Espero tu respuesta, gracias!`;
+    const mensaje = form.querySelector("textarea").value;
+    const mensajeLargo = `Hola, me gustaría contactarme contigo.\nMi nombre es ${nombre}.\nMi correo es ${email} y mi teléfono es ${telefono}.\n ${mensaje}\n¡Espero tu respuesta, gracias!`;
     const whatsappUrl =
-      "https://wa.me/51924725290?text=" + encodeURIComponent(mensaje);
+      "https://wa.me/51924725290?text=" + encodeURIComponent(mensajeLargo);
     window.open(whatsappUrl, "_blank");
   });
 </script>
