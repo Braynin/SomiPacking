@@ -41,11 +41,8 @@ const variantJSON = JSON.stringify(variant);
     modal.style.opacity = "0";
     modal.style.transition = "opacity 0.3s ease, transform 0.3s ease";
 
-    // 🔠 Función para convertir la clave a formato legible
     function beautifyKey(key) {
-      return key
-        .replace(/_/g, " ") // reemplaza guiones bajos por espacios
-        .replace(/\b\w/g, (char) => char.toUpperCase()); // mayúscula inicial de cada palabra
+      return key.replace(/_/g, " ");
     }
 
     let contentHTML = `<h2 style="margin-bottom:16px; font-size: 20px;">Detalles: ${variant.title || ""}</h2>`;
@@ -58,8 +55,10 @@ const variantJSON = JSON.stringify(variant);
 
       for (const [key, value] of Object.entries(variant.caracteristicas)) {
         // Verificamos si la clave contiene "productos"
-        if (key.toLowerCase().includes("productos")) {
-          // Si la propiedad tiene la palabra "productos", mostramos solo el valor
+        if (
+          key.toLowerCase().includes("productos") ||
+          key.toLowerCase().includes("personalización")
+        ) {
           contentHTML += `<li style="margin-bottom:8px;">${value}</li>`;
         } else {
           const label = beautifyKey(key);

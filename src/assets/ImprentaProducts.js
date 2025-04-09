@@ -12,11 +12,11 @@ const ImprentaProducts = [
         image: "Tarjetas de Presentación.png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: {
-          material: "Cartulina foldcote 350 gr.",
-          impresion: "Full color.",
-          acabados:
+          Material: "Cartulina foldcote 350 gr.",
+          Impresión: "Full color.",
+          Acabados:
             "Plastificado mate o brillante, sectorizado, relieve, hot stamping.",
-          personalizacion: "Personalizable.",
+          Personalización: "Personalizable.",
         },
       },
       {
@@ -24,10 +24,10 @@ const ImprentaProducts = [
         image: "Tarjeta de agradecimiento.png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: {
-          material: "Cartulina foldcote 300 gr o 350 gr.",
-          impresion: "Full color.",
-          acabados: "Plastificado mate o brillante, sectorizado.",
-          personalizacion: "Personalizable.",
+          Material: "Cartulina foldcote 300 gr o 350 gr.",
+          Impresión: "Full color.",
+          Acabados: "Plastificado mate o brillante, sectorizado.",
+          Personalización: "Personalizable.",
         },
       },
       {
@@ -35,9 +35,9 @@ const ImprentaProducts = [
         image: "Papel manteca.png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: {
-          material: "Papel bond, kraft.",
-          impresion: "Offset.",
-          personalizacion: "Personalizable.",
+          Material: "Papel bond, kraft.",
+          Impresión: "Offset.",
+          Personalización: "Personalizable.",
         },
       },
       {
@@ -45,10 +45,10 @@ const ImprentaProducts = [
         image: "Carta Comensal.png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: {
-          material: "Cartulina foldcote.",
-          impresion: "Offset.",
-          acabados: "Plastificado mate o brillante, sectorizado, enmicado.",
-          personalizacion: "Personalizable.",
+          Material: "Cartulina foldcote.",
+          Impresión: "Offset.",
+          Acabados: "Plastificado mate o brillante, sectorizado, enmicado.",
+          Personalización: "Personalizable.",
         },
       },
       {
@@ -56,10 +56,10 @@ const ImprentaProducts = [
         image: "Calendario.png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: {
-          tipo: "Calendario de pared con ojales.",
-          tipo2:
+          Tipo_A: "Calendario de pared con ojales.",
+          Tipo_B:
             "Calendario de escritorio: encuadernado con espiral, anillado.",
-          acabados: "Plastificado mate o brillante, barniz UV.",
+          Acabados: "Plastificado mate o brillante, barniz UV.",
         },
       },
       {
@@ -67,9 +67,9 @@ const ImprentaProducts = [
         image: "Block-Agenda.png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: {
-          impresion: "Offset.",
-          acabados: "Plastificado mate o brillante, barniz UV.",
-          encuadernado: "Con espiral metálico, anillado o cosido.",
+          Impresión: "Offset.",
+          Acabados: "Plastificado mate o brillante, barniz UV.",
+          Encuadernado: "Espiral metálico, anillado o cosido.",
         },
       },
       {
@@ -77,9 +77,9 @@ const ImprentaProducts = [
         image: "Stickers.png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: {
-          material: "Vinilo adhesivo blanco o transparente.",
-          impresion: "Offset o digital de alta resolución.",
-          acabados:
+          Material: "Vinilo adhesivo blanco o transparente.",
+          Impresión: "Offset o digital de alta resolución.",
+          Acabados:
             "Tinta resistente al agua y rayones, plastificado mate o brillante.",
         },
       },
@@ -88,9 +88,9 @@ const ImprentaProducts = [
         image: "Folders.png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: {
-          material: "Foldcote, dúplex.",
-          impresion: "Offset o digital de alta resolución.",
-          acabados: "Plastificado mate o brillante.",
+          Material: "Foldcote, dúplex.",
+          Impresión: "Offset o digital de alta resolución.",
+          Acabados: "Plastificado mate o brillante.",
         },
       },
       {
@@ -98,9 +98,9 @@ const ImprentaProducts = [
         image: "Precinto de seguridad.png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: {
-          material: "Vinilo adhesivo blanco o transparente.",
-          impresion: "Offset o digital de alta resolución.",
-          acabados:
+          Material: "Vinilo adhesivo blanco o transparente.",
+          Impresión: "Offset o digital de alta resolución.",
+          Acabados:
             "Tinta resistente al agua y rayones, plastificado mate o brillante.",
         },
       },
@@ -119,11 +119,11 @@ const ImprentaProducts = [
         image: "Merchandising-Corporativo.png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: {
-          productos: "Agendas, cuadernos, blocs de notas.",
-          productos2: "Bolígrafos, lapiceros personalizados.",
-          productos3: "Termos, tazas y botellas.",
-          productos4: "USB personalizados.",
-          productos5: "Mochilas, maletines y porta documentos.",
+          Productos: "Agendas, cuadernos, blocs de notas.",
+          Productos2: "Bolígrafos, lapiceros personalizados.",
+          Productos3: "Termos, tazas y botellas.",
+          Productos4: "USB personalizados.",
+          Productos5: "Mochilas, maletines y porta documentos.",
         },
       },
       {
@@ -131,10 +131,10 @@ const ImprentaProducts = [
         image: "Merchandising-Deportivo.png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: {
-          productos: "Camisetas y uniformes deportivos.",
-          productos2: "Balones personalizados.",
-          productos3: "Toallas con logo.",
-          productos4: "Botellas deportivas.",
+          Productos: "Camisetas y uniformes deportivos.",
+          Productos2: "Balones personalizados.",
+          Productos3: "Toallas con logo.",
+          Productos4: "Botellas deportivas.",
         },
       },
       {
@@ -142,9 +142,9 @@ const ImprentaProducts = [
         image: "Merchandising-Ecológico.png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: {
-          productos: "Bolsas reutilizables.",
-          productos2: "Cuadernos de cartón reciclado.",
-          productos3: "Lapiceros de bambú.",
+          Productos: "Bolsas reutilizables.",
+          Productos2: "Cuadernos de cartón reciclado.",
+          Productos3: "Lapiceros de bambú.",
         },
       },
       {
@@ -152,11 +152,11 @@ const ImprentaProducts = [
         image: "Merchandising-Eventos.png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: {
-          productos: "Credenciales y lanyards.",
-          productos2: "Pulseras identificativas.",
-          productos3: "Globos y pancartas.",
-          productos4: "Pines.",
-          productos5: "Gafetes con imán o gancho.",
+          Productos: "Credenciales y lanyards.",
+          Productos2: "Pulseras identificativas.",
+          Productos3: "Globos y pancartas.",
+          Productos4: "Pines.",
+          Productos5: "Gafetes con imán o gancho.",
         },
       },
       {
@@ -164,10 +164,10 @@ const ImprentaProducts = [
         image: "Merchandising-Tecnológico.png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: {
-          productos: "Audífonos y parlantes Bluetooth.",
-          productos2: "Mousepads personalizados.",
-          productos3: "Soportes para celulares.",
-          productos4: "Llaveros con linterna o multifuncionales.",
+          Productos: "Audífonos y parlantes Bluetooth.",
+          Productos2: "Mousepads personalizados.",
+          Productos3: "Soportes para celulares.",
+          Productos4: "Llaveros con linterna o multifuncionales.",
         },
       },
       {
@@ -175,10 +175,10 @@ const ImprentaProducts = [
         image: "Merchandising-Textil.png",
         description: "Bolsa de diferentes tamaños y colores.",
         caracteristicas: {
-          productos: "Polos, camisas, chalecos.",
-          productos2: "Gorros, gorras, viseras.",
-          productos3: "Buzos, casacas, chaquetas.",
-          productos4: "Delantales y uniformes.",
+          Productos: "Polos, camisas, chalecos.",
+          Productos2: "Gorros, gorras, viseras.",
+          Productos3: "Buzos, casacas, chaquetas.",
+          Productos4: "Delantales y uniformes.",
         },
       },
     ],
