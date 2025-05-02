@@ -42,7 +42,6 @@ const servicioData = ServiciosOptions.find((s) => s.href === servicio);
 
       <!-- Sección de Productos -->
       <section class="w-full py-10 flex flex-col items-center border-t-4 border-verdeClaro bg-white">
-        <h2 class="text-5xl font-bold mb-10 text-center celular:mb-5">Productos</h2>
         <div class="w-full flex flex-col items-center justify-center">
           {servicioData.products.map((product) => {
             const totalVariants = product.variants.length;

@@ -256,7 +256,7 @@ const PackagingProducts = [
       },
       {
         title: "Individuales",
-        image: "Individual.jpg",
+        image: "Brown and Green Simple Paper Bag Mockup Instagram Post.png",
         caracteristicas: {
           Material: "Papel kraft, bond.",
           Impresión: "Offset.",
