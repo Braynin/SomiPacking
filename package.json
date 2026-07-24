@@ -12,17 +12,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/tailwind": "^6.0.0",
     "@astrojs/vercel": "^8.0.4",
-    "@heroicons/vue": "^2.2.0",
-    "@iconify-json/mdi": "^1.2.3",
-    "@shikijs/core": "^2.2.0",
     "astro": "^5.5.5",
     "autoprefixer": "^10.4.20",
-    "lucide-react": "^0.484.0",
-    "postcss": "^8.4.49",
-    "queue-microtask": "^1.2.3",
-    "unstorage": "^1.15.0"
+    "postcss": "^8.4.49"
   },
   "devDependencies": {
     "@astrojs/tailwind": "^6.0.2",
