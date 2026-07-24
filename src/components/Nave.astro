@@ -34,7 +34,7 @@ import ServiciosOptions from "../assets/ServiciosOptions.js";
 
       if (currentPath.includes(servicio)) {
         const targetSection = document.getElementById(
-          label.replace(/\s+/g, "-")
+          label.replace(/\s+/g, "-"),
         );
         if (targetSection) {
           targetSection.scrollIntoView({ behavior: "smooth" });

@@ -34,10 +34,10 @@ npm ci
 
 ## Comandos
 
-| Comando | Descripción |
-| --- | --- |
-| `npm run dev` | Inicia el servidor de desarrollo. |
-| `npm run build` | Genera y valida el build de producción. |
+| Comando           | Descripción                              |
+| ----------------- | ---------------------------------------- |
+| `npm run dev`     | Inicia el servidor de desarrollo.        |
+| `npm run build`   | Genera y valida el build de producción.  |
 | `npm run preview` | Sirve localmente el build de producción. |
 
 ## Flujo de trabajo
@@ -45,8 +45,24 @@ npm ci
 - `main` es la rama de producción.
 - Crea ramas desde `main` con los prefijos `feat/`, `fix/`, `chore/`, `docs/` o `ci/`.
 - Abre un Pull Request hacia `main` para cada cambio.
-- GitHub Actions ejecuta `npm ci` y `npm run build` en los Pull Requests.
+- GitHub Actions ejecuta instalación, lint, comprobación de formato y build en los Pull Requests.
 - Vercel crea previews para las ramas de trabajo y despliega a producción desde `main`.
+
+### Antes de hacer un commit
+
+Antes de crear un commit, ejecuta estas comprobaciones desde la raíz del proyecto:
+
+```bash
+npm run lint
+npm run format:check
+npm run build
+```
+
+Si la comprobación de formato falla, aplica el formato y vuelve a ejecutar las validaciones:
+
+```bash
+npm run format
+```
 
 ## Estructura del proyecto
 
