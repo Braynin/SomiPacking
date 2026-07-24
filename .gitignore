@@ -1,6 +1,10 @@
 # Dependencias de Node.js
 node_modules/
 
+# Artefactos y configuraciones locales de despliegue
+.vercel/
+.netlify/
+
 # Archivos de registro
 *.log
 
