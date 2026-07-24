@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@config "../../tailwind.config.js";
+@import "tailwindcss";
 
 .exo-font {
   font-family: "Exo", sans-serif;
@@ -22,7 +21,10 @@ h3,
 h4,
 h5,
 h6 {
-  @apply gabarito-font;
+  font-family: "Gabarito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }
 html {
   scroll-behavior: smooth;

@@ -4,7 +4,7 @@ Sitio web de SomiPacking, construido con [Astro](https://astro.build/), Tailwind
 
 ## Requisitos
 
-- Node.js `22.x`.
+- Node.js `22.12.0` o una versión posterior dentro de la rama `22.x`.
 - npm.
 
 La versión de Node requerida está definida en `.nvmrc` y `package.json`.
@@ -13,7 +13,7 @@ La versión de Node requerida está definida en `.nvmrc` y `package.json`.
 node --version
 ```
 
-El comando debe mostrar una versión `v22.x` antes de instalar o ejecutar el proyecto.
+El comando debe mostrar una versión desde `v22.12.0` hasta `v22.x` antes de instalar o ejecutar el proyecto.
 
 ## Instalación
 
