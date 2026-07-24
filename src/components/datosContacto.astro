@@ -2,18 +2,26 @@
 import datosContacto from "../assets/datosContacto.js";
 ---
 
-<div class="flex justify-around p-7 my-7 gap-7 celular:flex-col celular:items-center celular:gap-5">
-  {datosContacto.map((dato) => (
-    <div class="flex flex-col items-center w-72 celular:w-full">
-      {/* Imagen con tamaño ajustado */}
-      <div class="w-40 h-40 flex items-center justify-center">
-        <img src={dato.image} alt={dato.title} class="w-full h-full object-contain" />
-      </div>
+<div
+  class="flex justify-around p-7 my-7 gap-7 celular:flex-col celular:items-center celular:gap-5"
+>
+  {
+    datosContacto.map((dato) => (
+      <div class="flex flex-col items-center w-72 celular:w-full">
+        {/* Imagen con tamaño ajustado */}
+        <div class="w-40 h-40 flex items-center justify-center">
+          <img
+            src={dato.image}
+            alt={dato.title}
+            class="w-full h-full object-contain"
+          />
+        </div>
 
-      {/* Título debajo de la imagen */}
-      <h3 class="mt-3 text-center font-syne font-bold text-lg text-black celular:text-base">
-        {dato.title}
-      </h3>
-    </div>
-  ))}
+        {/* Título debajo de la imagen */}
+        <h3 class="mt-3 text-center font-syne font-bold text-lg text-black celular:text-base">
+          {dato.title}
+        </h3>
+      </div>
+    ))
+  }
 </div>
