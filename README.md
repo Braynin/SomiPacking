@@ -76,6 +76,14 @@ src/
 public/         Imágenes, videos y recursos estáticos
 ```
 
+### Base de la landing Paper Fit
+
+Durante la migración a Paper Fit, los componentes nuevos se crearán directamente
+en `src/components/` con el prefijo `PaperFit` y usarán `PaperFitSection.astro`
+para mantener espaciados, anclas y contenedores consistentes. `PaperFitLayout.astro`
+es el layout independiente de la nueva landing y no incluye elementos de la
+implementación anterior.
+
 ## Despliegue
 
 El proyecto se despliega automáticamente en Vercel desde la rama `main`.

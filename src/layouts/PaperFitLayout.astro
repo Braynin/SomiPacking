@@ -1,0 +1,31 @@
+---
+import "../styles/paper-fit.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "Paper Fit: packaging e impresión para impulsar tu marca.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body class="paper-fit">
+    <a class="paper-fit__skip-link" href="#main-content">
+      Ir al contenido principal
+    </a>
+    <main id="main-content">
+      <slot />
+    </main>
+  </body>
+</html>
