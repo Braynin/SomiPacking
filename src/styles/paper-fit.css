@@ -1,0 +1,66 @@
+@config "../../tailwind.config.js";
+@import "tailwindcss";
+
+.paper-fit {
+  --paper-fit-color-primary: #082d67;
+  --paper-fit-color-accent: #009c4f;
+  --paper-fit-color-surface: #ffffff;
+  --paper-fit-color-text: #102647;
+  --paper-fit-color-muted: #52627a;
+  --paper-fit-shadow-card: 0 0.5rem 1.5rem rgb(8 45 103 / 10%);
+  --paper-fit-space-section: clamp(3rem, 7vw, 6rem);
+  --paper-fit-container-max-width: 75rem;
+  --paper-fit-container-gutter: 1rem;
+  --paper-fit-radius-sm: 0.375rem;
+  --paper-fit-focus-width: 0.1875rem;
+  margin: 0;
+  color: var(--paper-fit-color-text);
+  background-color: var(--paper-fit-color-surface);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}
+
+.paper-fit *,
+.paper-fit *::before,
+.paper-fit *::after {
+  box-sizing: border-box;
+}
+
+.paper-fit :focus-visible {
+  outline: var(--paper-fit-focus-width) solid var(--paper-fit-color-accent);
+  outline-offset: var(--paper-fit-focus-width);
+}
+
+.paper-fit__skip-link {
+  position: fixed;
+  z-index: 100;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.75rem 1rem;
+  color: var(--paper-fit-color-surface);
+  background: var(--paper-fit-color-primary);
+  border-radius: var(--paper-fit-radius-sm);
+  transform: translateY(-200%);
+}
+
+.paper-fit__skip-link:focus {
+  transform: translateY(0);
+}
+
+.paper-fit-section {
+  padding-block: var(--paper-fit-space-section);
+}
+
+.paper-fit-section__container {
+  width: min(
+    100% - (var(--paper-fit-container-gutter) * 2),
+    var(--paper-fit-container-max-width)
+  );
+  margin-inline: auto;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
