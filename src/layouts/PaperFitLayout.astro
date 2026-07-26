@@ -24,8 +24,10 @@ const {
     <a class="paper-fit__skip-link" href="#main-content">
       Ir al contenido principal
     </a>
+    <slot name="header" />
     <main id="main-content">
       <slot />
     </main>
+    <slot name="footer" />
   </body>
 </html>
