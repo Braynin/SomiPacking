@@ -1,0 +1,44 @@
+---
+import { paperFitNavigation } from "../paper-fit-content";
+
+interface Props {
+  ariaLabel: string;
+  className?: string;
+}
+
+const { ariaLabel, className } = Astro.props;
+---
+
+<nav class:list={["paper-fit-navigation", className]} aria-label={ariaLabel}>
+  <ul>
+    {
+      paperFitNavigation.map((item) => (
+        <li>
+          <a href={item.href}>{item.label}</a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  .paper-fit-navigation ul {
+    display: flex;
+    gap: clamp(1rem, 2vw, 2rem);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .paper-fit-navigation a {
+    color: var(--paper-fit-color-primary);
+    font-size: 0.875rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .paper-fit-navigation a:hover,
+  .paper-fit-navigation a:focus-visible {
+    color: var(--paper-fit-color-accent);
+  }
+</style>

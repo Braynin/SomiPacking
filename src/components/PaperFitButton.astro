@@ -1,0 +1,68 @@
+---
+interface Props {
+  className?: string;
+  external?: boolean;
+  href: string;
+  variant?: "primary" | "secondary";
+}
+
+const { className, external = false, href, variant = "primary" } = Astro.props;
+---
+
+<a
+  class:list={["paper-fit-button", `paper-fit-button--${variant}`, className]}
+  href={href}
+  target={external ? "_blank" : undefined}
+  rel={external ? "noopener noreferrer" : undefined}
+>
+  <slot name="icon" />
+  <span><slot /></span>
+</a>
+
+<style>
+  .paper-fit-button {
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 800;
+    text-decoration: none;
+    border-radius: var(--paper-fit-radius-sm);
+    transition:
+      color 150ms ease,
+      background-color 150ms ease,
+      border-color 150ms ease;
+  }
+
+  .paper-fit-button--primary {
+    color: var(--paper-fit-color-surface);
+    background-color: var(--paper-fit-color-accent);
+  }
+
+  .paper-fit-button--primary:hover,
+  .paper-fit-button--primary:focus-visible {
+    color: var(--paper-fit-color-surface);
+    background-color: var(--paper-fit-color-accent-hover);
+  }
+
+  .paper-fit-button--secondary {
+    color: var(--paper-fit-color-primary);
+    background-color: transparent;
+    border: 1px solid currentColor;
+  }
+
+  .paper-fit-button--secondary:hover,
+  .paper-fit-button--secondary:focus-visible {
+    color: var(--paper-fit-color-surface);
+    background-color: var(--paper-fit-color-primary);
+    border-color: var(--paper-fit-color-primary);
+  }
+
+  :global(.paper-fit-button svg) {
+    width: 1.125rem;
+    height: 1.125rem;
+    fill: currentColor;
+  }
+</style>
