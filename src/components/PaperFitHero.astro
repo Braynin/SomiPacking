@@ -1,0 +1,139 @@
+---
+import { paperFitContact, paperFitHero } from "../paper-fit-content";
+import PaperFitButton from "./PaperFitButton.astro";
+import WhatsAppIcon from "./WhatsAppIcon.astro";
+---
+
+<section class="paper-fit-hero" aria-labelledby="paper-fit-hero-title">
+  <div class="paper-fit-hero__visually-hidden">
+    <h1 id="paper-fit-hero-title">
+      {paperFitHero.titlePrimary}
+      {paperFitHero.titleAccent}
+    </h1>
+    <p>{paperFitHero.description}</p>
+  </div>
+
+  <picture>
+    <source media="(max-width: 47rem)" srcset={paperFitHero.mobileImageSrc} />
+    <img
+      src={paperFitHero.desktopImageSrc}
+      alt={paperFitHero.imageAlt}
+      width="1672"
+      height="941"
+      decoding="async"
+      fetchpriority="high"
+    />
+  </picture>
+
+  <div class="paper-fit-hero__actions">
+    <PaperFitButton
+      className="paper-fit-hero__whatsapp-cta"
+      href={paperFitContact.whatsappUrl}
+      external
+    >
+      <WhatsAppIcon slot="icon" />
+      {paperFitContact.whatsappLabel}
+    </PaperFitButton>
+    <PaperFitButton
+      className="paper-fit-hero__works-cta"
+      href="#trabajos-realizados"
+      variant="secondary"
+    >
+      {paperFitHero.secondaryCtaLabel}
+    </PaperFitButton>
+  </div>
+</section>
+
+<style>
+  .paper-fit-hero {
+    position: relative;
+    width: 100%;
+    background: var(--paper-fit-color-surface);
+  }
+
+  picture,
+  img {
+    display: block;
+    width: 100%;
+  }
+
+  .paper-fit-hero__visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .paper-fit-hero__actions {
+    position: absolute;
+    top: 72%;
+    left: clamp(1rem, 7vw, 8rem);
+  }
+
+  :global(.paper-fit-button.paper-fit-hero__whatsapp-cta) {
+    display: none !important;
+  }
+
+  :global(.paper-fit-button.paper-fit-hero__works-cta) {
+    padding: clamp(0.5rem, 0.67vw, 0.7rem) clamp(0.85rem, 1.1vw, 1.2rem);
+    font-size: clamp(0.75rem, 1vw, 0.95rem);
+  }
+
+  @media (max-width: 47rem) {
+    .paper-fit-hero__actions {
+      top: 45%;
+      left: 11.5%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      width: min(72%, 13.5rem);
+    }
+
+    :global(.paper-fit-button.paper-fit-hero__whatsapp-cta),
+    :global(.paper-fit-button.paper-fit-hero__works-cta) {
+      display: inline-flex !important;
+      flex: none;
+      width: 100%;
+      height: 38px;
+      padding: 0 0.5rem;
+      font-size: 0.75rem;
+      line-height: 1.1;
+      white-space: nowrap;
+    }
+
+    :global(.paper-fit-button.paper-fit-hero__whatsapp-cta) {
+      position: relative;
+    }
+
+    :global(.paper-fit-button.paper-fit-hero__whatsapp-cta svg) {
+      position: absolute;
+      left: 0.6rem;
+      width: 0.8rem;
+      height: 0.8rem;
+    }
+
+    :global(.paper-fit-button.paper-fit-hero__whatsapp-cta span) {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  @media (min-width: 47.0625rem) and (max-width: 52rem) {
+    .paper-fit-hero__actions {
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    :global(.paper-fit-button.paper-fit-hero__whatsapp-cta),
+    :global(.paper-fit-button.paper-fit-hero__works-cta) {
+      display: inline-flex !important;
+      padding: 0.4rem 0.55rem;
+      font-size: 0.65rem;
+      white-space: nowrap;
+    }
+  }
+</style>

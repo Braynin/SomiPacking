@@ -1,5 +1,6 @@
 ---
 import "../styles/paper-fit.css";
+import PaperFitFloatingWhatsApp from "../components/PaperFitFloatingWhatsApp.astro";
 
 interface Props {
   title: string;
@@ -29,5 +30,6 @@ const {
       <slot />
     </main>
     <slot name="footer" />
+    <PaperFitFloatingWhatsApp />
   </body>
 </html>

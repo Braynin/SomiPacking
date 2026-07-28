@@ -1,0 +1,54 @@
+---
+import { paperFitContact } from "../paper-fit-content";
+import WhatsAppIcon from "./WhatsAppIcon.astro";
+---
+
+<a
+  class="paper-fit-floating-whatsapp"
+  href={paperFitContact.whatsappUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label={paperFitContact.whatsappLabel}
+>
+  <WhatsAppIcon />
+</a>
+
+<style>
+  .paper-fit-floating-whatsapp {
+    position: fixed;
+    right: max(1rem, env(safe-area-inset-right));
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    z-index: 30;
+    display: none;
+    width: 3.5rem;
+    height: 3.5rem;
+    align-items: center;
+    justify-content: center;
+    color: var(--paper-fit-color-surface);
+    background: var(--paper-fit-color-accent);
+    border-radius: 999px;
+    box-shadow: 0 0.5rem 1.25rem rgb(8 45 103 / 25%);
+    transition:
+      transform 150ms ease,
+      background-color 150ms ease;
+  }
+
+  .paper-fit-floating-whatsapp:hover,
+  .paper-fit-floating-whatsapp:focus-visible {
+    color: var(--paper-fit-color-surface);
+    background: var(--paper-fit-color-accent-hover);
+    transform: translateY(-0.125rem);
+  }
+
+  .paper-fit-floating-whatsapp :global(svg) {
+    width: 1.75rem;
+    height: 1.75rem;
+    fill: currentColor;
+  }
+
+  @media (max-width: 52rem) {
+    .paper-fit-floating-whatsapp {
+      display: inline-flex;
+    }
+  }
+</style>
