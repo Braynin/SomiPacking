@@ -15,3 +15,15 @@ export const paperFitContact = {
   whatsappUrl: "https://wa.me/51924725290",
   whatsappLabel: "Cotizar por WhatsApp",
 } as const;
+
+export const paperFitHero = {
+  desktopImageSrc: "/images/paper-fit-hero-desktop.png",
+  description:
+    "Fabricamos cajas, bolsas y empaques personalizados con entrega rápida y acabados de calidad para empresas y emprendedores.",
+  imageAlt:
+    "El ajuste perfecto para tu marca: empaques personalizados, beneficios de fabricaciÃ³n directa, entrega rÃ¡pida, acabados de calidad y atenciÃ³n personalizada.",
+  mobileImageSrc: "/images/paper-fit-hero-mobile-actions-v2.png",
+  secondaryCtaLabel: "Ver trabajos realizados",
+  titleAccent: "para tu marca",
+  titlePrimary: "El ajuste perfecto",
+} as const;
