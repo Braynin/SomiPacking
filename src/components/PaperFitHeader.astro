@@ -16,7 +16,7 @@ import WhatsAppIcon from "./WhatsAppIcon.astro";
         src={paperFitBrand.logoSrc}
         alt={paperFitBrand.logoAlt}
         width="255"
-        height="50"
+        height="49"
       />
     </a>
 
@@ -43,14 +43,6 @@ import WhatsAppIcon from "./WhatsAppIcon.astro";
       </summary>
       <div class="paper-fit-header__mobile-content">
         <PaperFitNavigation ariaLabel="Navegación móvil" />
-        <PaperFitButton
-          className="paper-fit-header__mobile-cta"
-          href={paperFitContact.whatsappUrl}
-          external
-        >
-          <WhatsAppIcon slot="icon" />
-          {paperFitContact.whatsappLabel}
-        </PaperFitButton>
       </div>
     </details>
   </div>
@@ -204,10 +196,6 @@ import WhatsAppIcon from "./WhatsAppIcon.astro";
     .paper-fit-header__mobile-content :global(.paper-fit-navigation a) {
       display: block;
       font-size: 1rem;
-    }
-
-    :global(.paper-fit-header__mobile-cta) {
-      width: 100%;
     }
   }
 
