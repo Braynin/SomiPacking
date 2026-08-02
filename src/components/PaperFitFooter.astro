@@ -1,0 +1,485 @@
+---
+import {
+  paperFitBrand,
+  paperFitContact,
+  paperFitFooter,
+  paperFitSocialLinks,
+} from "../paper-fit-content";
+import PaperFitButton from "./PaperFitButton.astro";
+import WhatsAppIcon from "./WhatsAppIcon.astro";
+---
+
+<section
+  class="paper-fit-contact-cta"
+  aria-labelledby="paper-fit-contact-cta-title"
+>
+  <div class="paper-fit-contact-cta__container">
+    <div class="paper-fit-contact-cta__copy">
+      <WhatsAppIcon />
+      <div>
+        <h2 id="paper-fit-contact-cta-title">
+          ¿Listo para tu próximo proyecto?
+        </h2>
+        <p>Cotiza fácil y rápido por WhatsApp</p>
+      </div>
+    </div>
+    <PaperFitButton href={paperFitContact.whatsappUrl} external>
+      <WhatsAppIcon slot="icon" />
+      {paperFitContact.whatsappLabel}
+    </PaperFitButton>
+  </div>
+</section>
+
+<footer id="contacto" class="paper-fit-footer">
+  <div class="paper-fit-footer__content">
+    <div class="paper-fit-footer__brand">
+      <a href={paperFitBrand.homeHref} aria-label="Ir al inicio">
+        <img
+          src={paperFitBrand.logoSrc}
+          alt={paperFitBrand.logoAlt}
+          width="255"
+          height="49"
+        />
+      </a>
+      <p>{paperFitFooter.companyDescription}</p>
+    </div>
+
+    <section
+      class="paper-fit-footer__contact"
+      aria-labelledby="paper-fit-footer-contact"
+    >
+      <h2 id="paper-fit-footer-contact">Contacto</h2>
+      <address>
+        <ul class="paper-fit-footer__contact-list">
+          <li>
+            <img
+              src="/icons/paper-fit/phone.svg"
+              alt=""
+              width="29"
+              height="29"
+            />
+            <a href={paperFitContact.phoneUrl}>{paperFitContact.phone}</a>
+          </li>
+          <li>
+            <img
+              src="/icons/paper-fit/email.svg"
+              alt=""
+              width="29"
+              height="29"
+            />
+            <a href={`mailto:${paperFitContact.email}`}
+              >{paperFitContact.email}</a
+            >
+          </li>
+          <li>
+            <img
+              src="/icons/paper-fit/location.svg"
+              alt=""
+              width="29"
+              height="29"
+            />
+            <span>{paperFitContact.location}</span>
+          </li>
+        </ul>
+      </address>
+    </section>
+
+    <section
+      class="paper-fit-footer__social"
+      aria-labelledby="paper-fit-footer-social"
+    >
+      <h2 id="paper-fit-footer-social">Síguenos</h2>
+      <ul class="paper-fit-footer__social-links">
+        {
+          paperFitSocialLinks.map((socialLink) => (
+            <li>
+              <a
+                href={socialLink.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={socialLink.label}
+              >
+                <img src={socialLink.iconSrc} alt="" width="29" height="29" />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section
+      class="paper-fit-footer__hours"
+      aria-labelledby="paper-fit-footer-hours"
+    >
+      <h2 id="paper-fit-footer-hours">Horario de atención</h2>
+      <p>{paperFitFooter.hours[0]}</p>
+      <p>{paperFitFooter.hours[1]}</p>
+    </section>
+  </div>
+
+  <div class="paper-fit-footer__legal">
+    <p>{paperFitFooter.copyright}</p>
+    <a
+      class="paper-fit-footer__claims"
+      href={paperFitFooter.bookOfClaimsUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Libro de reclamaciones
+    </a>
+  </div>
+</footer>
+
+<style>
+  .paper-fit-contact-cta,
+  .paper-fit-footer {
+    --paper-fit-color-primary: #110e6b;
+    --paper-fit-color-accent: #00be7f;
+    --paper-fit-color-accent-hover: #009966;
+    --paper-fit-color-surface: #ffffff;
+    --paper-fit-radius-sm: 0.375rem;
+    --paper-fit-shadow-card: 0 0.5rem 1.5rem rgb(8 45 103 / 10%);
+    font-family: "Neometric", Arial, Helvetica, sans-serif;
+  }
+
+  .paper-fit-contact-cta {
+    padding-top: 2rem;
+    color: var(--paper-fit-color-surface);
+    background: var(--paper-fit-color-surface);
+  }
+
+  .paper-fit-footer {
+    color: var(--paper-fit-color-surface);
+    background: var(--paper-fit-color-primary);
+  }
+
+  .paper-fit-contact-cta__container {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    width: min(100% - 2rem, 75rem);
+    padding: 0.9rem clamp(1.25rem, 3vw, 2.5rem);
+    margin-inline: auto;
+    background: var(--paper-fit-color-accent);
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+
+  .paper-fit-contact-cta__copy {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .paper-fit-contact-cta__copy :global(svg) {
+    flex: none;
+    width: 2rem;
+    height: 2rem;
+    fill: currentColor;
+  }
+
+  .paper-fit-contact-cta h2,
+  .paper-fit-contact-cta p,
+  .paper-fit-footer h2,
+  .paper-fit-footer p {
+    margin: 0;
+  }
+
+  .paper-fit-contact-cta h2 {
+    font-size: clamp(1rem, 1.6vw, 1.25rem);
+    line-height: 1.1;
+  }
+
+  .paper-fit-contact-cta p {
+    margin-top: 0.25rem;
+    font-size: 0.8rem;
+  }
+
+  .paper-fit-contact-cta :global(.paper-fit-button) {
+    flex: none;
+    min-width: 12rem;
+    color: var(--paper-fit-color-accent);
+    background: var(--paper-fit-color-surface);
+  }
+
+  .paper-fit-contact-cta :global(.paper-fit-button:hover),
+  .paper-fit-contact-cta :global(.paper-fit-button:focus-visible) {
+    color: var(--paper-fit-color-accent);
+    background: var(--paper-fit-color-surface);
+    border-color: var(--paper-fit-color-surface);
+  }
+
+  @media (min-width: 52.0625rem) {
+    .paper-fit-contact-cta__container {
+      padding: 1.1rem clamp(1.5rem, 4vw, 3rem);
+    }
+
+    .paper-fit-contact-cta__copy {
+      gap: 1.25rem;
+    }
+
+    .paper-fit-contact-cta__copy :global(svg) {
+      width: 2.75rem;
+      height: 2.75rem;
+    }
+
+    .paper-fit-contact-cta h2 {
+      font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+    }
+
+    .paper-fit-contact-cta p {
+      font-size: 0.9rem;
+    }
+
+    .paper-fit-contact-cta :global(.paper-fit-button) {
+      min-width: 13rem;
+      padding: 0.85rem 1.25rem;
+    }
+  }
+
+  .paper-fit-footer__content {
+    display: grid;
+    grid-template-columns: minmax(12rem, 1.35fr) repeat(3, minmax(9rem, 1fr));
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+    width: min(100% - 2rem, 75rem);
+    padding-block: clamp(2rem, 4vw, 3rem);
+    margin-inline: auto;
+  }
+
+  .paper-fit-footer__brand img {
+    display: block;
+    width: min(10rem, 100%);
+    height: auto;
+    filter: brightness(0) invert(1);
+  }
+
+  .paper-fit-footer__brand p {
+    max-width: 17rem;
+    margin-top: 1.1rem;
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+
+  .paper-fit-footer section h2 {
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .paper-fit-footer ul {
+    display: grid;
+    gap: 0.5rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .paper-fit-footer section p,
+  .paper-fit-footer a {
+    color: inherit;
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .paper-fit-footer a:hover,
+  .paper-fit-footer a:focus-visible {
+    color: #b5f2db;
+  }
+
+  .paper-fit-footer__contact-list li {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .paper-fit-footer__contact {
+    margin: 0;
+  }
+
+  .paper-fit-footer__contact address {
+    font-style: normal;
+  }
+
+  .paper-fit-footer__contact-list img {
+    flex: none;
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+
+  .paper-fit-footer .paper-fit-footer__social-links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.75rem;
+  }
+
+  .paper-fit-footer__social-links img {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .paper-fit-footer__legal {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    width: min(100% - 2rem, 75rem);
+    padding-block: 1.25rem;
+    margin-inline: auto;
+    border-top: 1px solid rgb(255 255 255 / 20%);
+  }
+
+  .paper-fit-footer__legal p {
+    font-size: 0.75rem;
+  }
+
+  .paper-fit-footer__claims {
+    font-size: 0.75rem;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 52rem) {
+    .paper-fit-footer__content {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 40rem) {
+    .paper-fit-contact-cta__container,
+    .paper-fit-footer__content {
+      width: 100%;
+    }
+
+    .paper-fit-contact-cta {
+      padding-top: 0;
+    }
+
+    .paper-fit-contact-cta__container {
+      gap: 0.5rem;
+      padding: 0.9rem 1.25rem;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 0.75rem 0.75rem 0 0;
+    }
+
+    .paper-fit-contact-cta__copy {
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .paper-fit-contact-cta__copy > :global(svg) {
+      display: none;
+    }
+
+    .paper-fit-contact-cta h2 {
+      font-size: 0.875rem;
+    }
+
+    .paper-fit-contact-cta p {
+      font-size: 0.7rem;
+    }
+
+    .paper-fit-contact-cta :global(.paper-fit-button) {
+      align-self: center;
+      width: min(100%, 14.75rem);
+      min-width: 0;
+      padding: 0.55rem 0.75rem;
+      font-size: 0.7rem;
+      color: var(--paper-fit-color-surface);
+      background: transparent;
+      border: 1px solid currentColor;
+      white-space: nowrap;
+    }
+
+    .paper-fit-contact-cta :global(.paper-fit-button:hover),
+    .paper-fit-contact-cta :global(.paper-fit-button:focus-visible) {
+      color: var(--paper-fit-color-accent);
+      background: var(--paper-fit-color-surface);
+      border-color: var(--paper-fit-color-surface);
+    }
+
+    .paper-fit-footer__content {
+      grid-template-columns: 42% 58%;
+      row-gap: 0.7rem;
+      padding: 1.1rem 1rem;
+    }
+
+    .paper-fit-footer__brand img {
+      width: min(5.75rem, 100%);
+    }
+
+    .paper-fit-footer__brand p {
+      display: none;
+    }
+
+    .paper-fit-footer section h2 {
+      margin-bottom: 0.35rem;
+      font-size: 0.65rem;
+    }
+
+    .paper-fit-footer section p,
+    .paper-fit-footer a {
+      font-size: 0.55rem;
+    }
+
+    .paper-fit-footer__contact-list {
+      gap: 0.2rem;
+    }
+
+    .paper-fit-footer__contact-list img {
+      width: 0.7rem;
+      height: 0.7rem;
+    }
+
+    .paper-fit-footer__social-links {
+      gap: 0.35rem;
+    }
+
+    .paper-fit-footer__social-links img {
+      width: 0.95rem;
+      height: 0.95rem;
+    }
+
+    .paper-fit-footer__contact {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .paper-fit-footer__contact h2 {
+      display: none;
+    }
+
+    .paper-fit-footer__social {
+      grid-column: 2;
+      grid-row: 1;
+      padding-left: 0.75rem;
+      padding-bottom: 0.65rem;
+      border-bottom: 1px solid rgb(255 255 255 / 20%);
+    }
+
+    .paper-fit-footer__hours {
+      grid-column: 2;
+      grid-row: 2;
+      padding-left: 0.75rem;
+    }
+
+    .paper-fit-footer__legal {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.6rem 1rem 4.25rem;
+    }
+
+    .paper-fit-footer__legal p,
+    .paper-fit-footer__claims {
+      font-size: 0.5rem;
+    }
+
+    .paper-fit-footer__claims {
+      order: -1;
+    }
+  }
+</style>
