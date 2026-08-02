@@ -1,114 +1,112 @@
 ---
 interface Props {
-  number: number;
-  iconSrc: string;
-  iconAlt: string;
-  title: string;
-  description: string;
+    number: number;
+    iconSrc: string;
+    iconAlt: string;
+    title: string;
+    description: string;
 }
 
 const { number, iconSrc, iconAlt, title, description } = Astro.props;
 ---
 
 <article class="paper-fit-workflow-card">
-  <span class="paper-fit-workflow-card__number">
-    {number}
-  </span>
+    <span class="paper-fit-workflow-card__number">
+        {number}
+    </span>
 
-  <img
-    class="paper-fit-workflow-card__icon"
-    src={iconSrc}
-    alt={iconAlt}
-    width="72"
-    height="72"
-    loading="lazy"
-    decoding="async"
-  />
+    <img
+        class="paper-fit-workflow-card__icon"
+        src={iconSrc}
+        alt={iconAlt}
+        width="72"
+        height="72"
+        loading="lazy"
+        decoding="async"
+    />
 
-  <h3 class="paper-fit-workflow-card__title">
-    {title}
-  </h3>
+    <h3 class="paper-fit-workflow-card__title">
+        {title}
+    </h3>
 
-  <p class="paper-fit-workflow-card__description">
-    {description}
-  </p>
+    <p class="paper-fit-workflow-card__description">
+        {description}
+    </p>
 </article>
 
 <style>
-  .paper-fit-workflow-card {
-    position: relative;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    width: 100%;
-    min-height: 15rem;
-
-    padding: 2rem 1.5rem;
-
-    text-align: center;
-
-    border: 1px solid rgb(255 255 255 / 18%);
-    border-radius: 1rem;
-
-    background: transparent;
-  }
-
-  .paper-fit-workflow-card__number {
-    position: absolute;
-
-    top: 1rem;
-    left: 1rem;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 1.75rem;
-    height: 1.75rem;
-
-    border-radius: 999px;
-
-    background: var(--paper-fit-color-surface);
-    color: var(--paper-fit-color-accent);
-
-    font-size: 0.85rem;
-    font-weight: 800;
-  }
-
-  .paper-fit-workflow-card__icon {
-    display: block;
-
-    width: 4.75rem;
-    height: 4.75rem;
-
-    margin-bottom: 1.4rem;
-  }
-
-  .paper-fit-workflow-card__title {
-    display: block;
-    max-width: 13rem;
-    margin: 0 0 0.8rem;
-    color: #fff;
-    font-size: 1.45rem;
-    font-weight: 800;
-    line-height: 1.2;
-  }
-
-  .paper-fit-workflow-card__description {
-    display: block;
-    max-width: 13rem;
-    margin: 0;
-    color: rgba(255, 255, 255, 0.82);
-    font-size: 0.95rem;
-    line-height: 1.55;
-  }
-
-  @media (max-width: 47rem) {
     .paper-fit-workflow-card {
-      display: none;
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        width: 100%;
+        height: 18rem; /* en vez de min-height */
+        padding: 2rem 1.5rem;
+
+        border: 2px solid rgb(255 255 255 / 18%);
+        border-radius: 1rem;
+
+        background: transparent;
+        text-align: center;
     }
-  }
+
+    .paper-fit-workflow-card__number {
+        position: absolute;
+
+        top: 1rem;
+        left: 1rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 1.75rem;
+        height: 1.75rem;
+
+        border-radius: 999px;
+
+        background: var(--paper-fit-color-surface);
+        color: var(--paper-fit-color-accent);
+
+        font-size: 0.85rem;
+        font-weight: 800;
+    }
+
+    .paper-fit-workflow-card__icon {
+        display: block;
+
+        width: auto;
+        height: 4.75rem;
+        max-width: 100%;
+
+        margin-bottom: 1.4rem;
+    }
+
+    .paper-fit-workflow-card__title {
+        display: block;
+        max-width: 13rem;
+        margin: 0 0 0.8rem;
+        color: #fff;
+        font-size: 1.45rem;
+        font-weight: 800;
+        line-height: 1.2;
+    }
+
+    .paper-fit-workflow-card__description {
+        display: block;
+        max-width: 13rem;
+        margin: 0;
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 0.95rem;
+        line-height: 1.55;
+    }
+
+    @media (max-width: 47rem) {
+        .paper-fit-workflow-card {
+            display: none;
+        }
+    }
 </style>
