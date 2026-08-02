@@ -5,7 +5,7 @@ export const paperFitBrand = {
 } as const;
 
 export const paperFitNavigation = [
-  { label: "Productos", href: "#productos" },
+  { label: "Nuestras Soluciones", href: "#nuestras-soluciones" },
   { label: "Trabajos Realizados", href: "#trabajos-realizados" },
   { label: "Nosotros", href: "#nosotros" },
   { label: "Contacto", href: "#contacto" },
