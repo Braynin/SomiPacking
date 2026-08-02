@@ -11,7 +11,7 @@ const { id, labelledBy, class: className } = Astro.props;
 <section
   id={id}
   aria-labelledby={labelledBy}
-  class:list={["paper-fit-section", className]}
+  class:list={["paper-fit-section", "paper-fit-section--full", className]}
 >
   <div class="paper-fit-section__container">
     <slot />

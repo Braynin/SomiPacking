@@ -1,72 +1,15 @@
 ---
 import ValoresOptions from "../assets/ValoresOptions.js";
 import PaperFitHero from "./PaperFitHero.astro";
+import PaperFitSolutions from "./PaperFitSolutions.astro";
+import PaperFitWorkflow from "./PaperFitWorkflow.astro";
 ---
 
-<div class="w-full flex flex-col items-center">
+<div class="w-full flex flex-col">
   <PaperFitHero />
+  <PaperFitSolutions />
+  <PaperFitWorkflow />
 
-  <section
-    id="productos"
-    class="flex justify-center gap-10 py-10 bg-white w-full celular:flex-col celular:items-center"
-  >
-    <!-- Packing -->
-    <div class="flex flex-col items-center text-center w-60">
-      <a
-        href="/Packaging"
-        class="w-40 h-40 rounded-full overflow-hidden hover:scale-105 transition-transform"
-      >
-        <img
-          src="/Packaging-inicio.png"
-          alt="Papelería"
-          class="w-full h-full object-cover"
-        />
-      </a>
-      <h3 class="mt-4 text-lg font-semibold">Packaging</h3>
-      <p class="text-gray-600 mt-3 text-sm max-w-xs">
-        Garantizamos empaques con altos estándares de protección, presentación y
-        sostenibilidad.
-      </p>
-    </div>
-
-    <!-- Imprenta -->
-    <div class="flex flex-col items-center text-center w-60">
-      <a
-        href="/Imprenta"
-        class="w-40 h-40 rounded-full overflow-hidden hover:scale-105 transition-transform"
-      >
-        <img
-          src="/Imprenta-inicio.png"
-          alt="Imprenta"
-          class="w-full h-full object-cover"
-        />
-      </a>
-      <h3 class="mt-4 text-lg font-semibold">Imprenta</h3>
-      <p class="text-gray-600 mt-3 text-sm max-w-xs">
-        Realizamos la imagen de su negocio mediante nuestro servicio de
-        impresión de papelería en general.
-      </p>
-    </div>
-
-    <!-- Merchandising -->
-    <div class="flex flex-col items-center text-center w-60">
-      <a
-        href="/Imprenta#Merchandising"
-        class="w-40 h-40 rounded-full overflow-hidden hover:scale-105 transition-transform"
-      >
-        <img
-          src="/Merchandising-Inicio.png"
-          alt="Merchandising"
-          class="w-full h-full object-cover"
-        />
-      </a>
-      <h3 class="mt-4 text-lg font-semibold">Merchandising</h3>
-      <p class="text-gray-600 mt-3 text-sm max-w-xs">
-        Fortalecemos la identidad de tu marca con productos promocionales
-        personalizados.
-      </p>
-    </div>
-  </section>
   <section
     id="nosotros"
     class="flex py-10 justify-center bg-verdeNosotros mt-10 w-full celular:flex-col items-center"

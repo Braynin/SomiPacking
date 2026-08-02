@@ -1,0 +1,178 @@
+---
+import { paperFitWorkflow } from "../paper-fit-content";
+import PaperFitSection from "./PaperFitSection.astro";
+import PaperFitWorkflowCard from "./PaperFitWorkflowCard.astro";
+
+const { title, steps } = paperFitWorkflow;
+---
+
+<PaperFitSection
+    id="como-trabajamos"
+    labelledBy="paper-fit-workflow-title"
+    class="paper-fit-workflow"
+>
+    <div class="paper-fit-workflow__header">
+        <h2 id="paper-fit-workflow-title" class="paper-fit-workflow__title">
+            {title}
+        </h2>
+    </div>
+
+    <div class="paper-fit-workflow__desktop">
+        {
+            steps.map((step, index) => (
+                <>
+                    <PaperFitWorkflowCard {...step} />
+
+                    {index < steps.length - 1 && (
+                        <div
+                            class="paper-fit-workflow__arrow"
+                            aria-hidden="true"
+                        >
+                            →
+                        </div>
+                    )}
+                </>
+            ))
+        }
+    </div>
+
+    <div class="paper-fit-workflow__mobile">
+        {
+            steps.map((step, index) => (
+                <div class="paper-fit-workflow__mobile-item">
+                    <div class="paper-fit-workflow__mobile-marker">
+                        <span>{step.number}</span>
+
+                        {index < steps.length - 1 && (
+                            <span class="paper-fit-workflow__mobile-line" />
+                        )}
+                    </div>
+
+                    <div class="paper-fit-workflow__mobile-content">
+                        <h3>{step.title}</h3>
+                        <p>{step.description}</p>
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+</PaperFitSection>
+
+<style>
+    .paper-fit-workflow {
+        background: red !important;
+        min-height: 600px;
+    }
+
+    .paper-fit-workflow__header {
+        margin-bottom: 3rem;
+        text-align: center;
+    }
+
+    .paper-fit-workflow__title {
+        margin: 0;
+
+        color: var(--paper-fit-color-surface);
+
+        font-size: clamp(2rem, 3vw, 2.75rem);
+        font-weight: 800;
+    }
+
+    .paper-fit-workflow__desktop {
+        display: grid;
+        grid-template-columns: repeat(7, auto);
+        justify-content: center;
+        align-items: center;
+        column-gap: 1.5rem;
+    }
+    .paper-fit-workflow__desktop > * {
+        min-width: 0;
+    }
+
+    .paper-fit-workflow__arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        color: var(--paper-fit-color-accent);
+
+        font-size: 2.5rem;
+        font-weight: 800;
+    }
+
+    .paper-fit-workflow__mobile {
+        display: none;
+    }
+
+    @media (max-width: 47rem) {
+        .paper-fit-workflow__desktop {
+            display: none;
+        }
+
+        .paper-fit-workflow__mobile {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .paper-fit-workflow__mobile-item {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .paper-fit-workflow__mobile-marker {
+            position: relative;
+
+            width: 2.25rem;
+
+            display: flex;
+            justify-content: center;
+
+            flex-shrink: 0;
+        }
+
+        .paper-fit-workflow__mobile-marker > span:first-child {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 2rem;
+            height: 2rem;
+
+            border-radius: 999px;
+
+            background: var(--paper-fit-color-accent);
+            color: var(--paper-fit-color-surface);
+
+            font-weight: 800;
+        }
+
+        .paper-fit-workflow__mobile-line {
+            position: absolute;
+
+            top: 2rem;
+
+            width: 2px;
+            height: calc(100% + 2rem);
+
+            background: rgb(255 255 255 / 18%);
+        }
+
+        .paper-fit-workflow__mobile-content h3 {
+            margin: 0 0 0.35rem;
+
+            color: var(--paper-fit-color-surface);
+
+            font-size: 1.2rem;
+            font-weight: 800;
+        }
+
+        .paper-fit-workflow__mobile-content p {
+            margin: 0;
+
+            color: rgb(255 255 255 / 82%);
+
+            line-height: 1.5;
+        }
+    }
+</style>

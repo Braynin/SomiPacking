@@ -27,3 +27,108 @@ export const paperFitHero = {
   titleAccent: "para tu marca",
   titlePrimary: "El ajuste perfecto",
 } as const;
+
+export const paperFitSolutions = {
+  title: "Nuestras Soluciones",
+
+  items: [
+    {
+      imageSrc: "/images/paper-fit-solutions/paper-fit-cajas-personalizadas.webp",
+      imageAlt: "Cajas personalizadas de Paper Fit",
+      iconSrc: "/icons/paper-fit-cajas-personalizadas.svg",
+      iconVariant: "primary",
+      title: "Cajas Personalizadas",
+      description:
+        "Empaques a medida para productos, alimentos, retail y más.",
+      href: "",
+      buttonLabel: "Ver más",
+    },
+    {
+      imageSrc:
+        "/images/paper-fit-solutions/paper-fit-bolsas-personalizadas.webp",
+      imageAlt: "Bolsas personalizadas de Paper Fit",
+      iconSrc: "/icons/paper-fit-bolsas-personalizadas.svg",
+      iconVariant: "accent",
+      title: "Bolsas Personalizadas",
+      description:
+        "Bolsas kraft, couche y ecológicas personalizadas con tu marca.",
+      href: "",
+      buttonLabel: "Ver más",
+    },
+    {
+      imageSrc:
+        "/images/paper-fit-solutions/paper-fit-packaging-alimentos.webp",
+      imageAlt: "Packaging para alimentos de Paper Fit",
+      iconSrc: "/icons/paper-fit-packaging-alimentos.svg",
+      iconVariant: "primary",
+      title: "Packaging para Alimentos",
+      description:
+        "Empaques para tortas, postres, repostería y delivery.",
+      href: "",
+      buttonLabel: "Ver más",
+    },
+    {
+      imageSrc:
+        "/images/paper-fit-solutions/paper-fit-merchandising-corporativo.webp",
+      imageAlt: "Merchandising corporativo de Paper Fit",
+      iconSrc: "/icons/paper-fit-merchandising-corporativo.svg",
+      iconVariant: "accent",
+      title: "Merchandising Corporativo",
+      description:
+        "Artículos promocionales que fortalecen tu marca y conectan con tus clientes.",
+      href: "",
+      buttonLabel: "Ver más",
+    },
+    {
+      imageSrc:
+        "/images/paper-fit-solutions/paper-fit-impresion-comercial.webp",
+      imageAlt: "Impresión comercial de Paper Fit",
+      iconSrc: "/icons/paper-fit-impresion-comercial.svg",
+      iconVariant: "primary",
+      title: "Impresión Comercial",
+      description:
+        "Material impreso para tu empresa con la mejor calidad y presentación.",
+      href: "",
+      buttonLabel: "Ver más",
+    },
+  ],
+} as const;
+
+export const paperFitWorkflow = {
+    title: "¿Cómo trabajamos?",
+
+    steps: [
+        {
+            number: 1,
+            iconSrc: "/icons/paper-fit-envianos-tu-diseno.svg",
+            iconAlt: "Envíanos tu diseño",
+            title: "Envíanos tu diseño",
+            description:
+                "Nos envías tu diseño listo para impresión.",
+        },
+        {
+            number: 2,
+            iconSrc: "/icons/paper-fit-cotizamos.svg",
+            iconAlt: "Cotizamos",
+            title: "Cotizamos",
+            description:
+                "Cotizamos según medida, cantidad y acabados.",
+        },
+        {
+            number: 3,
+            iconSrc: "/icons/paper-fit-fabricamos.svg",
+            iconAlt: "Fabricamos",
+            title: "Fabricamos",
+            description:
+                "Iniciamos la producción con altos estándares de calidad.",
+        },
+        {
+            number: 4,
+            iconSrc: "/icons/paper-fit-entregamos.svg",
+            iconAlt: "Entregamos",
+            title: "Entregamos",
+            description:
+                "Te entregamos tu pedido listo para usar.",
+        },
+    ],
+} as const;            
