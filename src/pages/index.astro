@@ -1,7 +1,7 @@
 ---
 export const prerender = true;
-import Footer from "../components/Footer.astro";
 import MainIndex from "../components/MainIndex.astro";
+import PaperFitFooter from "../components/PaperFitFooter.astro";
 import PaperFitHeader from "../components/PaperFitHeader.astro";
 import PaperFitLayout from "../layouts/PaperFitLayout.astro";
 ---
@@ -9,5 +9,5 @@ import PaperFitLayout from "../layouts/PaperFitLayout.astro";
 <PaperFitLayout title="Paper Fit | Packaging e impresión">
   <PaperFitHeader slot="header" />
   <MainIndex />
-  <Footer slot="footer" />
+  <PaperFitFooter slot="footer" />
 </PaperFitLayout>
