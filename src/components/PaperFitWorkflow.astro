@@ -1,0 +1,191 @@
+---
+import { paperFitWorkflow } from "../paper-fit-content";
+import PaperFitSection from "./PaperFitSection.astro";
+import PaperFitWorkflowCard from "./PaperFitWorkflowCard.astro";
+
+const { title, steps } = paperFitWorkflow;
+---
+
+<PaperFitSection
+  id="como-trabajamos"
+  labelledBy="paper-fit-workflow-title"
+  class="paper-fit-workflow"
+>
+  <h2 id="paper-fit-workflow-title" class="paper-fit-workflow__title">
+    {title}
+  </h2>
+
+  <div class="paper-fit-workflow__desktop">
+    {
+      steps.map((step, index) => (
+        <>
+          <PaperFitWorkflowCard {...step} />
+
+          {index < steps.length - 1 && (
+            <div class="paper-fit-workflow__arrow" aria-hidden="true">
+              →
+            </div>
+          )}
+        </>
+      ))
+    }
+  </div>
+
+  <div class="paper-fit-workflow__mobile">
+    {
+      steps.map((step, index) => (
+        <div class="paper-fit-workflow__mobile-item">
+          <div class="paper-fit-workflow__mobile-marker">
+            <span>{step.number}</span>
+
+            {index < steps.length - 1 && (
+              <span class="paper-fit-workflow__mobile-line" />
+            )}
+          </div>
+
+          <div class="paper-fit-workflow__mobile-content">
+            <h3>{step.title}</h3>
+            <p>{step.description}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</PaperFitSection>
+
+<style>
+  :global(.paper-fit-workflow) {
+    background: var(--paper-fit-color-primary);
+  }
+
+  .paper-fit-workflow__title {
+    margin: 0 0 3rem;
+
+    color: var(--paper-fit-color-surface);
+
+    font-size: var(--paper-fit-font-h2);
+    font-weight: 800;
+    text-align: center;
+  }
+
+  .paper-fit-workflow__desktop {
+    display: grid;
+    grid-template-columns: repeat(7, auto);
+    justify-content: center;
+    align-items: center;
+    column-gap: 1.5rem;
+  }
+  .paper-fit-workflow__desktop > * {
+    min-width: 0;
+  }
+
+  .paper-fit-workflow__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    color: var(--paper-fit-color-accent);
+
+    font-size: 2.5rem;
+    font-weight: 800;
+  }
+
+  .paper-fit-workflow__mobile {
+    display: none;
+  }
+  @media (max-width: 64rem) and (min-width: 48rem) {
+    .paper-fit-workflow__desktop {
+      column-gap: 0.75rem;
+    }
+
+    .paper-fit-workflow__arrow {
+      font-size: 2rem;
+    }
+
+    .paper-fit-workflow__desktop > article {
+      width: 11.75rem;
+    }
+  }
+  @media (max-width: 47rem) {
+    :global(.paper-fit-workflow) {
+      background: var(--paper-fit-color-surface);
+    }
+
+    .paper-fit-workflow__title {
+      margin-bottom: 2rem;
+
+      color: var(--paper-fit-color-primary);
+    }
+
+    .paper-fit-workflow__desktop {
+      display: none;
+    }
+
+    .paper-fit-workflow__mobile {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .paper-fit-workflow__mobile-item {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .paper-fit-workflow__mobile-marker {
+      position: relative;
+
+      width: 2.25rem;
+
+      display: flex;
+      justify-content: center;
+
+      flex-shrink: 0;
+    }
+
+    .paper-fit-workflow__mobile-marker > span:first-child {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 2rem;
+      height: 2rem;
+
+      border-radius: 999px;
+
+      background: var(--paper-fit-color-accent);
+      color: var(--paper-fit-color-surface);
+
+      font-weight: 800;
+    }
+
+    .paper-fit-workflow__mobile-line {
+      position: absolute;
+
+      top: 2rem;
+
+      width: 2px;
+      height: calc(100% + 2rem);
+
+      background: rgb(17 14 107 / 15%);
+    }
+
+    .paper-fit-workflow__mobile-content h3 {
+      margin: 0 0 0.35rem;
+
+      color: var(--paper-fit-color-primary);
+
+      font-size: var(--paper-fit-font-h3);
+      font-weight: 800;
+    }
+
+    .paper-fit-workflow__mobile-content p {
+      margin: 0;
+
+      color: var(--paper-fit-color-text);
+      font-size: var(--paper-fit-font-body);
+
+      line-height: 1.5;
+    }
+  }
+</style>
