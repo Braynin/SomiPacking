@@ -6,180 +6,179 @@ const { whatsappUrl } = paperFitContact;
 ---
 
 <PaperFitSection
-    id="trabajos-realizados"
-    labelledBy="paper-fit-work-gallery-title"
-    class="paper-fit-work-gallery"
+  id="trabajos-realizados"
+  labelledBy="paper-fit-work-gallery-title"
+  class="paper-fit-work-gallery"
 >
-    <h2 id="paper-fit-work-gallery-title" class="paper-fit-work-gallery__title">
-        {title}
-    </h2>
+  <h2 id="paper-fit-work-gallery-title" class="paper-fit-work-gallery__title">
+    {title}
+  </h2>
 
-    <span class="paper-fit-work-gallery__divider" aria-hidden="true"></span>
-    <div class="paper-fit-work-gallery__grid">
-        {
-            items.map((item, index) => (
-                <article
-                    class:list={[
-                        "paper-fit-work-gallery__item",
-                        index === 4 &&
-                            "paper-fit-work-gallery__item--hidden-mobile",
-                    ]}
-                >
-                    <img
-                        src={item.imageSrc}
-                        alt={item.imageAlt}
-                        loading="lazy"
-                        decoding="async"
-                    />
-                </article>
-            ))
-        }
-    </div>
-    <a
-        id="paper-fit-work-gallery-button"
-        href={buttonHref}
-        class="paper-fit-work-gallery__button"
-        target="_blank"
-        rel="noopener noreferrer"
-        data-whatsapp-label={buttonLabel}
-    >
-        Ver más trabajos
-    </a>
+  <span class="paper-fit-work-gallery__divider" aria-hidden="true"></span>
+  <div class="paper-fit-work-gallery__grid">
+    {
+      items.map((item, index) => (
+        <article
+          class:list={[
+            "paper-fit-work-gallery__item",
+            index === 4 && "paper-fit-work-gallery__item--hidden-mobile",
+          ]}
+        >
+          <img
+            src={item.imageSrc}
+            alt={item.imageAlt}
+            loading="lazy"
+            decoding="async"
+          />
+        </article>
+      ))
+    }
+  </div>
+  <a
+    id="paper-fit-work-gallery-button"
+    href={buttonHref}
+    class="paper-fit-work-gallery__button"
+    target="_blank"
+    rel="noopener noreferrer"
+    data-whatsapp-label={buttonLabel}
+  >
+    Ver más trabajos
+  </a>
 </PaperFitSection>
 
 <style>
-    .paper-fit-work-gallery {
-        background: var(--paper-fit-color-surface);
-    }
+  .paper-fit-work-gallery {
+    background: var(--paper-fit-color-surface);
+  }
 
-    .paper-fit-work-gallery__title {
-        margin: 0;
-        text-align: center;
+  .paper-fit-work-gallery__title {
+    margin: 0;
+    text-align: center;
 
-        color: var(--paper-fit-color-primary);
+    color: var(--paper-fit-color-primary);
 
-        font-size: var(--paper-fit-font-h2);
-        font-weight: 800;
-    }
+    font-size: var(--paper-fit-font-h2);
+    font-weight: 800;
+  }
 
-    .paper-fit-work-gallery__divider {
-        display: block;
+  .paper-fit-work-gallery__divider {
+    display: block;
 
-        width: 3rem;
-        height: 0.25rem;
+    width: 3rem;
+    height: 0.25rem;
 
-        margin: 0.75rem auto 3rem;
+    margin: 0.75rem auto 3rem;
 
-        border-radius: 999px;
+    border-radius: 999px;
 
-        background: var(--paper-fit-color-accent);
-    }
+    background: var(--paper-fit-color-accent);
+  }
+  .paper-fit-work-gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+  }
+
+  .paper-fit-work-gallery__item {
+    overflow: hidden;
+
+    border-radius: 1rem;
+
+    box-shadow: var(--paper-fit-shadow-card);
+  }
+
+  .paper-fit-work-gallery__item img {
+    display: block;
+
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+  .paper-fit-work-gallery__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: fit-content;
+
+    margin: 2rem auto 0;
+    padding: 0.9rem 2.8rem;
+
+    border: 2px solid var(--paper-fit-color-primary);
+    border-radius: 0.75rem;
+
+    background: transparent;
+    color: var(--paper-fit-color-primary);
+
+    font-size: 1rem;
+    font-weight: 800;
+    text-decoration: none;
+
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .paper-fit-work-gallery__button:hover {
+    background: var(--paper-fit-color-primary);
+    color: var(--paper-fit-color-surface);
+  }
+
+  @media (max-width: 47rem) {
     .paper-fit-work-gallery__grid {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 1rem;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.6rem;
+    }
+
+    .paper-fit-work-gallery__item--hidden-mobile {
+      display: none;
+    }
+
+    .paper-fit-work-gallery__item--hidden-mobile.is-visible {
+      display: block;
+      grid-column: 2 / span 2;
     }
 
     .paper-fit-work-gallery__item {
-        overflow: hidden;
-
-        border-radius: 1rem;
-
-        box-shadow: var(--paper-fit-shadow-card);
+      border-radius: 0.75rem;
     }
-
-    .paper-fit-work-gallery__item img {
-        display: block;
-
-        width: 100%;
-        aspect-ratio: 1 / 1;
-        object-fit: cover;
-    }
-    .paper-fit-work-gallery__button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        width: fit-content;
-
-        margin: 2rem auto 0;
-        padding: 0.9rem 2.8rem;
-
-        border: 2px solid var(--paper-fit-color-primary);
-        border-radius: 0.75rem;
-
-        background: transparent;
-        color: var(--paper-fit-color-primary);
-
-        font-size: 1rem;
-        font-weight: 800;
-        text-decoration: none;
-
-        transition:
-            background-color 0.2s ease,
-            color 0.2s ease;
-    }
-
-    .paper-fit-work-gallery__button:hover {
-        background: var(--paper-fit-color-primary);
-        color: var(--paper-fit-color-surface);
-    }
-
-    @media (max-width: 47rem) {
-        .paper-fit-work-gallery__grid {
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0.6rem;
-        }
-
-        .paper-fit-work-gallery__item--hidden-mobile {
-            display: none;
-        }
-
-        .paper-fit-work-gallery__item--hidden-mobile.is-visible {
-            display: block;
-            grid-column: 2 / span 2;
-        }
-
-        .paper-fit-work-gallery__item {
-            border-radius: 0.75rem;
-        }
-    }
+  }
 </style>
 <script define:vars={{ whatsappUrl }}>
-    const button = document.getElementById("paper-fit-work-gallery-button");
-    const hiddenItem = document.querySelector(
-        ".paper-fit-work-gallery__item--hidden-mobile",
-    );
+  const button = document.getElementById("paper-fit-work-gallery-button");
+  const hiddenItem = document.querySelector(
+    ".paper-fit-work-gallery__item--hidden-mobile",
+  );
 
-    if (button) {
-        const isMobile = window.innerWidth <= 752;
+  if (button) {
+    const isMobile = window.innerWidth <= 752;
 
-        // Desktop y tablet: siempre cotizar
-        if (!isMobile) {
-            button.textContent = "Cotizar ahora";
-            button.href = whatsappUrl;
-            button.target = "_blank";
-            button.rel = "noopener noreferrer";
-        }
-
-        // Solo móvil tiene el comportamiento de "Ver más"
-        if (isMobile && hiddenItem) {
-            let expanded = false;
-
-            button.addEventListener("click", (event) => {
-                if (!expanded) {
-                    event.preventDefault();
-
-                    hiddenItem.classList.add("is-visible");
-
-                    button.textContent = "Cotizar ahora";
-                    button.href = whatsappUrl;
-                    button.target = "_blank";
-                    button.rel = "noopener noreferrer";
-
-                    expanded = true;
-                }
-            });
-        }
+    // Desktop y tablet: siempre cotizar
+    if (!isMobile) {
+      button.textContent = "Cotizar ahora";
+      button.href = whatsappUrl;
+      button.target = "_blank";
+      button.rel = "noopener noreferrer";
     }
+
+    // Solo móvil tiene el comportamiento de "Ver más"
+    if (isMobile && hiddenItem) {
+      let expanded = false;
+
+      button.addEventListener("click", (event) => {
+        if (!expanded) {
+          event.preventDefault();
+
+          hiddenItem.classList.add("is-visible");
+
+          button.textContent = "Cotizar ahora";
+          button.href = whatsappUrl;
+          button.target = "_blank";
+          button.rel = "noopener noreferrer";
+
+          expanded = true;
+        }
+      });
+    }
+  }
 </script>

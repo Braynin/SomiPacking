@@ -64,14 +64,13 @@ export const paperFitSolutions = {
 
   items: [
     {
-      imageSrc: "/images/paper-fit-solutions/paper-fit-cajas-personalizadas.webp",
+      imageSrc:
+        "/images/paper-fit-solutions/paper-fit-cajas-personalizadas.webp",
       imageAlt: "Cajas personalizadas de Paper Fit",
       iconSrc: "/icons/paper-fit-cajas-personalizadas.svg",
       iconVariant: "primary",
       title: "Cajas Personalizadas",
-      description:
-        "Empaques a medida para productos, alimentos, retail y más.",
-
+      description: "Empaques a medida para productos, alimentos, retail y más.",
     },
     {
       imageSrc:
@@ -82,7 +81,6 @@ export const paperFitSolutions = {
       title: "Bolsas Personalizadas",
       description:
         "Bolsas kraft, couche y ecológicas personalizadas con tu marca.",
-
     },
     {
       imageSrc:
@@ -91,9 +89,7 @@ export const paperFitSolutions = {
       iconSrc: "/icons/paper-fit-packaging-alimentos.svg",
       iconVariant: "primary",
       title: "Packaging para Alimentos",
-      description:
-        "Empaques para tortas, postres, repostería y delivery.",
-
+      description: "Empaques para tortas, postres, repostería y delivery.",
     },
     {
       imageSrc:
@@ -104,7 +100,6 @@ export const paperFitSolutions = {
       title: "Merchandising Corporativo",
       description:
         "Artículos promocionales que fortalecen tu marca y conectan con tus clientes.",
-
     },
     {
       imageSrc:
@@ -115,49 +110,44 @@ export const paperFitSolutions = {
       title: "Impresión Comercial",
       description:
         "Material impreso para tu empresa con la mejor calidad y presentación.",
-
     },
   ],
 } as const;
 
 export const paperFitWorkflow = {
-    title: "¿Cómo trabajamos?",
+  title: "¿Cómo trabajamos?",
 
-    steps: [
-        {
-            number: 1,
-            iconSrc: "/icons/paper-fit-envianos-tu-diseno.svg",
-            iconAlt: "Envíanos tu diseño",
-            title: "Envíanos tu diseño",
-            description:
-                "Nos envías tu diseño listo para impresión.",
-        },
-        {
-            number: 2,
-            iconSrc: "/icons/paper-fit-cotizamos.svg",
-            iconAlt: "Cotizamos",
-            title: "Cotizamos",
-            description:
-                "Cotizamos según medida, cantidad y acabados.",
-        },
-        {
-            number: 3,
-            iconSrc: "/icons/paper-fit-fabricamos.svg",
-            iconAlt: "Fabricamos",
-            title: "Fabricamos",
-            description:
-                "Iniciamos la producción con altos estándares de calidad.",
-        },
-        {
-            number: 4,
-            iconSrc: "/icons/paper-fit-entregamos.svg",
-            iconAlt: "Entregamos",
-            title: "Entregamos",
-            description:
-                "Te entregamos tu pedido listo para usar.",
-        },
-    ],
-} as const;   
+  steps: [
+    {
+      number: 1,
+      iconSrc: "/icons/paper-fit-envianos-tu-diseno.svg",
+      iconAlt: "Envíanos tu diseño",
+      title: "Envíanos tu diseño",
+      description: "Nos envías tu diseño listo para impresión.",
+    },
+    {
+      number: 2,
+      iconSrc: "/icons/paper-fit-cotizamos.svg",
+      iconAlt: "Cotizamos",
+      title: "Cotizamos",
+      description: "Cotizamos según medida, cantidad y acabados.",
+    },
+    {
+      number: 3,
+      iconSrc: "/icons/paper-fit-fabricamos.svg",
+      iconAlt: "Fabricamos",
+      title: "Fabricamos",
+      description: "Iniciamos la producción con altos estándares de calidad.",
+    },
+    {
+      number: 4,
+      iconSrc: "/icons/paper-fit-entregamos.svg",
+      iconAlt: "Entregamos",
+      title: "Entregamos",
+      description: "Te entregamos tu pedido listo para usar.",
+    },
+  ],
+} as const;
 
 export const paperFitWorkGallery = {
   title: "Trabajos realizados",
@@ -182,7 +172,8 @@ export const paperFitWorkGallery = {
       imageAlt: "Trabajo realizado para LP",
     },
     {
-      imageSrc: "/images/paper-fit-work-gallery/paper-fit-work-vivoXderecho.webp",
+      imageSrc:
+        "/images/paper-fit-work-gallery/paper-fit-work-vivoXderecho.webp",
       imageAlt: "Trabajo realizado para Vivo X Derecho",
     },
   ],
@@ -233,8 +224,7 @@ export const paperFitTrust = {
     "Acabados deseados",
   ],
 
-  note:
-    "¿No tienes las medidas? Nuestro equipo puede asesorarte sin compromiso.",
+  note: "¿No tienes las medidas? Nuestro equipo puede asesorarte sin compromiso.",
 
   illustrationSrc: "/icons/paper-fit-packaging-box.svg",
   illustrationAlt: "Caja de packaging",

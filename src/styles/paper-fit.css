@@ -25,13 +25,13 @@
   --paper-fit-color-text: #102647;
   --paper-fit-color-muted: #52627a;
   --paper-fit-shadow-card: 0 0.5rem 1.5rem rgb(8 45 103 / 10%);
-  --paper-fit-space-section: clamp(3rem, 7vw, 6rem);  
+  --paper-fit-space-section: clamp(3rem, 7vw, 6rem);
   --paper-fit-container-max-width: 75rem;
   --paper-fit-container-gutter: 1rem;
   --paper-fit-radius-sm: 0.375rem;
   --paper-fit-focus-width: 0.1875rem;
   --paper-fit-header-height: 5rem;
-    /* Tipografía Desktop */
+  /* Tipografía Desktop */
   --paper-fit-font-h2: 3rem;
   --paper-fit-font-h3: 1.45rem;
   --paper-fit-font-body: 0.95rem;
@@ -75,12 +75,12 @@
 }
 
 .paper-fit-section__container {
-    width: min(
-      100% - (var(--paper-fit-container-gutter) * 2),
-      var(--paper-fit-container-max-width)
-    );
-    margin-inline: auto;
-}   
+  width: min(
+    100% - (var(--paper-fit-container-gutter) * 2),
+    var(--paper-fit-container-max-width)
+  );
+  margin-inline: auto;
+}
 .paper-fit-section--full {
   width: 100%;
 }
