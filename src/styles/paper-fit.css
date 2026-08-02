@@ -31,6 +31,10 @@
   --paper-fit-radius-sm: 0.375rem;
   --paper-fit-focus-width: 0.1875rem;
   --paper-fit-header-height: 5rem;
+    /* Tipografía Desktop */
+  --paper-fit-font-h2: 3rem;
+  --paper-fit-font-h3: 1.45rem;
+  --paper-fit-font-body: 0.95rem;
   margin: 0;
   color: var(--paper-fit-color-text);
   background-color: var(--paper-fit-color-surface);
@@ -84,5 +88,12 @@
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
+  }
+}
+@media (max-width: 47rem) {
+  .paper-fit {
+    --paper-fit-font-h2: 1.5rem;
+    --paper-fit-font-h3: 1.05rem;
+    --paper-fit-font-body: 0.88rem;
   }
 }

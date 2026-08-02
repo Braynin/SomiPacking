@@ -1,0 +1,129 @@
+---
+import { paperFitWorkGallery } from "../paper-fit-content";
+import PaperFitSection from "./PaperFitSection.astro";
+
+const { title, buttonLabel, buttonHref, items } = paperFitWorkGallery;
+---
+
+<PaperFitSection
+    id="trabajos-realizados"
+    labelledBy="paper-fit-work-gallery-title"
+    class="paper-fit-work-gallery"
+>
+    <h2 id="paper-fit-work-gallery-title" class="paper-fit-work-gallery__title">
+        {title}
+    </h2>
+
+    <span class="paper-fit-work-gallery__divider" aria-hidden="true"></span>
+    <div class="paper-fit-work-gallery__grid">
+        {
+            items.map((item) => (
+                <article class="paper-fit-work-gallery__item">
+                    <img
+                        src={item.imageSrc}
+                        alt={item.imageAlt}
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </article>
+            ))
+        }
+    </div>
+    <a href={buttonHref} class="paper-fit-work-gallery__button">
+        {buttonLabel}
+    </a>
+</PaperFitSection>
+
+<style>
+    .paper-fit-work-gallery {
+        background: var(--paper-fit-color-surface);
+    }
+
+    .paper-fit-work-gallery__title {
+        margin: 0;
+        text-align: center;
+
+        color: var(--paper-fit-color-primary);
+
+        font-size: var(--paper-fit-font-h2);
+        font-weight: 800;
+    }
+
+    .paper-fit-work-gallery__divider {
+        display: block;
+
+        width: 3rem;
+        height: 0.25rem;
+
+        margin: 0.75rem auto 3rem;
+
+        border-radius: 999px;
+
+        background: var(--paper-fit-color-accent);
+    }
+    .paper-fit-work-gallery__grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1rem;
+    }
+
+    .paper-fit-work-gallery__item {
+        overflow: hidden;
+
+        border-radius: 1rem;
+
+        box-shadow: var(--paper-fit-shadow-card);
+    }
+
+    .paper-fit-work-gallery__item img {
+        display: block;
+
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+    }
+    .paper-fit-work-gallery__button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: fit-content;
+
+        margin: 2rem auto 0;
+        padding: 0.9rem 2.8rem;
+
+        border: 2px solid var(--paper-fit-color-primary);
+        border-radius: 0.75rem;
+
+        background: transparent;
+        color: var(--paper-fit-color-primary);
+
+        font-size: 1rem;
+        font-weight: 800;
+        text-decoration: none;
+
+        transition:
+            background-color 0.2s ease,
+            color 0.2s ease;
+    }
+
+    .paper-fit-work-gallery__button:hover {
+        background: var(--paper-fit-color-primary);
+        color: var(--paper-fit-color-surface);
+    }
+
+    @media (max-width: 47rem) {
+        .paper-fit-work-gallery__grid {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.6rem;
+        }
+
+        .paper-fit-work-gallery__item:last-child {
+            display: none;
+        }
+
+        .paper-fit-work-gallery__item {
+            border-radius: 0.75rem;
+        }
+    }
+</style>

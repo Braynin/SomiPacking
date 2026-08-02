@@ -1,4 +1,6 @@
 ---
+import { paperFitContact } from "../paper-fit-content";
+
 interface Props {
     imageSrc: string;
     imageAlt: string;
@@ -6,20 +8,10 @@ interface Props {
     iconVariant: "primary" | "accent";
     title: string;
     description: string;
-    href: string;
-    buttonLabel: string;
 }
 
-const {
-    imageSrc,
-    imageAlt,
-    iconSrc,
-    iconVariant,
-    title,
-    description,
-    href,
-    buttonLabel,
-} = Astro.props;
+const { imageSrc, imageAlt, iconSrc, iconVariant, title, description } =
+    Astro.props;
 ---
 
 <article class="paper-fit-solution-card">
@@ -64,10 +56,12 @@ const {
 
             <a
                 class="paper-fit-solution-card__link paper-fit-solution-card__link--desktop"
-                href={href}
-                aria-label={`${buttonLabel}: ${title}`}
+                href={paperFitContact.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Cotizar ${title} por WhatsApp`}
             >
-                <span>{buttonLabel}</span>
+                <span>Cotizar</span>
 
                 <span
                     class="paper-fit-solution-card__arrow paper-fit-solution-card__arrow--desktop"
@@ -80,186 +74,181 @@ const {
 
         <a
             class="paper-fit-solution-card__link paper-fit-solution-card__link--mobile"
-            href={href}
-            aria-label={`${buttonLabel}: ${title}`}
+            href={paperFitContact.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Cotizar ${title} por WhatsApp`}
         >
-            <span
-                class="paper-fit-solution-card__arrow paper-fit-solution-card__arrow--mobile"
-                aria-hidden="true"
-            >
-                ›
-            </span>
         </a>
     </div>
-</article>
 
-<style>
-    .paper-fit-solution-card {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        overflow: hidden;
-        background: var(--paper-fit-color-surface);
-        border-radius: var(--paper-fit-radius-sm);
-        box-shadow: var(--paper-fit-shadow-card);
-    }
+    <style>
+        .paper-fit-solution-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+            background: var(--paper-fit-color-surface);
+            border-radius: var(--paper-fit-radius-sm);
+            box-shadow: var(--paper-fit-shadow-card);
+        }
 
-    .paper-fit-solution-card__figure {
-        margin: 0;
-    }
-
-    .paper-fit-solution-card__image {
-        display: block;
-        width: 100%;
-        aspect-ratio: 1 / 0.88;
-        object-fit: cover;
-    }
-
-    .paper-fit-solution-card__content {
-        position: relative;
-        display: flex;
-        flex: 1;
-        flex-direction: column;
-        padding: 2.5rem 1.2rem 1.2rem;
-    }
-
-    .paper-fit-solution-card__icon {
-        position: absolute;
-        top: 0;
-        left: 1.2rem;
-        display: grid;
-        place-items: center;
-        width: 4rem;
-        height: 4rem;
-        border-radius: 50%;
-        transform: translateY(-55%);
-    }
-
-    .paper-fit-solution-card__icon--primary {
-        background: var(--paper-fit-color-primary);
-    }
-
-    .paper-fit-solution-card__icon--accent {
-        background: var(--paper-fit-color-accent);
-    }
-
-    .paper-fit-solution-card__icon img {
-        display: block;
-        width: 2rem;
-        height: 2rem;
-    }
-
-    .paper-fit-solution-card__body {
-        display: flex;
-        flex: 1;
-        flex-direction: column;
-        gap: 0.75rem;
-    }
-
-    .paper-fit-solution-card__title {
-        margin: 0;
-        color: var(--paper-fit-color-primary);
-        font-size: 1.35rem;
-        font-weight: 800;
-        line-height: 1.1;
-    }
-
-    .paper-fit-solution-card__description {
-        flex: 1;
-        margin: 0;
-        color: var(--paper-fit-color-muted);
-        line-height: 1.55;
-    }
-
-    .paper-fit-solution-card__link {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.35rem;
-        width: fit-content;
-        color: var(--paper-fit-color-accent);
-        font-weight: 800;
-        text-decoration: none;
-        transition: gap 150ms ease;
-    }
-
-    .paper-fit-solution-card__link:hover,
-    .paper-fit-solution-card__link:focus-visible {
-        gap: 0.65rem;
-    }
-
-    .paper-fit-solution-card__link--mobile {
-        display: none;
-    }
-
-    .paper-fit-solution-card__arrow--desktop {
-        font-size: 1rem;
-        line-height: 1;
-    }
-
-    .paper-fit-solution-card__arrow--mobile {
-        font-size: 2rem;
-        line-height: 1;
-        color: var(--paper-fit-color-muted);
-    }
-
-    @media (max-width: 47rem) {
         .paper-fit-solution-card__figure {
-            display: none;
+            margin: 0;
+        }
+
+        .paper-fit-solution-card__image {
+            display: block;
+            width: 100%;
+            aspect-ratio: 1 / 0.88;
+            object-fit: cover;
         }
 
         .paper-fit-solution-card__content {
-            position: static;
+            position: relative;
             display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 1rem;
-            min-height: 6.5rem;
-            padding: 1rem 1.25rem;
+            flex: 1;
+            flex-direction: column;
+            padding: 2.5rem 1.2rem 1.2rem;
         }
 
         .paper-fit-solution-card__icon {
-            position: static;
-            flex-shrink: 0;
-            width: 3.5rem;
-            height: 3.5rem;
-            transform: none;
+            position: absolute;
+            top: 0;
+            left: 1.2rem;
+            display: grid;
+            place-items: center;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            transform: translateY(-55%);
+        }
+
+        .paper-fit-solution-card__icon--primary {
+            background: var(--paper-fit-color-primary);
+        }
+
+        .paper-fit-solution-card__icon--accent {
+            background: var(--paper-fit-color-accent);
         }
 
         .paper-fit-solution-card__icon img {
-            width: 1.75rem;
-            height: 1.75rem;
+            display: block;
+            width: 2rem;
+            height: 2rem;
         }
 
         .paper-fit-solution-card__body {
-            justify-content: center;
-            gap: 0.3rem;
-            min-width: 0;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            gap: 0.75rem;
         }
 
         .paper-fit-solution-card__title {
-            font-size: 1.15rem;
-            line-height: 1.2;
+            margin: 0;
+            color: var(--paper-fit-color-primary);
+            font-size: var(--paper-fit-font-h3);
+            font-weight: 800;
+            line-height: 1.1;
         }
 
         .paper-fit-solution-card__description {
-            font-size: 0.9rem;
-            line-height: 1.4;
+            flex: 1;
+            margin: 0;
+            color: var(--paper-fit-color-muted);
+            line-height: 1.55;
+            font-size: var(--paper-fit-font-body);
         }
 
-        .paper-fit-solution-card__link--desktop {
-            display: none;
+        .paper-fit-solution-card__link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            width: fit-content;
+            color: var(--paper-fit-color-accent);
+            font-weight: 800;
+            text-decoration: none;
+            transition: gap 150ms ease;
+        }
+
+        .paper-fit-solution-card__link:hover,
+        .paper-fit-solution-card__link:focus-visible {
+            gap: 0.65rem;
         }
 
         .paper-fit-solution-card__link--mobile {
-            display: flex;
-            flex-shrink: 0;
-            align-items: center;
-            justify-content: center;
-            margin-left: auto;
-            width: 2rem;
-            height: 2rem;
-            color: var(--paper-fit-color-muted);
-            text-decoration: none;
+            display: none;
         }
-    }
-</style>
+
+        .paper-fit-solution-card__arrow--desktop {
+            font-size: 1rem;
+            line-height: 1;
+        }
+
+        .paper-fit-solution-card__arrow--mobile {
+            font-size: 2rem;
+            line-height: 1;
+            color: var(--paper-fit-color-muted);
+        }
+
+        @media (max-width: 47rem) {
+            .paper-fit-solution-card__figure {
+                display: none;
+            }
+
+            .paper-fit-solution-card__content {
+                position: static;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 1rem;
+                min-height: 6.5rem;
+                padding: 1rem 1.25rem;
+            }
+
+            .paper-fit-solution-card__icon {
+                position: static;
+                flex-shrink: 0;
+                width: 3.5rem;
+                height: 3.5rem;
+                transform: none;
+            }
+
+            .paper-fit-solution-card__icon img {
+                width: 1.75rem;
+                height: 1.75rem;
+            }
+
+            .paper-fit-solution-card__body {
+                justify-content: center;
+                gap: 0.3rem;
+                min-width: 0;
+            }
+
+            .paper-fit-solution-card__title {
+                line-height: 1.2;
+            }
+
+            .paper-fit-solution-card__description {
+                line-height: 1.4;
+            }
+
+            .paper-fit-solution-card__link--desktop {
+                display: none;
+            }
+
+            .paper-fit-solution-card__link--mobile {
+                display: flex;
+                flex-shrink: 0;
+                align-items: center;
+                justify-content: center;
+                margin-left: auto;
+                width: 2rem;
+                height: 2rem;
+                color: var(--paper-fit-color-muted);
+                text-decoration: none;
+            }
+        }
+    </style>
+</article>

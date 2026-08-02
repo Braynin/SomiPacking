@@ -63,7 +63,7 @@ const { title, steps } = paperFitWorkflow;
 
     color: var(--paper-fit-color-surface);
 
-    font-size: clamp(2rem, 3vw, 2.75rem);
+    font-size: var(--paper-fit-font-h2);
     font-weight: 800;
     text-align: center;
   }
@@ -83,7 +83,7 @@ const { title, steps } = paperFitWorkflow;
     display: flex;
     align-items: center;
     justify-content: center;
-
+    align-self: center;
     color: var(--paper-fit-color-accent);
 
     font-size: 2.5rem;
@@ -93,8 +93,30 @@ const { title, steps } = paperFitWorkflow;
   .paper-fit-workflow__mobile {
     display: none;
   }
+  @media (max-width: 64rem) and (min-width: 48rem) {
+    .paper-fit-workflow__desktop {
+      column-gap: 0.75rem;
+    }
 
+    .paper-fit-workflow__arrow {
+      font-size: 2rem;
+    }
+
+    .paper-fit-workflow__desktop > article {
+      width: 11.75rem;
+    }
+  }
   @media (max-width: 47rem) {
+    :global(.paper-fit-workflow) {
+      background: var(--paper-fit-color-surface);
+    }
+
+    .paper-fit-workflow__title {
+      margin-bottom: 2rem;
+
+      color: var(--paper-fit-color-primary);
+    }
+
     .paper-fit-workflow__desktop {
       display: none;
     }
@@ -145,22 +167,23 @@ const { title, steps } = paperFitWorkflow;
       width: 2px;
       height: calc(100% + 2rem);
 
-      background: rgb(255 255 255 / 18%);
+      background: rgb(17 14 107 / 15%);
     }
 
     .paper-fit-workflow__mobile-content h3 {
       margin: 0 0 0.35rem;
 
-      color: var(--paper-fit-color-surface);
+      color: var(--paper-fit-color-primary);
 
-      font-size: 1.2rem;
+      font-size: var(--paper-fit-font-h3);
       font-weight: 800;
     }
 
     .paper-fit-workflow__mobile-content p {
       margin: 0;
 
-      color: rgb(255 255 255 / 82%);
+      color: var(--paper-fit-color-text);
+      font-size: var(--paper-fit-font-body);
 
       line-height: 1.5;
     }

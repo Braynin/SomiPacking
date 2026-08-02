@@ -14,36 +14,58 @@ const { number, iconSrc, iconAlt, title, description } = Astro.props;
     <span class="paper-fit-workflow-card__number">
         {number}
     </span>
+    <div class="paper-fit-workflow-card__icon-wrapper">
+        <img
+            class="paper-fit-workflow-card__icon"
+            src={iconSrc}
+            alt={iconAlt}
+            width="72"
+            height="72"
+            loading="lazy"
+            decoding="async"
+        />
+    </div>
 
-    <img
-        class="paper-fit-workflow-card__icon"
-        src={iconSrc}
-        alt={iconAlt}
-        width="72"
-        height="72"
-        loading="lazy"
-        decoding="async"
-    />
+    <div class="paper-fit-workflow-card__content">
+        <h3 class="paper-fit-workflow-card__title">
+            {title}
+        </h3>
 
-    <h3 class="paper-fit-workflow-card__title">
-        {title}
-    </h3>
-
-    <p class="paper-fit-workflow-card__description">
-        {description}
-    </p>
+        <p class="paper-fit-workflow-card__description">
+            {description}
+        </p>
+    </div>
 </article>
 
 <style>
+    .paper-fit-workflow-card__icon-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        height: 5.5rem;
+        margin-bottom: 1rem;
+    }
+    .paper-fit-workflow-card__content {
+        display: flex;
+        flex-direction: column;
+
+        flex: 1;
+        width: 100%;
+
+        align-items: center;
+        justify-content: space-between;
+    }
     .paper-fit-workflow-card {
         position: relative;
 
         display: flex;
         flex-direction: column;
         align-items: center;
-
+        justify-content: space-between;
         width: 100%;
-        height: 18rem; /* en vez de min-height */
+        height: 17rem; /* en vez de min-height */
         padding: 2rem 1.5rem;
 
         border: 2px solid rgb(255 255 255 / 18%);
@@ -80,17 +102,16 @@ const { number, iconSrc, iconAlt, title, description } = Astro.props;
 
         width: auto;
         height: 4.75rem;
-        max-width: 100%;
 
-        margin-bottom: 1.4rem;
+        flex-shrink: 0;
     }
-
     .paper-fit-workflow-card__title {
         display: block;
         max-width: 13rem;
+        height: 3.5rem;
         margin: 0 0 0.8rem;
         color: #fff;
-        font-size: 1.45rem;
+        font-size: var(--paper-fit-font-h3);
         font-weight: 800;
         line-height: 1.2;
     }
@@ -98,12 +119,37 @@ const { number, iconSrc, iconAlt, title, description } = Astro.props;
     .paper-fit-workflow-card__description {
         display: block;
         max-width: 13rem;
+        height: 5rem;
         margin: 0;
         color: rgba(255, 255, 255, 0.82);
-        font-size: 0.95rem;
+        font-size: var(--paper-fit-font-body);
         line-height: 1.55;
     }
+    @media (max-width: 64rem) and (min-width: 48rem) {
+        .paper-fit-workflow-card {
+            height: 15rem;
+            padding: 1.5rem 1rem;
+        }
 
+        .paper-fit-workflow-card__icon-wrapper {
+            height: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .paper-fit-workflow-card__icon {
+            height: 3.75rem;
+        }
+
+        .paper-fit-workflow-card__title {
+            font-size: 1.25rem;
+            min-height: 3rem;
+        }
+
+        .paper-fit-workflow-card__description {
+            font-size: 0.65rem;
+            min-height: 4rem;
+        }
+    }
     @media (max-width: 47rem) {
         .paper-fit-workflow-card {
             display: none;

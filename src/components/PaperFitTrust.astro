@@ -1,0 +1,222 @@
+---
+import { paperFitTrust } from "../paper-fit-content";
+import PaperFitSection from "./PaperFitSection.astro";
+
+const {
+    trustTitle,
+    trustItems,
+    quoteTitle,
+    requirements,
+    note,
+    illustrationSrc,
+    illustrationAlt,
+} = paperFitTrust;
+---
+
+<PaperFitSection id="nosotros" class="paper-fit-trust">
+    <div class="paper-fit-trust__grid">
+        <section class="paper-fit-trust__card">
+            <h2 class="paper-fit-trust__title">
+                {trustTitle}
+            </h2>
+
+            <div class="paper-fit-trust__items">
+                {
+                    trustItems.map((item) => (
+                        <article class="paper-fit-trust__item">
+                            <img
+                                src={item.iconSrc}
+                                alt={item.iconAlt}
+                                loading="lazy"
+                                decoding="async"
+                            />
+
+                            <span>{item.label}</span>
+                        </article>
+                    ))
+                }
+            </div>
+        </section>
+        <section class="paper-fit-quote__card">
+            <h2 class="paper-fit-quote__title">
+                {quoteTitle}
+            </h2>
+
+            <div class="paper-fit-quote__content">
+                <div class="paper-fit-quote__text">
+                    <ul class="paper-fit-quote__list">
+                        {requirements.map((item) => <li>{item}</li>)}
+                    </ul>
+
+                    <p class="paper-fit-quote__note">
+                        {note}
+                    </p>
+                </div>
+
+                <img
+                    class="paper-fit-quote__illustration"
+                    src={illustrationSrc}
+                    alt={illustrationAlt}
+                    loading="lazy"
+                    decoding="async"
+                />
+            </div>
+        </section>
+    </div>
+</PaperFitSection>
+
+<style>
+    .paper-fit-trust__grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.5rem;
+    }
+    .paper-fit-trust__card {
+        padding: 1.75rem 2rem;
+
+        background: #f5f7fb;
+
+        border-radius: 1rem;
+    }
+
+    .paper-fit-trust__title {
+        margin: 0 0 2rem;
+
+        color: var(--paper-fit-color-primary);
+
+        font-size: var(--paper-fit-font-h2);
+        font-weight: 800;
+
+        text-align: center;
+    }
+
+    .paper-fit-trust__items {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 1rem;
+    }
+    .paper-fit-trust__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        min-width: 0;
+    }
+    .paper-fit-trust__item img {
+        width: 3.5rem;
+        height: 3.5rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .paper-fit-trust__item span {
+        color: var(--paper-fit-color-text);
+
+        font-size: 0.8rem;
+        line-height: 1.25;
+    }
+    .paper-fit-quote__card {
+        padding: 1.75rem 2rem;
+
+        background: #f5f7fb;
+        border-radius: 1rem;
+    }
+
+    .paper-fit-quote__title {
+        margin: 0 0 1.5rem;
+
+        color: var(--paper-fit-color-primary);
+
+        font-size: var(--paper-fit-font-h2);
+        font-weight: 800;
+        text-align: center;
+    }
+
+    .paper-fit-quote__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .paper-fit-quote__text {
+        flex: 1;
+    }
+
+    .paper-fit-quote__list {
+        margin: 0;
+        padding: 0;
+
+        list-style: none;
+    }
+
+    .paper-fit-quote__list li {
+        position: relative;
+
+        padding-left: 1.5rem;
+        margin-bottom: 0.8rem;
+
+        color: var(--paper-fit-color-text);
+        font-size: var(--paper-fit-font-body);
+    }
+
+    .paper-fit-quote__list li::before {
+        content: "✓";
+
+        position: absolute;
+        left: 0;
+
+        color: var(--paper-fit-color-accent);
+        font-weight: 700;
+    }
+
+    .paper-fit-quote__note {
+        margin-top: 1rem;
+
+        color: var(--paper-fit-color-text);
+        font-size: var(--paper-fit-font-body);
+        line-height: 1.5;
+    }
+
+    .paper-fit-quote__illustration {
+        width: 8rem;
+        height: auto;
+
+        flex-shrink: 0;
+    }
+    @media (max-width: 64rem) and (min-width: 48rem) {
+        .paper-fit-trust__grid {
+            grid-template-columns: 1fr;
+            max-width: 42rem;
+            margin: 0 auto;
+        }
+    }
+    @media (max-width: 47rem) {
+        .paper-fit-trust__grid {
+            grid-template-columns: 1fr;
+        }
+
+        .paper-fit-trust__card {
+            padding: 1.5rem;
+        }
+
+        .paper-fit-trust__items {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .paper-fit-trust__item img {
+            width: 2.8rem;
+            height: 2.8rem;
+            margin-bottom: 0;
+        }
+
+        .paper-fit-trust__item span {
+            display: none;
+        }
+        .paper-fit-quote__card {
+            display: none;
+        }
+    }
+</style>

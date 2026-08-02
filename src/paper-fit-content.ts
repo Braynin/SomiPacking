@@ -71,8 +71,7 @@ export const paperFitSolutions = {
       title: "Cajas Personalizadas",
       description:
         "Empaques a medida para productos, alimentos, retail y más.",
-      href: "",
-      buttonLabel: "Ver más",
+
     },
     {
       imageSrc:
@@ -83,8 +82,7 @@ export const paperFitSolutions = {
       title: "Bolsas Personalizadas",
       description:
         "Bolsas kraft, couche y ecológicas personalizadas con tu marca.",
-      href: "",
-      buttonLabel: "Ver más",
+
     },
     {
       imageSrc:
@@ -95,8 +93,7 @@ export const paperFitSolutions = {
       title: "Packaging para Alimentos",
       description:
         "Empaques para tortas, postres, repostería y delivery.",
-      href: "",
-      buttonLabel: "Ver más",
+
     },
     {
       imageSrc:
@@ -107,8 +104,7 @@ export const paperFitSolutions = {
       title: "Merchandising Corporativo",
       description:
         "Artículos promocionales que fortalecen tu marca y conectan con tus clientes.",
-      href: "",
-      buttonLabel: "Ver más",
+
     },
     {
       imageSrc:
@@ -119,8 +115,7 @@ export const paperFitSolutions = {
       title: "Impresión Comercial",
       description:
         "Material impreso para tu empresa con la mejor calidad y presentación.",
-      href: "",
-      buttonLabel: "Ver más",
+
     },
   ],
 } as const;
@@ -162,4 +157,85 @@ export const paperFitWorkflow = {
                 "Te entregamos tu pedido listo para usar.",
         },
     ],
-} as const;            
+} as const;   
+
+export const paperFitWorkGallery = {
+  title: "Trabajos realizados",
+  buttonLabel: "Ver más trabajos",
+  buttonHref: "#",
+
+  items: [
+    {
+      imageSrc: "/images/paper-fit-work-gallery/paper-fit-work-almaCen.webp",
+      imageAlt: "Trabajo realizado para Alma Cen",
+    },
+    {
+      imageSrc: "/images/paper-fit-work-gallery/paper-fit-work-Cumpa.webp",
+      imageAlt: "Trabajo realizado para Cumpa",
+    },
+    {
+      imageSrc: "/images/paper-fit-work-gallery/paper-fit-work-elPiombino.webp",
+      imageAlt: "Trabajo realizado para El Piombino",
+    },
+    {
+      imageSrc: "/images/paper-fit-work-gallery/paper-fit-work-LP.webp",
+      imageAlt: "Trabajo realizado para LP",
+    },
+    {
+      imageSrc: "/images/paper-fit-work-gallery/paper-fit-work-vivoXderecho.webp",
+      imageAlt: "Trabajo realizado para Vivo X Derecho",
+    },
+  ],
+} as const;
+
+export const paperFitTrust = {
+  trustTitle: "¿Quiénes confían en nosotros?",
+
+  trustItems: [
+    {
+      iconSrc: "/icons/paper-fit-trust/paper-fit-restaurantes.svg",
+      iconAlt: "Restaurantes",
+      label: "Restaurantes",
+    },
+    {
+      iconSrc: "/icons/paper-fit-trust/paper-fit-pastelerias.svg",
+      iconAlt: "Pastelerías",
+      label: "Pastelerías",
+    },
+    {
+      iconSrc: "/icons/paper-fit-trust/paper-fit-cafeterias.svg",
+      iconAlt: "Cafeterías",
+      label: "Cafeterías",
+    },
+    {
+      iconSrc: "/icons/paper-fit-trust/paper-fit-empresas.svg",
+      iconAlt: "Empresas",
+      label: "Empresas",
+    },
+    {
+      iconSrc: "/icons/paper-fit-trust/paper-fit-retail.svg",
+      iconAlt: "Retail",
+      label: "Retail",
+    },
+    {
+      iconSrc: "/icons/paper-fit-trust/paper-fit-emprendedores.svg",
+      iconAlt: "Emprendedores",
+      label: "Emprendedores",
+    },
+  ],
+
+  quoteTitle: "¿Qué necesitamos para cotizar?",
+
+  requirements: [
+    "Medidas del producto",
+    "Cantidad requerida",
+    "Diseño listo para impresión",
+    "Acabados deseados",
+  ],
+
+  note:
+    "¿No tienes las medidas? Nuestro equipo puede asesorarte sin compromiso.",
+
+  illustrationSrc: "/icons/paper-fit-packaging-box.svg",
+  illustrationAlt: "Caja de packaging",
+} as const;
