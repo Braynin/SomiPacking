@@ -1,8 +1,8 @@
 ---
-import { paperFitWorkGallery } from "../paper-fit-content";
+import { paperFitWorkGallery, paperFitContact } from "../paper-fit-content";
 import PaperFitSection from "./PaperFitSection.astro";
-
 const { title, buttonLabel, buttonHref, items } = paperFitWorkGallery;
+const { whatsappUrl } = paperFitContact;
 ---
 
 <PaperFitSection
@@ -17,8 +17,14 @@ const { title, buttonLabel, buttonHref, items } = paperFitWorkGallery;
     <span class="paper-fit-work-gallery__divider" aria-hidden="true"></span>
     <div class="paper-fit-work-gallery__grid">
         {
-            items.map((item) => (
-                <article class="paper-fit-work-gallery__item">
+            items.map((item, index) => (
+                <article
+                    class:list={[
+                        "paper-fit-work-gallery__item",
+                        index === 4 &&
+                            "paper-fit-work-gallery__item--hidden-mobile",
+                    ]}
+                >
                     <img
                         src={item.imageSrc}
                         alt={item.imageAlt}
@@ -29,7 +35,11 @@ const { title, buttonLabel, buttonHref, items } = paperFitWorkGallery;
             ))
         }
     </div>
-    <a href={buttonHref} class="paper-fit-work-gallery__button">
+    <a
+        id="paper-fit-work-gallery-button"
+        href={buttonHref}
+        class="paper-fit-work-gallery__button"
+    >
         {buttonLabel}
     </a>
 </PaperFitSection>
@@ -118,8 +128,13 @@ const { title, buttonLabel, buttonHref, items } = paperFitWorkGallery;
             gap: 0.6rem;
         }
 
-        .paper-fit-work-gallery__item:last-child {
+        .paper-fit-work-gallery__item--hidden-mobile {
             display: none;
+        }
+
+        .paper-fit-work-gallery__item--hidden-mobile.is-visible {
+            display: block;
+            grid-column: 2 / span 2;
         }
 
         .paper-fit-work-gallery__item {
@@ -127,3 +142,32 @@ const { title, buttonLabel, buttonHref, items } = paperFitWorkGallery;
         }
     }
 </style>
+<script define:vars={{ whatsappUrl }}>
+    const button = document.getElementById("paper-fit-work-gallery-button");
+    const hiddenItem = document.querySelector(
+        ".paper-fit-work-gallery__item--hidden-mobile",
+    );
+
+    if (button && hiddenItem) {
+        let expanded = false;
+
+        button.addEventListener("click", (event) => {
+            if (window.innerWidth > 752) {
+                return;
+            }
+
+            if (!expanded) {
+                event.preventDefault();
+
+                hiddenItem.classList.add("is-visible");
+
+                button.textContent = "Cotizar por WhatsApp";
+                button.href = whatsappUrl;
+                button.target = "_blank";
+                button.rel = "noopener noreferrer";
+
+                expanded = true;
+            }
+        });
+    }
+</script>
