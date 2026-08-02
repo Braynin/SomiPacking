@@ -39,8 +39,11 @@ const { whatsappUrl } = paperFitContact;
         id="paper-fit-work-gallery-button"
         href={buttonHref}
         class="paper-fit-work-gallery__button"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-whatsapp-label={buttonLabel}
     >
-        {buttonLabel}
+        Ver más trabajos
     </a>
 </PaperFitSection>
 
@@ -148,26 +151,35 @@ const { whatsappUrl } = paperFitContact;
         ".paper-fit-work-gallery__item--hidden-mobile",
     );
 
-    if (button && hiddenItem) {
-        let expanded = false;
+    if (button) {
+        const isMobile = window.innerWidth <= 752;
 
-        button.addEventListener("click", (event) => {
-            if (window.innerWidth > 752) {
-                return;
-            }
+        // Desktop y tablet: siempre cotizar
+        if (!isMobile) {
+            button.textContent = "Cotizar ahora";
+            button.href = whatsappUrl;
+            button.target = "_blank";
+            button.rel = "noopener noreferrer";
+        }
 
-            if (!expanded) {
-                event.preventDefault();
+        // Solo móvil tiene el comportamiento de "Ver más"
+        if (isMobile && hiddenItem) {
+            let expanded = false;
 
-                hiddenItem.classList.add("is-visible");
+            button.addEventListener("click", (event) => {
+                if (!expanded) {
+                    event.preventDefault();
 
-                button.textContent = "Cotizar por WhatsApp";
-                button.href = whatsappUrl;
-                button.target = "_blank";
-                button.rel = "noopener noreferrer";
+                    hiddenItem.classList.add("is-visible");
 
-                expanded = true;
-            }
-        });
+                    button.textContent = "Cotizar ahora";
+                    button.href = whatsappUrl;
+                    button.target = "_blank";
+                    button.rel = "noopener noreferrer";
+
+                    expanded = true;
+                }
+            });
+        }
     }
 </script>
