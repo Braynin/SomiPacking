@@ -12,8 +12,8 @@ export const paperFitNavigation = [
 ] as const;
 
 export const paperFitContact = {
-  email: "somipacking@gmail.com",
-  location: "Lima, Perú",
+  email: "ventas@paperfit.pe",
+  location: "Jr. Antonio de Elizalde 520, Cercado de Lima",
   phone: "+51 924 725 290",
   phoneUrl: "tel:+51924725290",
   whatsappUrl: "https://wa.me/51924725290",
@@ -27,9 +27,14 @@ export const paperFitSocialLinks = [
     label: "Facebook",
   },
   {
-    href: "https://www.instagram.com/Somipacking",
+    href: "https://www.instagram.com/paperfit_?igsh=cnp6YmNocjR4OGpx",
     iconSrc: "/icons/paper-fit/instagram.svg",
     label: "Instagram",
+  },
+  {
+    href: "https://www.tiktok.com/@somipackaging?_r=1&_t=ZS-98bibdvE1ZM",
+    iconSrc: "/icons/paper-fit/tiktok.svg",
+    label: "TikTok",
   },
   {
     href: "https://wa.me/51924725290",
@@ -44,7 +49,10 @@ export const paperFitFooter = {
   companyDescription:
     "Fabricamos cajas, bolsas y empaques personalizados con entrega rápida y acabados de calidad.",
   copyright: "© 2026 Paper Fit. Todos los derechos reservados.",
-  hours: ["Lunes a viernes", "9:00 a. m. - 6:00 p. m."] as const,
+  hours: [
+    { days: "Lunes a viernes", time: "9 a. m. a 6 p. m." },
+    { days: "Sábado", time: "9 a. m. a 2 p. m." },
+  ] as const,
 } as const;
 
 export const paperFitHero = {
