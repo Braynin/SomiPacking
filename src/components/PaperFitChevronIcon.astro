@@ -1,0 +1,38 @@
+---
+interface Props {
+  className?: string;
+  direction?: "left" | "right";
+}
+
+const { className, direction = "right" } = Astro.props;
+---
+
+<svg
+  class:list={[
+    "paper-fit-chevron-icon",
+    `paper-fit-chevron-icon--${direction}`,
+    className,
+  ]}
+  viewBox="0 0 12 20"
+  aria-hidden="true"
+  focusable="false"
+>
+  <path d="m2 2 8 8-8 8"></path>
+</svg>
+
+<style>
+  .paper-fit-chevron-icon {
+    display: block;
+    width: 0.7rem;
+    height: 1.15rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2.25;
+  }
+
+  .paper-fit-chevron-icon--left {
+    transform: rotate(180deg);
+  }
+</style>
