@@ -28,7 +28,7 @@ const {
   whatsappMessage,
 } = Astro.props;
 
-const whatsappUrl = `${paperFitContact.whatsappUrl}?text=${encodeURIComponent(whatsappMessage)}`;
+const whatsappUrl = `${paperFitContact.whatsapp.url}?text=${encodeURIComponent(whatsappMessage)}`;
 
 const formatApplications = (items: readonly string[]) => {
   if (items.length <= 1) return items[0] ?? "";
