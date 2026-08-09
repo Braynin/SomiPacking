@@ -1,8 +1,13 @@
 ---
-import { paperFitWorkGallery, paperFitContact } from "../paper-fit-content";
+import { paperFitContact, paperFitWorkGallery } from "../paper-fit-content";
+import PaperFitButton from "./PaperFitButton.astro";
+import PaperFitChevronIcon from "./PaperFitChevronIcon.astro";
 import PaperFitSection from "./PaperFitSection.astro";
-const { title, buttonLabel, buttonHref, items } = paperFitWorkGallery;
-const { whatsappUrl } = paperFitContact;
+import WhatsAppIcon from "./WhatsAppIcon.astro";
+
+const { autoplayInterval, buttonLabel, items, title, whatsappMessage } =
+  paperFitWorkGallery;
+const whatsappUrl = `${paperFitContact.whatsappUrl}?text=${encodeURIComponent(whatsappMessage)}`;
 ---
 
 <PaperFitSection
@@ -15,35 +20,82 @@ const { whatsappUrl } = paperFitContact;
   </h2>
 
   <span class="paper-fit-work-gallery__divider" aria-hidden="true"></span>
-  <div class="paper-fit-work-gallery__grid">
-    {
-      items.map((item, index) => (
-        <article
-          class:list={[
-            "paper-fit-work-gallery__item",
-            index === 4 && "paper-fit-work-gallery__item--hidden-mobile",
-          ]}
-        >
-          <img
-            src={item.imageSrc}
-            alt={item.imageAlt}
-            loading="lazy"
-            decoding="async"
-          />
-        </article>
-      ))
-    }
-  </div>
-  <a
-    id="paper-fit-work-gallery-button"
-    href={buttonHref}
-    class="paper-fit-work-gallery__button"
-    target="_blank"
-    rel="noopener noreferrer"
-    data-whatsapp-label={buttonLabel}
+
+  <div
+    class="paper-fit-work-gallery__carousel"
+    data-paper-fit-work-carousel
+    data-autoplay-interval={autoplayInterval}
   >
-    Ver más trabajos
-  </a>
+    <p id="paper-fit-work-gallery-instructions" class="paper-fit-sr-only">
+      Carrusel de trabajos realizados. En celular, desliza hacia la izquierda o
+      derecha. En tablet y computadora, usa las flechas. Cada imagen abre
+      WhatsApp para solicitar el catálogo de productos.
+    </p>
+
+    <button
+      class="paper-fit-work-gallery__arrow paper-fit-work-gallery__arrow--previous"
+      type="button"
+      aria-label="Ver trabajos anteriores"
+      data-carousel-previous
+    >
+      <PaperFitChevronIcon direction="left" />
+    </button>
+
+    <div
+      class="paper-fit-work-gallery__viewport"
+      role="group"
+      aria-roledescription="carrusel"
+      aria-label={title}
+      aria-describedby="paper-fit-work-gallery-instructions"
+      tabindex="0"
+      data-carousel-viewport
+    >
+      <ul class="paper-fit-work-gallery__track" data-carousel-track>
+        {
+          items.map((item) => (
+            <li class="paper-fit-work-gallery__item" data-carousel-slide>
+              <a
+                class="paper-fit-work-gallery__link"
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${item.imageAlt}. Solicitar el catálogo por WhatsApp`}
+              >
+                <img
+                  src={item.imageSrc}
+                  alt={item.imageAlt}
+                  width="800"
+                  height="1000"
+                  loading="lazy"
+                  decoding="async"
+                  draggable="false"
+                />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <button
+      class="paper-fit-work-gallery__arrow paper-fit-work-gallery__arrow--next"
+      type="button"
+      aria-label="Ver trabajos siguientes"
+      data-carousel-next
+    >
+      <PaperFitChevronIcon />
+    </button>
+  </div>
+
+  <PaperFitButton
+    className="paper-fit-work-gallery__button"
+    href={whatsappUrl}
+    variant="secondary"
+    external
+  >
+    <WhatsAppIcon slot="icon" />
+    {buttonLabel}
+  </PaperFitButton>
 </PaperFitSection>
 
 <style>
@@ -53,132 +105,392 @@ const { whatsappUrl } = paperFitContact;
 
   .paper-fit-work-gallery__title {
     margin: 0;
-    text-align: center;
-
     color: var(--paper-fit-color-primary);
-
     font-size: var(--paper-fit-font-h2);
     font-weight: 800;
+    line-height: 1.15;
+    text-align: center;
   }
 
   .paper-fit-work-gallery__divider {
     display: block;
-
     width: 3rem;
     height: 0.25rem;
-
-    margin: 0.75rem auto 3rem;
-
-    border-radius: 999px;
-
+    margin: 0.75rem auto clamp(2rem, 5vw, 3rem);
     background: var(--paper-fit-color-accent);
+    border-radius: 999px;
   }
-  .paper-fit-work-gallery__grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1rem;
+
+  .paper-fit-work-gallery__carousel {
+    position: relative;
+  }
+
+  .paper-fit-work-gallery__viewport {
+    width: 100%;
+    padding-block: 0.35rem 0.9rem;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .paper-fit-work-gallery__viewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .paper-fit-work-gallery__track {
+    --paper-fit-gallery-gap: 0.85rem;
+    display: flex;
+    gap: var(--paper-fit-gallery-gap);
+    padding: 0.15rem 0.25rem 0.5rem;
+    margin: 0;
+    list-style: none;
   }
 
   .paper-fit-work-gallery__item {
-    overflow: hidden;
-
-    border-radius: 1rem;
-
-    box-shadow: var(--paper-fit-shadow-card);
+    flex: 0 0 clamp(12rem, 68vw, 17rem);
+    min-width: 0;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
   }
 
-  .paper-fit-work-gallery__item img {
+  .paper-fit-work-gallery__link {
     display: block;
-
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-  }
-  .paper-fit-work-gallery__button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: fit-content;
-
-    margin: 2rem auto 0;
-    padding: 0.9rem 2.8rem;
-
-    border: 2px solid var(--paper-fit-color-primary);
-    border-radius: 0.75rem;
-
-    background: transparent;
-    color: var(--paper-fit-color-primary);
-
-    font-size: 1rem;
-    font-weight: 800;
-    text-decoration: none;
-
+    overflow: hidden;
+    background: var(--paper-fit-color-surface);
+    border: 1px solid rgb(17 14 107 / 16%);
+    border-radius: 0.8rem;
+    box-shadow: 0 0.45rem 1.15rem rgb(8 45 103 / 9%);
     transition:
-      background-color 0.2s ease,
-      color 0.2s ease;
+      border-color 180ms ease,
+      box-shadow 180ms ease,
+      transform 180ms ease;
   }
 
-  .paper-fit-work-gallery__button:hover {
-    background: var(--paper-fit-color-primary);
-    color: var(--paper-fit-color-surface);
+  .paper-fit-work-gallery__link:hover,
+  .paper-fit-work-gallery__link:focus-visible {
+    border-color: rgb(0 190 127 / 50%);
+    box-shadow: 0 0.65rem 1.4rem rgb(8 45 103 / 13%);
+    transform: translateY(-0.15rem);
   }
 
-  @media (max-width: 47rem) {
-    .paper-fit-work-gallery__grid {
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0.6rem;
-    }
+  .paper-fit-work-gallery__link img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
 
-    .paper-fit-work-gallery__item--hidden-mobile {
-      display: none;
-    }
+  .paper-fit-work-gallery__arrow {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    display: none;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    cursor: pointer;
+    color: var(--paper-fit-color-primary);
+    background: rgb(255 255 255 / 94%);
+    border: 1px solid rgb(17 14 107 / 18%);
+    border-radius: 50%;
+    box-shadow: 0 0.35rem 1rem rgb(8 45 103 / 13%);
+    transform: translateY(-58%);
+    transition:
+      color 150ms ease,
+      border-color 150ms ease,
+      box-shadow 150ms ease,
+      transform 150ms ease;
+  }
 
-    .paper-fit-work-gallery__item--hidden-mobile.is-visible {
-      display: block;
-      grid-column: 2 / span 2;
+  .paper-fit-work-gallery__arrow:hover,
+  .paper-fit-work-gallery__arrow:focus-visible {
+    color: var(--paper-fit-color-accent-hover);
+    border-color: rgb(0 190 127 / 45%);
+    box-shadow: 0 0.45rem 1.1rem rgb(8 45 103 / 16%);
+  }
+
+  .paper-fit-work-gallery__arrow:active {
+    transform: translateY(-58%) scale(0.96);
+  }
+
+  .paper-fit-work-gallery__arrow--previous {
+    left: -0.65rem;
+  }
+
+  .paper-fit-work-gallery__arrow--next {
+    right: -0.65rem;
+  }
+
+  .paper-fit-work-gallery :global(.paper-fit-work-gallery__button) {
+    display: flex;
+    width: fit-content;
+    min-width: 12rem;
+    margin: 1.5rem auto 0;
+  }
+
+  .paper-fit-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    white-space: nowrap;
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  @media (min-width: 36rem) {
+    .paper-fit-work-gallery__item {
+      flex-basis: calc((100% - (var(--paper-fit-gallery-gap) * 1.5)) / 2.5);
+    }
+  }
+
+  @media (min-width: 48rem) {
+    .paper-fit-work-gallery__viewport {
+      padding-inline: 0.35rem;
     }
 
     .paper-fit-work-gallery__item {
-      border-radius: 0.75rem;
+      flex-basis: calc((100% - (var(--paper-fit-gallery-gap) * 2)) / 3);
+    }
+
+    .paper-fit-work-gallery__arrow {
+      display: grid;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .paper-fit-work-gallery__track {
+      --paper-fit-gallery-gap: 1rem;
+    }
+
+    .paper-fit-work-gallery__item {
+      flex-basis: calc((100% - (var(--paper-fit-gallery-gap) * 3)) / 4);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .paper-fit-work-gallery__link,
+    .paper-fit-work-gallery__arrow {
+      transition: none;
     }
   }
 </style>
-<script define:vars={{ whatsappUrl }}>
-  const button = document.getElementById("paper-fit-work-gallery-button");
-  const hiddenItem = document.querySelector(
-    ".paper-fit-work-gallery__item--hidden-mobile",
+
+<script>
+  const carousels = document.querySelectorAll<HTMLElement>(
+    "[data-paper-fit-work-carousel]",
   );
 
-  if (button) {
-    const isMobile = window.innerWidth <= 752;
+  carousels.forEach((carousel) => {
+    const viewport = carousel.querySelector<HTMLElement>(
+      "[data-carousel-viewport]",
+    );
+    const track = carousel.querySelector<HTMLElement>("[data-carousel-track]");
+    const slides = Array.from(
+      carousel.querySelectorAll<HTMLElement>("[data-carousel-slide]"),
+    );
+    const previousButton = carousel.querySelector<HTMLButtonElement>(
+      "[data-carousel-previous]",
+    );
+    const nextButton = carousel.querySelector<HTMLButtonElement>(
+      "[data-carousel-next]",
+    );
 
-    // Desktop y tablet: siempre cotizar
-    if (!isMobile) {
-      button.textContent = "Cotizar ahora";
-      button.href = whatsappUrl;
-      button.target = "_blank";
-      button.rel = "noopener noreferrer";
-    }
+    if (!viewport || !track || slides.length === 0) return;
 
-    // Solo móvil tiene el comportamiento de "Ver más"
-    if (isMobile && hiddenItem) {
-      let expanded = false;
+    const interval = Number(carousel.dataset.autoplayInterval) || 2000;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let autoplayTimer: number | undefined;
+    let currentStop = 0;
+    let inView = true;
+    let pointerStartX = 0;
+    let pointerDragged = false;
+    let pointerWithin = false;
+    let focusWithin = false;
+    let userControlled = false;
+    let resizeFrame = 0;
+    let scrollFrame = 0;
 
-      button.addEventListener("click", (event) => {
-        if (!expanded) {
-          event.preventDefault();
+    const getStops = () => {
+      const maximumScroll = Math.max(
+        0,
+        viewport.scrollWidth - viewport.clientWidth,
+      );
 
-          hiddenItem.classList.add("is-visible");
+      return slides
+        .map((slide) =>
+          Math.min(slide.offsetLeft - track.offsetLeft, maximumScroll),
+        )
+        .filter(
+          (position, index, positions) =>
+            index === 0 || Math.abs(position - positions[index - 1]) > 1,
+        );
+    };
 
-          button.textContent = "Cotizar ahora";
-          button.href = whatsappUrl;
-          button.target = "_blank";
-          button.rel = "noopener noreferrer";
+    const findClosestStop = (stops: number[]) =>
+      stops.reduce(
+        (closestIndex, position, index) =>
+          Math.abs(position - viewport.scrollLeft) <
+          Math.abs(stops[closestIndex] - viewport.scrollLeft)
+            ? index
+            : closestIndex,
+        0,
+      );
 
-          expanded = true;
-        }
+    const stopAutoplay = () => {
+      if (autoplayTimer === undefined) return;
+      window.clearInterval(autoplayTimer);
+      autoplayTimer = undefined;
+    };
+
+    const scrollToStop = (nextStop: number) => {
+      const stops = getStops();
+      if (stops.length === 0) return;
+
+      currentStop = (nextStop + stops.length) % stops.length;
+      viewport.scrollTo({
+        left: stops[currentStop],
+        behavior: reducedMotion.matches ? "auto" : "smooth",
       });
+    };
+
+    const startAutoplay = () => {
+      stopAutoplay();
+      if (
+        reducedMotion.matches ||
+        userControlled ||
+        pointerWithin ||
+        focusWithin ||
+        !inView ||
+        document.hidden
+      )
+        return;
+
+      autoplayTimer = window.setInterval(() => {
+        scrollToStop(currentStop + 1);
+      }, interval);
+    };
+
+    const claimControl = () => {
+      userControlled = true;
+      stopAutoplay();
+    };
+
+    carousel.addEventListener("pointerenter", () => {
+      pointerWithin = true;
+      stopAutoplay();
+    });
+
+    carousel.addEventListener("pointerleave", () => {
+      pointerWithin = false;
+      startAutoplay();
+    });
+
+    carousel.addEventListener("focusin", () => {
+      focusWithin = true;
+      stopAutoplay();
+    });
+
+    carousel.addEventListener("focusout", () => {
+      window.setTimeout(() => {
+        focusWithin = carousel.contains(document.activeElement);
+        startAutoplay();
+      });
+    });
+
+    previousButton?.addEventListener("click", () => {
+      claimControl();
+      scrollToStop(currentStop - 1);
+    });
+
+    nextButton?.addEventListener("click", () => {
+      claimControl();
+      scrollToStop(currentStop + 1);
+    });
+
+    viewport.addEventListener("keydown", (event) => {
+      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+
+      event.preventDefault();
+      claimControl();
+      scrollToStop(currentStop + (event.key === "ArrowRight" ? 1 : -1));
+    });
+
+    viewport.addEventListener("pointerdown", (event) => {
+      pointerStartX = event.clientX;
+      pointerDragged = false;
+      claimControl();
+    });
+
+    viewport.addEventListener("pointermove", (event) => {
+      if (Math.abs(event.clientX - pointerStartX) > 8) pointerDragged = true;
+    });
+
+    viewport.addEventListener("pointerup", () => {
+      window.setTimeout(() => {
+        pointerDragged = false;
+      });
+    });
+
+    viewport.addEventListener("pointercancel", () => {
+      pointerDragged = false;
+    });
+
+    viewport.addEventListener(
+      "click",
+      (event) => {
+        if (!pointerDragged) return;
+        event.preventDefault();
+        pointerDragged = false;
+      },
+      true,
+    );
+
+    viewport.addEventListener("scroll", () => {
+      window.cancelAnimationFrame(scrollFrame);
+      scrollFrame = window.requestAnimationFrame(() => {
+        const stops = getStops();
+        if (stops.length > 0) currentStop = findClosestStop(stops);
+      });
+    });
+
+    window.addEventListener("resize", () => {
+      window.cancelAnimationFrame(resizeFrame);
+      resizeFrame = window.requestAnimationFrame(() => {
+        const stops = getStops();
+        if (stops.length === 0) return;
+        currentStop = Math.min(currentStop, stops.length - 1);
+        viewport.scrollTo({ left: stops[currentStop], behavior: "auto" });
+      });
+    });
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) stopAutoplay();
+      else startAutoplay();
+    });
+
+    reducedMotion.addEventListener("change", startAutoplay);
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          inView = entry.isIntersecting;
+          if (inView) startAutoplay();
+          else stopAutoplay();
+        },
+        { threshold: 0.25 },
+      );
+
+      observer.observe(carousel);
+    } else {
+      startAutoplay();
     }
-  }
+  });
 </script>
