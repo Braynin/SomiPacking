@@ -78,7 +78,15 @@ export const paperFitSolutions = {
       iconSrc: "/icons/paper-fit-cajas-personalizadas.svg",
       iconVariant: "primary",
       title: "Cajas Personalizadas",
-      description: "Empaques a medida para productos, alimentos, retail y más.",
+      materials: ["Foldcote", "Kraft", "Microcorrugado"],
+      applications: [
+        "Alimentos",
+        "Retail",
+        "Cosméticos",
+        "Regalos",
+        "Corporativo",
+      ],
+      buttonLabel: "Cotizar cajas",
       whatsappMessage: "¡Hola, Paper Fit! Quiero cotizar Cajas Personalizadas.",
     },
     {
@@ -88,8 +96,15 @@ export const paperFitSolutions = {
       iconSrc: "/icons/paper-fit-bolsas-personalizadas.svg",
       iconVariant: "accent",
       title: "Bolsas Personalizadas",
-      description:
-        "Bolsas kraft, couche y ecológicas personalizadas con tu marca.",
+      materials: ["Kraft", "Couché", "Bond"],
+      applications: [
+        "Tiendas",
+        "Boutiques",
+        "Eventos",
+        "Corporativo",
+        "Promociones",
+      ],
+      buttonLabel: "Cotizar bolsas",
       whatsappMessage:
         "¡Hola, Paper Fit! Quiero cotizar Bolsas Personalizadas.",
     },
@@ -100,7 +115,15 @@ export const paperFitSolutions = {
       iconSrc: "/icons/paper-fit-packaging-alimentos.svg",
       iconVariant: "primary",
       title: "Packaging para Alimentos",
-      description: "Empaques para tortas, postres, repostería y delivery.",
+      materials: ["Kraft", "Foldcote", "Microcorrugado"],
+      applications: [
+        "Pastelería",
+        "Panadería",
+        "Delivery",
+        "Cafeterías",
+        "Repostería",
+      ],
+      buttonLabel: "Cotizar packaging",
       whatsappMessage:
         "¡Hola, Paper Fit! Quiero cotizar Packaging para Alimentos.",
     },
@@ -111,8 +134,15 @@ export const paperFitSolutions = {
       iconSrc: "/icons/paper-fit-merchandising-corporativo.svg",
       iconVariant: "accent",
       title: "Merchandising Corporativo",
-      description:
-        "Artículos promocionales que fortalecen tu marca y conectan con tus clientes.",
+      materials: ["Papel", "Cartón", "Metal", "Plástico", "Tela"],
+      applications: [
+        "Agendas",
+        "Cuadernos",
+        "Lapiceros",
+        "Tomatodos",
+        "Tazas y más",
+      ],
+      buttonLabel: "Cotizar merchandising",
       whatsappMessage:
         "¡Hola, Paper Fit! Quiero cotizar Merchandising Corporativo.",
     },
@@ -123,8 +153,15 @@ export const paperFitSolutions = {
       iconSrc: "/icons/paper-fit-impresion-comercial.svg",
       iconVariant: "primary",
       title: "Impresión Comercial",
-      description:
-        "Material impreso para tu empresa con la mejor calidad y presentación.",
+      materials: ["Couché", "Bond", "Cartulina", "Adhesivos"],
+      applications: [
+        "Tarjetas",
+        "Folders",
+        "Catálogos",
+        "Volantes",
+        "Stickers y etiquetas",
+      ],
+      buttonLabel: "Cotizar impresión",
       whatsappMessage: "¡Hola, Paper Fit! Quiero cotizar Impresión Comercial.",
     },
   ],

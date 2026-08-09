@@ -51,8 +51,15 @@ const { title, items } = paperFitSolutions;
   .paper-fit-solutions__grid {
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 1.25rem;
+    gap: 0.75rem;
     align-items: stretch;
+  }
+
+  @media (max-width: 70rem) {
+    .paper-fit-solutions__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
   }
 
   @media (max-width: 52rem) {
@@ -65,7 +72,9 @@ const { title, items } = paperFitSolutions;
     .paper-fit-solutions__header {
       margin-bottom: 2rem;
     }
+  }
 
+  @media (max-width: 36rem) {
     .paper-fit-solutions__grid {
       grid-template-columns: 1fr;
       gap: 1rem;

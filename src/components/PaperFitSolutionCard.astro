@@ -1,5 +1,7 @@
 ---
 import { paperFitContact } from "../paper-fit-content";
+import PaperFitButton from "./PaperFitButton.astro";
+import WhatsAppIcon from "./WhatsAppIcon.astro";
 
 interface Props {
   imageSrc: string;
@@ -7,7 +9,9 @@ interface Props {
   iconSrc: string;
   iconVariant: "primary" | "accent";
   title: string;
-  description: string;
+  materials: readonly string[];
+  applications: readonly string[];
+  buttonLabel: string;
   whatsappMessage: string;
 }
 
@@ -17,11 +21,18 @@ const {
   iconSrc,
   iconVariant,
   title,
-  description,
+  materials,
+  applications,
+  buttonLabel,
   whatsappMessage,
 } = Astro.props;
 
 const whatsappUrl = `${paperFitContact.whatsappUrl}?text=${encodeURIComponent(whatsappMessage)}`;
+
+const featureGroups = [
+  { icon: "material", label: "Material", items: materials },
+  { icon: "applications", label: "Aplicaciones", items: applications },
+] as const;
 ---
 
 <article class="paper-fit-solution-card">
@@ -30,15 +41,13 @@ const whatsappUrl = `${paperFitContact.whatsappUrl}?text=${encodeURIComponent(wh
       class="paper-fit-solution-card__image"
       src={imageSrc}
       alt={imageAlt}
-      width="360"
-      height="280"
+      width="1080"
+      height="1080"
       loading="lazy"
       decoding="async"
     />
-  </figure>
 
-  <div class="paper-fit-solution-card__content">
-    <div
+    <span
       class:list={[
         "paper-fit-solution-card__icon",
         `paper-fit-solution-card__icon--${iconVariant}`,
@@ -53,49 +62,65 @@ const whatsappUrl = `${paperFitContact.whatsappUrl}?text=${encodeURIComponent(wh
         loading="lazy"
         decoding="async"
       />
+    </span>
+  </figure>
+
+  <div class="paper-fit-solution-card__content">
+    <h3 class="paper-fit-solution-card__title">
+      {title}
+    </h3>
+
+    <div class="paper-fit-solution-card__details">
+      {
+        featureGroups.map((group) => (
+          <section class="paper-fit-solution-card__group">
+            <h4 class="paper-fit-solution-card__group-title">
+              <span
+                class="paper-fit-solution-card__group-icon"
+                aria-hidden="true"
+              >
+                {group.icon === "material" ? (
+                  <svg viewBox="0 0 16 16">
+                    <path d="M3.25 2.25h7.5a2 2 0 0 1 2 2v9.5h-7.5a2 2 0 0 1-2-2v-9.5Zm2 2v7.5h5.5v-7.5h-5.5Z" />
+                    <path d="M2 4h1.25v7.75A3.25 3.25 0 0 0 6.5 15h6.25v-1.25H6.5a2 2 0 0 1-2-2V4H2Z" />
+                  </svg>
+                ) : (
+                  <svg viewBox="0 0 16 16">
+                    <path d="M2 2h5v5H2V2Zm7 0h5v5H9V2ZM2 9h5v5H2V9Zm7 0h5v5H9V9Zm-5.5-5.5v2h2v-2h-2Zm7 0v2h2v-2h-2Zm-7 7v2h2v-2h-2Zm7 0v2h2v-2h-2Z" />
+                  </svg>
+                )}
+              </span>
+              <span>{group.label}</span>
+            </h4>
+
+            <ul class="paper-fit-solution-card__list">
+              {group.items.map((item) => (
+                <li class="paper-fit-solution-card__list-item">
+                  <span
+                    class="paper-fit-solution-card__check"
+                    aria-hidden="true"
+                  >
+                    <svg viewBox="0 0 12 12">
+                      <path d="m2.5 6.2 2.2 2.1 4.8-4.7" />
+                    </svg>
+                  </span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))
+      }
     </div>
 
-    <div class="paper-fit-solution-card__body">
-      <h3 class="paper-fit-solution-card__title">
-        {title}
-      </h3>
-
-      <p class="paper-fit-solution-card__description">
-        {description}
-      </p>
-
-      <a
-        class="paper-fit-solution-card__link paper-fit-solution-card__link--desktop"
-        href={whatsappUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={`Cotizar ${title} por WhatsApp`}
-      >
-        <span>Cotizar</span>
-
-        <span
-          class="paper-fit-solution-card__arrow paper-fit-solution-card__arrow--desktop"
-          aria-hidden="true"
-        >
-          →
-        </span>
-      </a>
-    </div>
-
-    <a
-      class="paper-fit-solution-card__link paper-fit-solution-card__link--mobile"
+    <PaperFitButton
+      className="paper-fit-solution-card__button"
       href={whatsappUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`Cotizar ${title} por WhatsApp`}
+      external
     >
-      <span
-        class="paper-fit-solution-card__arrow paper-fit-solution-card__arrow--mobile"
-        aria-hidden="true"
-      >
-        ›
-      </span>
-    </a>
+      <WhatsAppIcon slot="icon" />
+      {buttonLabel}
+    </PaperFitButton>
   </div>
 
   <style>
@@ -103,41 +128,46 @@ const whatsappUrl = `${paperFitContact.whatsappUrl}?text=${encodeURIComponent(wh
       display: flex;
       flex-direction: column;
       height: 100%;
+      min-width: 0;
       overflow: hidden;
       background: var(--paper-fit-color-surface);
-      border-radius: var(--paper-fit-radius-sm);
+      border: 1px solid rgb(17 14 107 / 8%);
+      border-radius: 0.65rem;
       box-shadow: var(--paper-fit-shadow-card);
     }
 
     .paper-fit-solution-card__figure {
+      position: relative;
+      flex-shrink: 0;
       margin: 0;
+      overflow: hidden;
+      background: #f4f4f5;
     }
 
     .paper-fit-solution-card__image {
       display: block;
       width: 100%;
-      aspect-ratio: 1 / 0.88;
+      aspect-ratio: 1.2 / 1;
       object-fit: cover;
     }
 
     .paper-fit-solution-card__content {
-      position: relative;
       display: flex;
       flex: 1;
       flex-direction: column;
-      padding: 2.5rem 1.2rem 1.2rem;
+      padding: 0.9rem 0.8rem 0.8rem;
     }
 
     .paper-fit-solution-card__icon {
       position: absolute;
-      top: 0;
-      left: 1.2rem;
+      top: 0.7rem;
+      left: 0.7rem;
       display: grid;
       place-items: center;
-      width: 4rem;
-      height: 4rem;
+      width: 2.7rem;
+      height: 2.7rem;
       border-radius: 50%;
-      transform: translateY(-55%);
+      box-shadow: 0 0.2rem 0.65rem rgb(8 45 103 / 15%);
     }
 
     .paper-fit-solution-card__icon--primary {
@@ -150,120 +180,173 @@ const whatsappUrl = `${paperFitContact.whatsappUrl}?text=${encodeURIComponent(wh
 
     .paper-fit-solution-card__icon img {
       display: block;
-      width: 2rem;
-      height: 2rem;
-    }
-
-    .paper-fit-solution-card__body {
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-      gap: 0.75rem;
+      width: 1.45rem;
+      height: 1.45rem;
     }
 
     .paper-fit-solution-card__title {
-      margin: 0;
+      margin: 0 0 0.85rem;
       color: var(--paper-fit-color-primary);
-      font-size: var(--paper-fit-font-h3);
+      font-size: 0.78rem;
       font-weight: 800;
-      line-height: 1.1;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
     }
 
-    .paper-fit-solution-card__description {
-      flex: 1;
-      margin: 0;
-      color: var(--paper-fit-color-muted);
-      line-height: 1.55;
-      font-size: var(--paper-fit-font-body);
+    .paper-fit-solution-card__details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-bottom: 1rem;
     }
 
-    .paper-fit-solution-card__link {
-      display: inline-flex;
+    .paper-fit-solution-card__group-title {
+      display: flex;
+      gap: 0.3rem;
       align-items: center;
-      gap: 0.35rem;
-      width: fit-content;
-      color: var(--paper-fit-color-accent);
+      margin: 0 0 0.45rem;
+      color: var(--paper-fit-color-accent-hover);
+      font-size: 0.62rem;
       font-weight: 800;
-      text-decoration: none;
-      transition: gap 150ms ease;
-    }
-
-    .paper-fit-solution-card__link:hover,
-    .paper-fit-solution-card__link:focus-visible {
-      gap: 0.65rem;
-    }
-
-    .paper-fit-solution-card__link--mobile {
-      display: none;
-    }
-
-    .paper-fit-solution-card__arrow--desktop {
-      font-size: 1rem;
       line-height: 1;
+      text-transform: uppercase;
     }
 
-    .paper-fit-solution-card__arrow--mobile {
-      font-size: 2rem;
-      line-height: 1;
-      color: var(--paper-fit-color-muted);
+    .paper-fit-solution-card__group-title::after {
+      width: auto;
+      height: 1px;
+      flex: 1;
+      content: "";
+      background: rgb(0 190 127 / 35%);
     }
 
-    @media (max-width: 47rem) {
-      .paper-fit-solution-card__figure {
-        display: none;
-      }
+    .paper-fit-solution-card__group-icon {
+      display: grid;
+      flex: 0 0 auto;
+      place-items: center;
+      width: 0.78rem;
+      height: 0.78rem;
+    }
 
+    .paper-fit-solution-card__group-icon svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      fill: currentColor;
+    }
+
+    .paper-fit-solution-card__list {
+      display: grid;
+      gap: 0.25rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .paper-fit-solution-card__list-item {
+      display: flex;
+      gap: 0.35rem;
+      align-items: center;
+      color: var(--paper-fit-color-text);
+      font-size: 0.7rem;
+      line-height: 1.25;
+    }
+
+    .paper-fit-solution-card__check {
+      display: grid;
+      flex: 0 0 auto;
+      place-items: center;
+      width: 0.72rem;
+      height: 0.72rem;
+      color: var(--paper-fit-color-surface);
+      background: var(--paper-fit-color-accent-hover);
+      border-radius: 50%;
+    }
+
+    .paper-fit-solution-card__check svg {
+      display: block;
+      width: 0.48rem;
+      height: 0.48rem;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 2;
+    }
+
+    .paper-fit-solution-card :global(.paper-fit-solution-card__button) {
+      width: 100%;
+      min-height: 2.35rem;
+      gap: 0.35rem;
+      margin-top: auto;
+      padding: 0.6rem 0.4rem;
+      font-size: 0.72rem;
+      white-space: nowrap;
+    }
+
+    .paper-fit-solution-card :global(.paper-fit-solution-card__button svg) {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    @media (max-width: 70rem) {
       .paper-fit-solution-card__content {
-        position: static;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 1rem;
-        min-height: 6.5rem;
-        padding: 1rem 1.25rem;
-      }
-
-      .paper-fit-solution-card__icon {
-        position: static;
-        flex-shrink: 0;
-        width: 3.5rem;
-        height: 3.5rem;
-        transform: none;
-      }
-
-      .paper-fit-solution-card__icon img {
-        width: 1.75rem;
-        height: 1.75rem;
-      }
-
-      .paper-fit-solution-card__body {
-        justify-content: center;
-        gap: 0.3rem;
-        min-width: 0;
+        padding: 1rem;
       }
 
       .paper-fit-solution-card__title {
-        line-height: 1.2;
+        font-size: 0.95rem;
       }
 
-      .paper-fit-solution-card__description {
-        line-height: 1.4;
+      .paper-fit-solution-card__icon {
+        width: 3rem;
+        height: 3rem;
       }
 
-      .paper-fit-solution-card__link--desktop {
-        display: none;
+      .paper-fit-solution-card__icon img {
+        width: 1.6rem;
+        height: 1.6rem;
       }
 
-      .paper-fit-solution-card__link--mobile {
-        display: flex;
-        flex-shrink: 0;
-        align-items: center;
-        justify-content: center;
-        margin-left: auto;
-        width: 2rem;
-        height: 2rem;
-        color: var(--paper-fit-color-muted);
-        text-decoration: none;
+      .paper-fit-solution-card__group-title {
+        font-size: 0.7rem;
+      }
+
+      .paper-fit-solution-card__list-item {
+        font-size: 0.8rem;
+      }
+
+      .paper-fit-solution-card :global(.paper-fit-solution-card__button) {
+        min-height: 2.6rem;
+        font-size: 0.84rem;
+      }
+    }
+
+    @media (max-width: 36rem) {
+      .paper-fit-solution-card__image {
+        aspect-ratio: 1.35 / 1;
+      }
+
+      .paper-fit-solution-card__content {
+        padding: 1.1rem;
+      }
+
+      .paper-fit-solution-card__title {
+        font-size: 1.05rem;
+      }
+
+      .paper-fit-solution-card__group-title {
+        font-size: 0.72rem;
+      }
+
+      .paper-fit-solution-card__list-item {
+        font-size: 0.86rem;
+      }
+
+      .paper-fit-solution-card :global(.paper-fit-solution-card__button) {
+        min-height: 2.75rem;
+        font-size: 0.88rem;
       }
     }
   </style>
