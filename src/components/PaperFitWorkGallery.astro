@@ -27,9 +27,9 @@ const whatsappUrl = `${paperFitContact.whatsappUrl}?text=${encodeURIComponent(wh
     data-autoplay-interval={autoplayInterval}
   >
     <p id="paper-fit-work-gallery-instructions" class="paper-fit-sr-only">
-      Carrusel de trabajos realizados. En celular, desliza hacia la izquierda o
-      derecha. En tablet y computadora, usa las flechas. Cada imagen abre
-      WhatsApp para solicitar el catálogo de productos.
+      Carrusel continuo de trabajos realizados. En celular, desliza hacia la
+      izquierda o derecha. En tablet y computadora, usa las flechas. Cada imagen
+      abre WhatsApp para solicitar el catálogo de productos.
     </p>
 
     <button
@@ -87,15 +87,17 @@ const whatsappUrl = `${paperFitContact.whatsappUrl}?text=${encodeURIComponent(wh
     </button>
   </div>
 
-  <PaperFitButton
-    className="paper-fit-work-gallery__button"
-    href={whatsappUrl}
-    variant="secondary"
-    external
-  >
-    <WhatsAppIcon slot="icon" />
-    {buttonLabel}
-  </PaperFitButton>
+  <div class="paper-fit-work-gallery__button-row">
+    <PaperFitButton
+      className="paper-fit-work-gallery__button"
+      href={whatsappUrl}
+      variant="secondary"
+      external
+    >
+      <WhatsAppIcon slot="icon" />
+      {buttonLabel}
+    </PaperFitButton>
+  </div>
 </PaperFitSection>
 
 <style>
@@ -226,11 +228,15 @@ const whatsappUrl = `${paperFitContact.whatsappUrl}?text=${encodeURIComponent(wh
     right: -0.65rem;
   }
 
-  .paper-fit-work-gallery :global(.paper-fit-work-gallery__button) {
+  .paper-fit-work-gallery__button-row {
     display: flex;
-    width: fit-content;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+
+  :global(.paper-fit-work-gallery__button) {
     min-width: 12rem;
-    margin: 1.5rem auto 0;
   }
 
   .paper-fit-sr-only {
@@ -248,6 +254,12 @@ const whatsappUrl = `${paperFitContact.whatsappUrl}?text=${encodeURIComponent(wh
   @media (min-width: 36rem) {
     .paper-fit-work-gallery__item {
       flex-basis: calc((100% - (var(--paper-fit-gallery-gap) * 1.5)) / 2.5);
+    }
+  }
+
+  @media (max-width: 35.99rem) {
+    .paper-fit-work-gallery__item {
+      flex-basis: clamp(11rem, 60vw, 15rem);
     }
   }
 
@@ -293,7 +305,7 @@ const whatsappUrl = `${paperFitContact.whatsappUrl}?text=${encodeURIComponent(wh
       "[data-carousel-viewport]",
     );
     const track = carousel.querySelector<HTMLElement>("[data-carousel-track]");
-    const slides = Array.from(
+    const originalSlides = Array.from(
       carousel.querySelectorAll<HTMLElement>("[data-carousel-slide]"),
     );
     const previousButton = carousel.querySelector<HTMLButtonElement>(
@@ -303,12 +315,35 @@ const whatsappUrl = `${paperFitContact.whatsappUrl}?text=${encodeURIComponent(wh
       "[data-carousel-next]",
     );
 
-    if (!viewport || !track || slides.length === 0) return;
+    if (!viewport || !track || originalSlides.length === 0) return;
+
+    const createClone = (slide: HTMLElement) => {
+      const clone = slide.cloneNode(true) as HTMLElement;
+      clone.removeAttribute("data-carousel-slide");
+      clone.setAttribute("data-carousel-clone", "");
+      clone.setAttribute("aria-hidden", "true");
+      clone
+        .querySelectorAll<HTMLElement>("a, button, input, select, textarea")
+        .forEach((element) => element.setAttribute("tabindex", "-1"));
+      return clone;
+    };
+
+    const beforeClones = originalSlides.map(createClone);
+    const afterClones = originalSlides.map(createClone);
+    const beforeFragment = document.createDocumentFragment();
+    const afterFragment = document.createDocumentFragment();
+
+    beforeClones.forEach((clone) => beforeFragment.append(clone));
+    afterClones.forEach((clone) => afterFragment.append(clone));
+    track.prepend(beforeFragment);
+    track.append(afterFragment);
+
+    const allSlides = [...beforeClones, ...originalSlides, ...afterClones];
 
     const interval = Number(carousel.dataset.autoplayInterval) || 2000;
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     let autoplayTimer: number | undefined;
-    let currentStop = 0;
+    let currentSlide = 0;
     let inView = true;
     let pointerStartX = 0;
     let pointerDragged = false;
@@ -317,32 +352,52 @@ const whatsappUrl = `${paperFitContact.whatsappUrl}?text=${encodeURIComponent(wh
     let userControlled = false;
     let resizeFrame = 0;
     let scrollFrame = 0;
+    let normalizeTimer: number | undefined;
 
-    const getStops = () => {
-      const maximumScroll = Math.max(
-        0,
-        viewport.scrollWidth - viewport.clientWidth,
-      );
+    const getSlidePosition = (slide: HTMLElement) =>
+      slide.offsetLeft - track.offsetLeft;
 
-      return slides
-        .map((slide) =>
-          Math.min(slide.offsetLeft - track.offsetLeft, maximumScroll),
-        )
-        .filter(
-          (position, index, positions) =>
-            index === 0 || Math.abs(position - positions[index - 1]) > 1,
-        );
-    };
-
-    const findClosestStop = (stops: number[]) =>
-      stops.reduce(
-        (closestIndex, position, index) =>
-          Math.abs(position - viewport.scrollLeft) <
-          Math.abs(stops[closestIndex] - viewport.scrollLeft)
+    const findClosestPhysicalSlide = () =>
+      allSlides.reduce(
+        (closestIndex, slide, index) =>
+          Math.abs(getSlidePosition(slide) - viewport.scrollLeft) <
+          Math.abs(
+            getSlidePosition(allSlides[closestIndex]) - viewport.scrollLeft,
+          )
             ? index
             : closestIndex,
         0,
       );
+
+    const updateCurrentSlide = () => {
+      const physicalIndex = findClosestPhysicalSlide();
+      currentSlide =
+        (physicalIndex - beforeClones.length + originalSlides.length) %
+        originalSlides.length;
+    };
+
+    const getSequenceMetrics = () => {
+      const start = getSlidePosition(originalSlides[0]);
+      const length = getSlidePosition(afterClones[0]) - start;
+      return { length, start };
+    };
+
+    const normalizePosition = () => {
+      const { length, start } = getSequenceMetrics();
+      if (length <= 0) return;
+
+      let normalizedPosition = viewport.scrollLeft;
+
+      while (normalizedPosition < start - 1) normalizedPosition += length;
+      while (normalizedPosition >= start + length - 1)
+        normalizedPosition -= length;
+
+      if (Math.abs(normalizedPosition - viewport.scrollLeft) > 1) {
+        viewport.scrollTo({ left: normalizedPosition, behavior: "auto" });
+      }
+
+      updateCurrentSlide();
+    };
 
     const stopAutoplay = () => {
       if (autoplayTimer === undefined) return;
@@ -350,13 +405,14 @@ const whatsappUrl = `${paperFitContact.whatsappUrl}?text=${encodeURIComponent(wh
       autoplayTimer = undefined;
     };
 
-    const scrollToStop = (nextStop: number) => {
-      const stops = getStops();
-      if (stops.length === 0) return;
+    const moveCarousel = (direction: -1 | 1) => {
+      normalizePosition();
+      const currentPhysicalSlide = findClosestPhysicalSlide();
+      const targetSlide = allSlides[currentPhysicalSlide + direction];
+      if (!targetSlide) return;
 
-      currentStop = (nextStop + stops.length) % stops.length;
       viewport.scrollTo({
-        left: stops[currentStop],
+        left: getSlidePosition(targetSlide),
         behavior: reducedMotion.matches ? "auto" : "smooth",
       });
     };
@@ -374,7 +430,7 @@ const whatsappUrl = `${paperFitContact.whatsappUrl}?text=${encodeURIComponent(wh
         return;
 
       autoplayTimer = window.setInterval(() => {
-        scrollToStop(currentStop + 1);
+        moveCarousel(1);
       }, interval);
     };
 
@@ -407,12 +463,12 @@ const whatsappUrl = `${paperFitContact.whatsappUrl}?text=${encodeURIComponent(wh
 
     previousButton?.addEventListener("click", () => {
       claimControl();
-      scrollToStop(currentStop - 1);
+      moveCarousel(-1);
     });
 
     nextButton?.addEventListener("click", () => {
       claimControl();
-      scrollToStop(currentStop + 1);
+      moveCarousel(1);
     });
 
     viewport.addEventListener("keydown", (event) => {
@@ -420,7 +476,7 @@ const whatsappUrl = `${paperFitContact.whatsappUrl}?text=${encodeURIComponent(wh
 
       event.preventDefault();
       claimControl();
-      scrollToStop(currentStop + (event.key === "ArrowRight" ? 1 : -1));
+      moveCarousel(event.key === "ArrowRight" ? 1 : -1);
     });
 
     viewport.addEventListener("pointerdown", (event) => {
@@ -456,18 +512,20 @@ const whatsappUrl = `${paperFitContact.whatsappUrl}?text=${encodeURIComponent(wh
     viewport.addEventListener("scroll", () => {
       window.cancelAnimationFrame(scrollFrame);
       scrollFrame = window.requestAnimationFrame(() => {
-        const stops = getStops();
-        if (stops.length > 0) currentStop = findClosestStop(stops);
+        updateCurrentSlide();
       });
+
+      if (normalizeTimer !== undefined) window.clearTimeout(normalizeTimer);
+      normalizeTimer = window.setTimeout(normalizePosition, 140);
     });
 
     window.addEventListener("resize", () => {
       window.cancelAnimationFrame(resizeFrame);
       resizeFrame = window.requestAnimationFrame(() => {
-        const stops = getStops();
-        if (stops.length === 0) return;
-        currentStop = Math.min(currentStop, stops.length - 1);
-        viewport.scrollTo({ left: stops[currentStop], behavior: "auto" });
+        viewport.scrollTo({
+          left: getSlidePosition(originalSlides[currentSlide]),
+          behavior: "auto",
+        });
       });
     });
 
@@ -477,6 +535,11 @@ const whatsappUrl = `${paperFitContact.whatsappUrl}?text=${encodeURIComponent(wh
     });
 
     reducedMotion.addEventListener("change", startAutoplay);
+
+    viewport.scrollTo({
+      left: getSlidePosition(originalSlides[0]),
+      behavior: "auto",
+    });
 
     if ("IntersectionObserver" in window) {
       const observer = new IntersectionObserver(
