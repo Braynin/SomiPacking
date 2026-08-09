@@ -7,7 +7,6 @@ export const paperFitBrand = {
 export const paperFitNavigation = [
   { label: "Nuestras Soluciones", href: "#nuestras-soluciones" },
   { label: "Trabajos Realizados", href: "#trabajos-realizados" },
-  { label: "Nosotros", href: "#nosotros" },
   { label: "Contacto", href: "#contacto" },
 ] as const;
 
@@ -204,8 +203,10 @@ export const paperFitWorkflow = {
 
 export const paperFitWorkGallery = {
   title: "Trabajos realizados",
-  buttonLabel: "Ver más trabajos",
-  buttonHref: "#",
+  buttonLabel: "Cotiza ahora",
+  whatsappMessage:
+    "¡Buenos días, Paper Fit! Quisiera recibir información sobre su catálogo de productos. Muchas gracias.",
+  autoplayInterval: 2000,
 
   items: [
     {
@@ -228,6 +229,15 @@ export const paperFitWorkGallery = {
       imageSrc:
         "/images/paper-fit-work-gallery/paper-fit-work-vivoXderecho.webp",
       imageAlt: "Trabajo realizado para Vivo X Derecho",
+    },
+    {
+      imageSrc: "/images/paper-fit-work-gallery/paper-fit-work-Caja.webp",
+      imageAlt: "Caja kraft abierta para packaging",
+    },
+    {
+      imageSrc:
+        "/images/paper-fit-work-gallery/paper-fit-work-Cumpa-bolsa.webp",
+      imageAlt: "Bolsa kraft personalizada para Cumpa",
     },
   ],
 } as const;
