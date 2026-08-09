@@ -112,8 +112,16 @@ import WhatsAppIcon from "./WhatsAppIcon.astro";
       aria-labelledby="paper-fit-footer-hours"
     >
       <h2 id="paper-fit-footer-hours">Horario de atención</h2>
-      <p>{paperFitFooter.hours[0]}</p>
-      <p>{paperFitFooter.hours[1]}</p>
+      <dl class="paper-fit-footer__hours-list">
+        {
+          paperFitFooter.hours.map((schedule) => (
+            <div>
+              <dt>{schedule.days}</dt>
+              <dd>{schedule.time}</dd>
+            </div>
+          ))
+        }
+      </dl>
     </section>
   </div>
 
@@ -317,6 +325,19 @@ import WhatsAppIcon from "./WhatsAppIcon.astro";
     display: block;
     width: 1.5rem;
     height: 1.5rem;
+  }
+
+  .paper-fit-footer__hours-list {
+    display: grid;
+    gap: 0.5rem;
+    margin: 0;
+  }
+
+  .paper-fit-footer__hours-list dt,
+  .paper-fit-footer__hours-list dd {
+    margin: 0;
+    font-size: 0.8rem;
+    line-height: 1.5;
   }
 
   .paper-fit-footer__legal {
