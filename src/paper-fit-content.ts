@@ -71,6 +71,7 @@ export const paperFitSolutions = {
       iconVariant: "primary",
       title: "Cajas Personalizadas",
       description: "Empaques a medida para productos, alimentos, retail y más.",
+      whatsappMessage: "¡Hola, Paper Fit! Quiero cotizar Cajas Personalizadas.",
     },
     {
       imageSrc:
@@ -81,6 +82,8 @@ export const paperFitSolutions = {
       title: "Bolsas Personalizadas",
       description:
         "Bolsas kraft, couche y ecológicas personalizadas con tu marca.",
+      whatsappMessage:
+        "¡Hola, Paper Fit! Quiero cotizar Bolsas Personalizadas.",
     },
     {
       imageSrc:
@@ -90,6 +93,8 @@ export const paperFitSolutions = {
       iconVariant: "primary",
       title: "Packaging para Alimentos",
       description: "Empaques para tortas, postres, repostería y delivery.",
+      whatsappMessage:
+        "¡Hola, Paper Fit! Quiero cotizar Packaging para Alimentos.",
     },
     {
       imageSrc:
@@ -100,6 +105,8 @@ export const paperFitSolutions = {
       title: "Merchandising Corporativo",
       description:
         "Artículos promocionales que fortalecen tu marca y conectan con tus clientes.",
+      whatsappMessage:
+        "¡Hola, Paper Fit! Quiero cotizar Merchandising Corporativo.",
     },
     {
       imageSrc:
@@ -110,6 +117,7 @@ export const paperFitSolutions = {
       title: "Impresión Comercial",
       description:
         "Material impreso para tu empresa con la mejor calidad y presentación.",
+      whatsappMessage: "¡Hola, Paper Fit! Quiero cotizar Impresión Comercial.",
     },
   ],
 } as const;
