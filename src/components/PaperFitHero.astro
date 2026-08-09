@@ -28,11 +28,11 @@ import WhatsAppIcon from "./WhatsAppIcon.astro";
   <div class="paper-fit-hero__actions">
     <PaperFitButton
       className="paper-fit-hero__whatsapp-cta"
-      href={paperFitContact.whatsappUrl}
+      href={paperFitContact.whatsapp.href}
       external
     >
       <WhatsAppIcon slot="icon" />
-      {paperFitContact.whatsappLabel}
+      {paperFitContact.whatsapp.label}
     </PaperFitButton>
     <PaperFitButton
       className="paper-fit-hero__works-cta"

@@ -4,10 +4,13 @@ export const paperFitBrand = {
   logoSrc: "/brand/paper-fit-logo.svg",
 } as const;
 
+const paperFitWhatsappUrl = "https://wa.me/51924725290";
+const paperFitWhatsappMessage =
+  "¡Hola, Paper Fit! Quisiera recibir información sobre su catálogo de productos. Muchas gracias.";
+
 export const paperFitNavigation = [
   { label: "Nuestras Soluciones", href: "#nuestras-soluciones" },
   { label: "Trabajos Realizados", href: "#trabajos-realizados" },
-  { label: "Nosotros", href: "#nosotros" },
   { label: "Contacto", href: "#contacto" },
 ] as const;
 
@@ -16,8 +19,12 @@ export const paperFitContact = {
   location: "Jr. Antonio de Elizalde 520, Cercado de Lima",
   phone: "+51 924 725 290",
   phoneUrl: "tel:+51924725290",
-  whatsappUrl: "https://wa.me/51924725290",
-  whatsappLabel: "Cotizar por WhatsApp",
+  whatsapp: {
+    href: `${paperFitWhatsappUrl}?text=${encodeURIComponent(paperFitWhatsappMessage)}`,
+    label: "Cotizar por WhatsApp",
+    message: paperFitWhatsappMessage,
+    url: paperFitWhatsappUrl,
+  },
 } as const;
 
 export const paperFitSocialLinks = [
@@ -37,7 +44,7 @@ export const paperFitSocialLinks = [
     label: "TikTok",
   },
   {
-    href: "https://wa.me/51924725290",
+    href: paperFitContact.whatsapp.href,
     iconSrc: "/icons/paper-fit/whatsapp.svg",
     label: "WhatsApp",
   },
@@ -204,8 +211,8 @@ export const paperFitWorkflow = {
 
 export const paperFitWorkGallery = {
   title: "Trabajos realizados",
-  buttonLabel: "Ver más trabajos",
-  buttonHref: "#",
+  autoplayInterval: 2000,
+  autoplayResumeDelay: 4000,
 
   items: [
     {
@@ -228,6 +235,15 @@ export const paperFitWorkGallery = {
       imageSrc:
         "/images/paper-fit-work-gallery/paper-fit-work-vivoXderecho.webp",
       imageAlt: "Trabajo realizado para Vivo X Derecho",
+    },
+    {
+      imageSrc: "/images/paper-fit-work-gallery/paper-fit-work-Caja.webp",
+      imageAlt: "Caja kraft abierta para packaging",
+    },
+    {
+      imageSrc:
+        "/images/paper-fit-work-gallery/paper-fit-work-Cumpa-bolsa.webp",
+      imageAlt: "Bolsa kraft personalizada para Cumpa",
     },
   ],
 } as const;

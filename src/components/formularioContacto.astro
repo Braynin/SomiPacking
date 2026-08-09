@@ -1,4 +1,6 @@
 ---
+import { paperFitContact } from "../paper-fit-content";
+
 const {
   titulo = "Contáctanos",
   texto = "Completa tus datos y nosotros te contactamos",
@@ -35,13 +37,19 @@ const {
         type="submit"
         class="w-64 border-4 text-2xl border-verdeOscuro bg-verdeClaro p-2 my-2 mx-auto rounded font-bold text-verdeOscuro hover:bg-transparent hover:text-verdeClaro hover:border-verdeClaro transition-colors duration-300"
       >
-        ENVIAR
+        {paperFitContact.whatsapp.label}
       </button>
     </form>
   </div>
 </section>
 
-<script is:inline>
+<script
+  is:inline
+  define:vars={{
+    whatsappBaseUrl: paperFitContact.whatsapp.url,
+    whatsappMessage: paperFitContact.whatsapp.message,
+  }}
+>
   const form = document.getElementById("contactForm");
   form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -49,9 +57,9 @@ const {
     const email = form.querySelector('input[type="email"]').value;
     const telefono = form.querySelector('input[type="tel"]').value;
     const mensaje = form.querySelector("textarea").value;
-    const mensajeLargo = `Hola, me gustaría contactarme contigo.\nMi nombre es ${nombre}.\nMi correo es ${email} y mi teléfono es ${telefono}.\n ${mensaje}\n¡Espero tu respuesta, gracias!`;
+    const mensajeLargo = `${whatsappMessage}\n\nMi nombre es ${nombre}.\nMi correo es ${email} y mi teléfono es ${telefono}.\n${mensaje}`;
     const whatsappUrl =
-      "https://wa.me/51924725290?text=" + encodeURIComponent(mensajeLargo);
+      whatsappBaseUrl + "?text=" + encodeURIComponent(mensajeLargo);
     window.open(whatsappUrl, "_blank");
   });
 </script>

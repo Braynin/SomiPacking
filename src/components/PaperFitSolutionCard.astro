@@ -1,6 +1,7 @@
 ---
 import { paperFitContact } from "../paper-fit-content";
 import PaperFitButton from "./PaperFitButton.astro";
+import PaperFitChevronIcon from "./PaperFitChevronIcon.astro";
 import WhatsAppIcon from "./WhatsAppIcon.astro";
 
 interface Props {
@@ -27,7 +28,7 @@ const {
   whatsappMessage,
 } = Astro.props;
 
-const whatsappUrl = `${paperFitContact.whatsappUrl}?text=${encodeURIComponent(whatsappMessage)}`;
+const whatsappUrl = `${paperFitContact.whatsapp.url}?text=${encodeURIComponent(whatsappMessage)}`;
 
 const formatApplications = (items: readonly string[]) => {
   if (items.length <= 1) return items[0] ?? "";
@@ -146,9 +147,7 @@ const featureGroups = [
       rel="noopener noreferrer"
       aria-label={`Cotizar ${title} por WhatsApp`}
     >
-      <svg viewBox="0 0 12 20" aria-hidden="true">
-        <path d="m2 2 8 8-8 8"></path>
-      </svg>
+      <PaperFitChevronIcon />
     </a>
   </div>
 
@@ -448,16 +447,6 @@ const featureGroups = [
       .paper-fit-solution-card__button--mobile:focus-visible {
         color: var(--paper-fit-color-primary);
         transform: translateX(0.15rem);
-      }
-
-      .paper-fit-solution-card__button--mobile svg {
-        width: 0.7rem;
-        height: 1.15rem;
-        fill: none;
-        stroke: currentColor;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        stroke-width: 2.25;
       }
     }
   </style>
