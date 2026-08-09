@@ -425,6 +425,8 @@ import WhatsAppIcon from "./WhatsAppIcon.astro";
 
     .paper-fit-footer__content {
       grid-template-columns: 42% 58%;
+      box-sizing: border-box;
+      column-gap: 0;
       row-gap: 0.7rem;
       padding: 1.1rem 1rem;
     }
@@ -478,6 +480,7 @@ import WhatsAppIcon from "./WhatsAppIcon.astro";
     .paper-fit-footer__social {
       grid-column: 2;
       grid-row: 1;
+      min-width: 0;
       padding-left: 0.75rem;
       padding-bottom: 0.65rem;
       border-bottom: 1px solid rgb(255 255 255 / 20%);
@@ -486,10 +489,12 @@ import WhatsAppIcon from "./WhatsAppIcon.astro";
     .paper-fit-footer__hours {
       grid-column: 2;
       grid-row: 2;
+      min-width: 0;
       padding-left: 0.75rem;
     }
 
     .paper-fit-footer__legal {
+      box-sizing: border-box;
       flex-direction: column;
       align-items: center;
       gap: 0.25rem;
