@@ -1,7 +1,6 @@
 ---
 import { paperFitContact } from "../paper-fit-content";
 import PaperFitButton from "./PaperFitButton.astro";
-import PaperFitChevronIcon from "./PaperFitChevronIcon.astro";
 import WhatsAppIcon from "./WhatsAppIcon.astro";
 
 interface Props {
@@ -30,13 +29,7 @@ const {
 
 const whatsappUrl = `${paperFitContact.whatsapp.url}?text=${encodeURIComponent(whatsappMessage)}`;
 
-const formatApplications = (items: readonly string[]) => {
-  if (items.length <= 1) return items[0] ?? "";
-
-  return `${items.slice(0, -1).join(", ")} y ${items.at(-1)}`;
-};
-
-const mobileApplications = `${formatApplications(applications)}.`;
+const formatMobileItems = (items: readonly string[]) => items.join(" · ");
 
 const featureGroups = [
   { icon: "material", label: "Material", items: materials },
@@ -80,9 +73,16 @@ const featureGroups = [
         {title}
       </h3>
 
-      <p class="paper-fit-solution-card__mobile-applications">
-        {mobileApplications}
-      </p>
+      <div class="paper-fit-solution-card__mobile-details">
+        <p>
+          <strong>Material:</strong>
+          {formatMobileItems(materials)}
+        </p>
+        <p>
+          <strong>Aplicaciones:</strong>
+          {formatMobileItems(applications)}
+        </p>
+      </div>
 
       <div class="paper-fit-solution-card__details">
         {
@@ -132,23 +132,13 @@ const featureGroups = [
     </div>
 
     <PaperFitButton
-      className="paper-fit-solution-card__button paper-fit-solution-card__button--desktop"
+      className="paper-fit-solution-card__button"
       href={whatsappUrl}
       external
     >
       <WhatsAppIcon slot="icon" />
       {buttonLabel}
     </PaperFitButton>
-
-    <a
-      class="paper-fit-solution-card__button--mobile"
-      href={whatsappUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`Cotizar ${title} por WhatsApp`}
-    >
-      <PaperFitChevronIcon />
-    </a>
   </div>
 
   <style>
@@ -230,8 +220,7 @@ const featureGroups = [
       min-width: 0;
     }
 
-    .paper-fit-solution-card__mobile-applications,
-    .paper-fit-solution-card__button--mobile {
+    .paper-fit-solution-card__mobile-details {
       display: none;
     }
 
@@ -370,11 +359,9 @@ const featureGroups = [
 
     @media (max-width: 47rem) {
       .paper-fit-solution-card {
-        flex-direction: row;
-        align-items: center;
-        min-height: 6.5rem;
-        border: 0;
-        border-radius: var(--paper-fit-radius-sm);
+        min-height: 0;
+        border: 1px solid rgb(17 14 107 / 10%);
+        border-radius: 0.7rem;
       }
 
       .paper-fit-solution-card__figure {
@@ -382,71 +369,50 @@ const featureGroups = [
       }
 
       .paper-fit-solution-card__icon {
-        position: static;
-        flex: 0 0 auto;
-        width: 3rem;
-        height: 3rem;
-        margin-left: 1rem;
-        box-shadow: none;
-      }
-
-      .paper-fit-solution-card__icon img {
-        width: 1.5rem;
-        height: 1.5rem;
+        display: none;
       }
 
       .paper-fit-solution-card__content {
-        flex-direction: row;
-        gap: 0.35rem;
-        align-items: center;
-        min-width: 0;
-        padding: 1rem 0.45rem 1rem 0.75rem;
+        gap: 0.8rem;
+        padding: 0.9rem 1rem 1rem;
       }
 
       .paper-fit-solution-card__body {
-        justify-content: center;
+        gap: 0.45rem;
       }
 
       .paper-fit-solution-card__title {
-        margin-bottom: 0.3rem;
-        font-size: 1rem;
+        margin: 0;
+        font-size: 0.98rem;
         line-height: 1.2;
         white-space: normal;
       }
 
-      .paper-fit-solution-card__mobile-applications {
-        display: block;
-        margin: 0;
-        color: var(--paper-fit-color-muted);
-        font-size: var(--paper-fit-font-body);
-        line-height: 1.4;
+      .paper-fit-solution-card__mobile-details {
+        display: grid;
+        gap: 0.25rem;
       }
 
-      .paper-fit-solution-card__details,
-      .paper-fit-solution-card
-        :global(.paper-fit-solution-card__button--desktop) {
+      .paper-fit-solution-card__mobile-details p {
+        margin: 0;
+        color: var(--paper-fit-color-muted);
+        font-size: 0.78rem;
+        line-height: 1.35;
+      }
+
+      .paper-fit-solution-card__mobile-details strong {
+        color: var(--paper-fit-color-primary);
+        font-weight: 800;
+      }
+
+      .paper-fit-solution-card__details {
         display: none;
       }
 
-      .paper-fit-solution-card__button--mobile {
-        display: grid;
-        flex: 0 0 auto;
-        place-items: center;
-        width: 2.75rem;
-        height: 2.75rem;
-        margin-left: auto;
-        color: var(--paper-fit-color-muted);
-        text-decoration: none;
-        border-radius: 50%;
-        transition:
-          color 150ms ease,
-          transform 150ms ease;
-      }
-
-      .paper-fit-solution-card__button--mobile:hover,
-      .paper-fit-solution-card__button--mobile:focus-visible {
-        color: var(--paper-fit-color-primary);
-        transform: translateX(0.15rem);
+      .paper-fit-solution-card :global(.paper-fit-solution-card__button) {
+        min-height: 2.45rem;
+        margin-top: 0;
+        font-size: 0.8rem;
       }
     }
   </style>

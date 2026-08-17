@@ -201,19 +201,20 @@ const {
     }
 
     .paper-fit-trust__items {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem 0.5rem;
     }
 
     .paper-fit-trust__item img {
-      width: 2.8rem;
-      height: 2.8rem;
-      margin-bottom: 0;
+      width: 2.6rem;
+      height: 2.6rem;
+      margin-bottom: 0.4rem;
     }
 
     .paper-fit-trust__item span {
-      display: none;
+      display: block;
+      font-size: 0.72rem;
+      line-height: 1.2;
     }
     .paper-fit-quote__card {
       display: none;

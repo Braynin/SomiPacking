@@ -68,6 +68,16 @@ const { title, steps } = paperFitWorkflow;
     text-align: center;
   }
 
+  .paper-fit-workflow__title::after {
+    display: block;
+    width: 3.5rem;
+    height: 0.2rem;
+    margin: 0.75rem auto 0;
+    background: var(--paper-fit-color-accent);
+    border-radius: 999px;
+    content: "";
+  }
+
   .paper-fit-workflow__desktop {
     display: grid;
     grid-template-columns: repeat(7, auto);
