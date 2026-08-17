@@ -410,9 +410,20 @@ const featureGroups = [
       }
 
       .paper-fit-solution-card :global(.paper-fit-solution-card__button) {
+        align-self: flex-start;
+        width: fit-content;
+        max-width: 100%;
         min-height: 2.45rem;
         margin-top: 0;
+        padding-inline: 0.85rem;
         font-size: 0.8rem;
+        line-height: 1;
+      }
+
+      .paper-fit-solution-card :global(.paper-fit-solution-card__button svg) {
+        display: block;
+        flex: 0 0 auto;
+        transform: translateY(-0.04rem);
       }
     }
   </style>
