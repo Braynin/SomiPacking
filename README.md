@@ -68,21 +68,21 @@ npm run format
 
 ```text
 src/
-  assets/       Datos y configuraciones de contenido
   components/   Componentes reutilizables de Astro
-  layouts/      Layouts compartidos
+  layouts/      Layout principal
   pages/        Rutas del sitio
   styles/       Estilos globales
+  paper-fit-content.ts  Contenido centralizado de la landing
 public/         Imágenes, videos y recursos estáticos
 ```
 
-### Base de la landing Paper Fit
+### Landing Paper Fit
 
-Durante la migración a Paper Fit, los componentes nuevos se crearán directamente
-en `src/components/` con el prefijo `PaperFit` y usarán `PaperFitSection.astro`
-para mantener espaciados, anclas y contenedores consistentes. `PaperFitLayout.astro`
-es el layout independiente de la nueva landing y no incluye elementos de la
-implementación anterior.
+La landing vigente está compuesta por los componentes `PaperFit` de
+`src/components/`. `PaperFitSection.astro` mantiene espaciados, anclas y
+contenedores consistentes, mientras que `PaperFitLayout.astro` define el layout
+principal. El contenido editable se encuentra centralizado en
+`src/paper-fit-content.ts`.
 
 ## Despliegue
 
