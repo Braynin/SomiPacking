@@ -57,12 +57,24 @@ const { title, items } = paperFitHeroBenefits;
     }
 
     .paper-fit-hero-benefits__title {
-      margin: 0 0 1rem;
-      font-size: 0.95rem;
+      position: relative;
+      margin: 0 0 2rem;
+      color: var(--paper-fit-color-primary);
+      font-size: var(--paper-fit-font-h2);
       font-weight: 800;
       line-height: 1.15;
       text-align: center;
-      text-transform: uppercase;
+      text-wrap: balance;
+    }
+
+    .paper-fit-hero-benefits__title::after {
+      display: block;
+      width: 3.5rem;
+      height: 0.2rem;
+      margin: 0.75rem auto 0;
+      content: "";
+      background: var(--paper-fit-color-accent);
+      border-radius: 999px;
     }
 
     .paper-fit-hero-benefits__list {
