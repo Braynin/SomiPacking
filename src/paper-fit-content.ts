@@ -4,6 +4,13 @@ export const paperFitBrand = {
   logoSrc: "/brand/paper-fit-logo.svg",
 } as const;
 
+export const paperFitSeo = {
+  description:
+    "Fabricamos cajas, bolsas y empaques personalizados en Lima, con impresión, entrega rápida y acabados de calidad. Cotiza por WhatsApp.",
+  siteUrl: "https://www.paperfit.pe",
+  title: "Paper Fit | Packaging personalizado e impresión en Lima",
+} as const;
+
 const paperFitWhatsappUrl = "https://wa.me/51924725290";
 const paperFitWhatsappMessage =
   "¡Hola, Paper Fit! Quisiera recibir información sobre su catálogo de productos. Muchas gracias.";
@@ -67,7 +74,7 @@ export const paperFitHero = {
   description:
     "Fabricamos cajas, bolsas y empaques personalizados con entrega rápida y acabados de calidad para empresas y emprendedores.",
   imageAlt:
-    "El ajuste perfecto para tu marca: empaques personalizados, beneficios de fabricaciÃ³n directa, entrega rÃ¡pida, acabados de calidad y atenciÃ³n personalizada.",
+    "El ajuste perfecto para tu marca: empaques personalizados de Paper Fit, fabricación directa, entrega rápida, acabados de calidad y atención personalizada.",
   mobileImageSrc: "/images/paper-fit-hero-mobile.jpeg",
   titleAccent: "para tu marca",
   titlePrimary: "El ajuste perfecto",

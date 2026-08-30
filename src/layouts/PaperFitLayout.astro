@@ -1,16 +1,102 @@
 ---
 import "../styles/paper-fit.css";
 import PaperFitFloatingWhatsApp from "../components/PaperFitFloatingWhatsApp.astro";
+import {
+  paperFitBrand,
+  paperFitContact,
+  paperFitFooter,
+  paperFitHero,
+  paperFitSeo,
+  paperFitSocialLinks,
+} from "../paper-fit-content";
 
 interface Props {
   title: string;
   description?: string;
 }
 
-const {
-  title,
-  description = "Paper Fit: packaging e impresión para impulsar tu marca.",
-} = Astro.props;
+const { title, description = paperFitSeo.description } = Astro.props;
+
+const siteUrl = paperFitSeo.siteUrl;
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const socialImageUrl = new URL(
+  paperFitHero.desktopImageSrc,
+  siteUrl,
+).toString();
+const [streetAddress] = paperFitContact.location.split(",");
+const sameAs = paperFitSocialLinks
+  .filter(({ label }) => label !== "WhatsApp")
+  .map(({ href }) => href.split("?")[0]);
+const openingHoursSpecification = paperFitFooter.hours.map(({ days }) =>
+  days === "Lunes a viernes"
+    ? {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "09:00",
+        closes: "18:00",
+      }
+    : {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Saturday",
+        opens: "09:00",
+        closes: "14:00",
+      },
+);
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${siteUrl}/#business`,
+      name: "Paper Fit",
+      url: siteUrl,
+      logo: {
+        "@type": "ImageObject",
+        url: new URL(paperFitBrand.logoSrc, siteUrl).toString(),
+      },
+      image: socialImageUrl,
+      description: paperFitFooter.companyDescription,
+      email: paperFitContact.email,
+      telephone: paperFitContact.phone,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: streetAddress.trim(),
+        addressLocality: "Lima",
+        addressRegion: "Lima",
+        addressCountry: "PE",
+      },
+      openingHoursSpecification,
+      sameAs,
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "sales",
+        telephone: paperFitContact.phone,
+        email: paperFitContact.email,
+        availableLanguage: "Spanish",
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      name: "Paper Fit",
+      url: siteUrl,
+      inLanguage: "es-PE",
+      publisher: { "@id": `${siteUrl}/#business` },
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${canonicalUrl}#webpage`,
+      name: title,
+      url: canonicalUrl,
+      description,
+      inLanguage: "es-PE",
+      isPartOf: { "@id": `${siteUrl}/#website` },
+      about: { "@id": `${siteUrl}/#business` },
+      primaryImageOfPage: socialImageUrl,
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -19,7 +105,30 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:locale" content="es_PE" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Paper Fit" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta property="og:image:secure_url" content={socialImageUrl} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1672" />
+    <meta property="og:image:height" content="941" />
+    <meta property="og:image:alt" content={paperFitHero.imageAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageUrl} />
+    <meta name="twitter:image:alt" content={paperFitHero.imageAlt} />
     <title>{title}</title>
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData)}
+    />
   </head>
   <body class="paper-fit">
     <a class="paper-fit__skip-link" href="#main-content">
