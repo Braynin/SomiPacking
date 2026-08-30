@@ -34,13 +34,6 @@ import WhatsAppIcon from "./WhatsAppIcon.astro";
       <WhatsAppIcon slot="icon" />
       {paperFitContact.whatsapp.label}
     </PaperFitButton>
-    <PaperFitButton
-      className="paper-fit-hero__works-cta"
-      href="#trabajos-realizados"
-      variant="secondary"
-    >
-      {paperFitHero.secondaryCtaLabel}
-    </PaperFitButton>
   </div>
 </section>
 
@@ -78,23 +71,17 @@ import WhatsAppIcon from "./WhatsAppIcon.astro";
     display: none !important;
   }
 
-  :global(.paper-fit-button.paper-fit-hero__works-cta) {
-    padding: clamp(0.5rem, 0.67vw, 0.7rem) clamp(0.85rem, 1.1vw, 1.2rem);
-    font-size: clamp(0.75rem, 1vw, 0.95rem);
-  }
-
   @media (max-width: 47rem) {
     .paper-fit-hero__actions {
-      top: 45%;
-      left: 11.5%;
+      top: 40%;
+      left: 10%;
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
       width: min(72%, 13.5rem);
     }
 
-    :global(.paper-fit-button.paper-fit-hero__whatsapp-cta),
-    :global(.paper-fit-button.paper-fit-hero__works-cta) {
+    :global(.paper-fit-button.paper-fit-hero__whatsapp-cta) {
       display: inline-flex !important;
       flex: none;
       width: 100%;
@@ -104,22 +91,6 @@ import WhatsAppIcon from "./WhatsAppIcon.astro";
       line-height: 1.1;
       white-space: nowrap;
     }
-
-    :global(.paper-fit-button.paper-fit-hero__whatsapp-cta) {
-      position: relative;
-    }
-
-    :global(.paper-fit-button.paper-fit-hero__whatsapp-cta svg) {
-      position: absolute;
-      left: 0.6rem;
-      width: 0.8rem;
-      height: 0.8rem;
-    }
-
-    :global(.paper-fit-button.paper-fit-hero__whatsapp-cta span) {
-      width: 100%;
-      text-align: center;
-    }
   }
 
   @media (min-width: 47.0625rem) and (max-width: 52rem) {
@@ -128,8 +99,7 @@ import WhatsAppIcon from "./WhatsAppIcon.astro";
       gap: 0.4rem;
     }
 
-    :global(.paper-fit-button.paper-fit-hero__whatsapp-cta),
-    :global(.paper-fit-button.paper-fit-hero__works-cta) {
+    :global(.paper-fit-button.paper-fit-hero__whatsapp-cta) {
       display: inline-flex !important;
       padding: 0.4rem 0.55rem;
       font-size: 0.65rem;
