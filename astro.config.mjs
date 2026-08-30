@@ -8,5 +8,6 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   output: "server",
+  site: "https://www.paperfit.pe",
   adapter: vercel(),
 });

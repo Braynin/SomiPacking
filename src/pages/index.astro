@@ -4,9 +4,10 @@ import MainIndex from "../components/MainIndex.astro";
 import PaperFitFooter from "../components/PaperFitFooter.astro";
 import PaperFitHeader from "../components/PaperFitHeader.astro";
 import PaperFitLayout from "../layouts/PaperFitLayout.astro";
+import { paperFitSeo } from "../paper-fit-content";
 ---
 
-<PaperFitLayout title="Paper Fit | Packaging e impresión">
+<PaperFitLayout title={paperFitSeo.title} description={paperFitSeo.description}>
   <PaperFitHeader slot="header" />
   <MainIndex />
   <PaperFitFooter slot="footer" />
