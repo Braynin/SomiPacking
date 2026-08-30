@@ -73,6 +73,35 @@ export const paperFitHero = {
   titlePrimary: "El ajuste perfecto",
 } as const;
 
+export const paperFitHeroBenefits = {
+  title: "¿Por qué elegir Paper Fit?",
+  items: [
+    {
+      iconSrc:
+        "/icons/paper-fit-hero-benefits/paper-fit-fabricacion-directa.svg",
+      iconAlt: "Fabricación directa",
+      label: "Fabricación directa",
+    },
+    {
+      iconSrc: "/icons/paper-fit-hero-benefits/paper-fit-entrega-rapida.svg",
+      iconAlt: "Entrega rápida",
+      label: "Entrega rápida",
+    },
+    {
+      iconSrc:
+        "/icons/paper-fit-hero-benefits/paper-fit-calidad-en-cada-detalle.svg",
+      iconAlt: "Calidad en cada detalle",
+      label: "Calidad en cada detalle",
+    },
+    {
+      iconSrc:
+        "/icons/paper-fit-hero-benefits/paper-fit-atencion-personalizada.svg",
+      iconAlt: "Atención personalizada",
+      label: "Atención personalizada",
+    },
+  ],
+} as const;
+
 export const paperFitSolutions = {
   title: "Nuestras Soluciones",
 
@@ -81,7 +110,7 @@ export const paperFitSolutions = {
       imageSrc:
         "/images/paper-fit-solutions/paper-fit-cajas-personalizadas.webp",
       imageAlt: "Cajas personalizadas de Paper Fit",
-      iconSrc: "/icons/paper-fit-cajas-personalizadas.svg",
+      iconSrc: "/icons/paper-fit-solutions/paper-fit-cajas-personalizadas.svg",
       iconVariant: "primary",
       title: "Cajas Personalizadas",
       materials: ["Foldcote", "Kraft", "Microcorrugado"],
@@ -99,7 +128,7 @@ export const paperFitSolutions = {
       imageSrc:
         "/images/paper-fit-solutions/paper-fit-bolsas-personalizadas.webp",
       imageAlt: "Bolsas personalizadas de Paper Fit",
-      iconSrc: "/icons/paper-fit-bolsas-personalizadas.svg",
+      iconSrc: "/icons/paper-fit-solutions/paper-fit-bolsas-personalizadas.svg",
       iconVariant: "accent",
       title: "Bolsas Personalizadas",
       materials: ["Kraft", "Couché", "Bond"],
@@ -118,7 +147,7 @@ export const paperFitSolutions = {
       imageSrc:
         "/images/paper-fit-solutions/paper-fit-packaging-alimentos.webp",
       imageAlt: "Packaging para alimentos de Paper Fit",
-      iconSrc: "/icons/paper-fit-packaging-alimentos.svg",
+      iconSrc: "/icons/paper-fit-solutions/paper-fit-packaging-alimentos.svg",
       iconVariant: "primary",
       title: "Packaging para Alimentos",
       materials: ["Kraft", "Foldcote", "Microcorrugado"],
@@ -137,7 +166,8 @@ export const paperFitSolutions = {
       imageSrc:
         "/images/paper-fit-solutions/paper-fit-merchandising-corporativo.webp",
       imageAlt: "Merchandising corporativo de Paper Fit",
-      iconSrc: "/icons/paper-fit-merchandising-corporativo.svg",
+      iconSrc:
+        "/icons/paper-fit-solutions/paper-fit-merchandising-corporativo.svg",
       iconVariant: "accent",
       title: "Merchandising Corporativo",
       materials: ["Papel", "Cartón", "Metal", "Plástico", "Tela"],
@@ -156,7 +186,7 @@ export const paperFitSolutions = {
       imageSrc:
         "/images/paper-fit-solutions/paper-fit-impresion-comercial.webp",
       imageAlt: "Impresión comercial de Paper Fit",
-      iconSrc: "/icons/paper-fit-impresion-comercial.svg",
+      iconSrc: "/icons/paper-fit-solutions/paper-fit-impresion-comercial.svg",
       iconVariant: "primary",
       title: "Impresión Comercial",
       materials: ["Couché", "Bond", "Cartulina", "Adhesivos"],
@@ -179,28 +209,28 @@ export const paperFitWorkflow = {
   steps: [
     {
       number: 1,
-      iconSrc: "/icons/paper-fit-envianos-tu-diseno.svg",
+      iconSrc: "/icons/paper-fit-workflow/paper-fit-envianos-tu-diseno.svg",
       iconAlt: "Envíanos tu diseño",
       title: "Envíanos tu diseño",
       description: "Nos envías tu diseño listo para impresión.",
     },
     {
       number: 2,
-      iconSrc: "/icons/paper-fit-cotizamos.svg",
+      iconSrc: "/icons/paper-fit-workflow/paper-fit-cotizamos.svg",
       iconAlt: "Cotizamos",
       title: "Cotizamos",
       description: "Cotizamos según medida, cantidad y acabados.",
     },
     {
       number: 3,
-      iconSrc: "/icons/paper-fit-fabricamos.svg",
+      iconSrc: "/icons/paper-fit-workflow/paper-fit-fabricamos.svg",
       iconAlt: "Fabricamos",
       title: "Fabricamos",
       description: "Iniciamos la producción con altos estándares de calidad.",
     },
     {
       number: 4,
-      iconSrc: "/icons/paper-fit-entregamos.svg",
+      iconSrc: "/icons/paper-fit-workflow/paper-fit-entregamos.svg",
       iconAlt: "Entregamos",
       title: "Entregamos",
       description: "Te entregamos tu pedido listo para usar.",
@@ -294,6 +324,6 @@ export const paperFitTrust = {
 
   note: "¿No tienes las medidas? Nuestro equipo puede asesorarte sin compromiso.",
 
-  illustrationSrc: "/icons/paper-fit-packaging-box.svg",
+  illustrationSrc: "/icons/paper-fit-trust/paper-fit-packaging-box.svg",
   illustrationAlt: "Caja de packaging",
 } as const;
