@@ -1,0 +1,137 @@
+---
+import { paperFitHeroBenefits } from "../paper-fit-content";
+
+const { title, items } = paperFitHeroBenefits;
+---
+
+<section
+  class="paper-fit-hero-benefits"
+  aria-labelledby="paper-fit-hero-benefits-title"
+>
+  <div class="paper-fit-hero-benefits__inner">
+    <h2
+      id="paper-fit-hero-benefits-title"
+      class="paper-fit-hero-benefits__title"
+    >
+      {title}
+    </h2>
+
+    <ul class="paper-fit-hero-benefits__list">
+      {
+        items.map((item) => (
+          <li class="paper-fit-hero-benefits__item">
+            <img
+              class="paper-fit-hero-benefits__icon"
+              src={item.iconSrc}
+              alt={item.iconAlt}
+              width="64"
+              height="64"
+              loading="lazy"
+              decoding="async"
+            />
+            <span>{item.label}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .paper-fit-hero-benefits {
+    display: none;
+  }
+
+  @media (max-width: 47rem) {
+    .paper-fit-hero-benefits {
+      display: block;
+      width: 100%;
+      color: var(--paper-fit-color-primary);
+      background: var(--paper-fit-color-surface);
+    }
+
+    .paper-fit-hero-benefits__inner {
+      width: min(100%, 34rem);
+      margin-inline: auto;
+      padding: 1.25rem 0.85rem 1.4rem;
+    }
+
+    .paper-fit-hero-benefits__title {
+      position: relative;
+      margin: 0 0 2rem;
+      color: var(--paper-fit-color-primary);
+      font-size: var(--paper-fit-font-h2);
+      font-weight: 800;
+      line-height: 1.15;
+      text-align: center;
+      text-wrap: balance;
+    }
+
+    .paper-fit-hero-benefits__title::after {
+      display: block;
+      width: 3.5rem;
+      height: 0.2rem;
+      margin: 0.75rem auto 0;
+      content: "";
+      background: var(--paper-fit-color-accent);
+      border-radius: 999px;
+    }
+
+    .paper-fit-hero-benefits__list {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.45rem;
+      align-items: start;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .paper-fit-hero-benefits__item {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: center;
+      color: var(--paper-fit-color-primary);
+      font-size: clamp(0.65rem, 2.8vw, 0.78rem);
+      font-weight: 800;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    .paper-fit-hero-benefits__icon {
+      display: block;
+      width: 3.25rem;
+      height: 3.25rem;
+      object-fit: contain;
+    }
+
+    .paper-fit-hero-benefits__item:nth-child(2) .paper-fit-hero-benefits__icon {
+      width: 4.25rem;
+    }
+
+    .paper-fit-hero-benefits__item span {
+      text-wrap: balance;
+    }
+  }
+
+  @media (max-width: 22rem) {
+    .paper-fit-hero-benefits__inner {
+      padding-inline: 0.55rem;
+    }
+
+    .paper-fit-hero-benefits__list {
+      gap: 0.25rem;
+    }
+
+    .paper-fit-hero-benefits__icon {
+      width: 2.85rem;
+      height: 2.85rem;
+    }
+
+    .paper-fit-hero-benefits__item:nth-child(2) .paper-fit-hero-benefits__icon {
+      width: 3.75rem;
+    }
+  }
+</style>
