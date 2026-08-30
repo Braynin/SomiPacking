@@ -29,8 +29,6 @@ const {
 
 const whatsappUrl = `${paperFitContact.whatsapp.url}?text=${encodeURIComponent(whatsappMessage)}`;
 
-const formatMobileItems = (items: readonly string[]) => items.join(" · ");
-
 const featureGroups = [
   { icon: "material", label: "Material", items: materials },
   { icon: "applications", label: "Aplicaciones", items: applications },
@@ -74,14 +72,20 @@ const featureGroups = [
       </h3>
 
       <div class="paper-fit-solution-card__mobile-details">
-        <p>
-          <strong>Material:</strong>
-          {formatMobileItems(materials)}
-        </p>
-        <p>
-          <strong>Aplicaciones:</strong>
-          {formatMobileItems(applications)}
-        </p>
+        {
+          featureGroups.map((group) => (
+            <p>
+              <strong>{group.label}:</strong>{" "}
+              <span class="paper-fit-solution-card__inline-items">
+                {group.items.map((item, index) => (
+                  <span class="paper-fit-solution-card__inline-item">
+                    {index === 0 ? item : `· ${item}`}
+                  </span>
+                ))}
+              </span>
+            </p>
+          ))
+        }
       </div>
 
       <div class="paper-fit-solution-card__details">
@@ -359,7 +363,12 @@ const featureGroups = [
 
     @media (max-width: 47rem) {
       .paper-fit-solution-card {
+        display: grid;
+        grid-template-columns: 2.8rem minmax(0, 1fr);
+        gap: 0.75rem;
+        align-items: start;
         min-height: 0;
+        padding: 0.9rem 1rem 1rem;
         border: 1px solid rgb(17 14 107 / 10%);
         border-radius: 0.7rem;
       }
@@ -369,12 +378,26 @@ const featureGroups = [
       }
 
       .paper-fit-solution-card__icon {
-        display: none;
+        position: static;
+        display: grid;
+        grid-column: 1;
+        grid-row: 1;
+        width: 2.8rem;
+        height: 2.8rem;
+        margin-top: 0.1rem;
+      }
+
+      .paper-fit-solution-card__icon img {
+        width: 1.5rem;
+        height: 1.5rem;
       }
 
       .paper-fit-solution-card__content {
+        grid-column: 2;
+        grid-row: 1;
         gap: 0.8rem;
-        padding: 0.9rem 1rem 1rem;
+        min-width: 0;
+        padding: 0;
       }
 
       .paper-fit-solution-card__body {
@@ -403,6 +426,20 @@ const featureGroups = [
       .paper-fit-solution-card__mobile-details strong {
         color: var(--paper-fit-color-primary);
         font-weight: 800;
+      }
+
+      .paper-fit-solution-card__inline-items {
+        display: inline;
+      }
+
+      .paper-fit-solution-card__inline-item {
+        display: inline-block;
+        white-space: nowrap;
+      }
+
+      .paper-fit-solution-card__inline-item
+        + .paper-fit-solution-card__inline-item {
+        margin-left: 0.22rem;
       }
 
       .paper-fit-solution-card__details {
